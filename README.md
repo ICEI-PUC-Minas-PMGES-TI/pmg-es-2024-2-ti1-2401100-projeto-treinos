@@ -1,4 +1,4 @@
-# Nome do projeto
+# PulsePump
 
 É notável que no mundo atual, os exercícios se tornam essenciais para se ter mais qualidade de vida, onde a tecnologia vem promovendo o vício e sedentarismo. Então, para ajudar e motivar as pessoas que decidem ir fora dessa tendência, queremos desenvolver uma plataforma onde os usuários não desistam de treinar e exercitar, enquanto ainda fazem isso da devida forma, o que muitas vezes não acontece pela falta de conhecimento no assunto, o que gera lesões e até a desistência da prática do exercício.
 
