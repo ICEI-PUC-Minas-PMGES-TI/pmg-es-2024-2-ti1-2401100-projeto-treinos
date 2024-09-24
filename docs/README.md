@@ -20,7 +20,7 @@ Esta seção traz explicações breves sobre o conjunto de artefatos que precisa
 
 ## Problema
 
-Nesse momento você deve apresentar o problema que a sua aplicação deve resolver. No entanto, não é a hora de comentar sobre a aplicação. Descreva também o contexto em que essa aplicação será usada, se houver: empresa, tecnologias, etc. Novamente, descreva apenas o que de fato existir, pois ainda não é a hora de apresentar requisitos detalhados ou projetos.
+Na grande parte das academias tem se observado que na maioria delas os profissionais não conseguem atingir o máximo de alunos o possível. No entanto, também podemos ajudar os úsuarios com treinos mais seguros e com a ajuda de profissionais da aréa para treinos personalizados
 
 Nesse momento, o grupo pode optar por fazer uso de ferramentas como Design Thinking, que permite um olhar de ponta a ponta para o problema.
 
@@ -43,6 +43,7 @@ Nosso objetivo é trazer treinos personalizados e mais seguros. Com um contato m
 Para que todas as pessoas possam ter acesso a atividade física com a ajuda de um profissional. Pois nós podemos atingir um grande publíco e com isso podendo ajudar ás pessoas a entrar em boa forma e com isso melhorando sua saúde.
 
 O grupo de trabalho pode fazer uso de questionários, entrevistas e dados estatísticos, que podem ser apresentados, com o objetivo de esclarecer detalhes do problema que será abordado pelo grupo : Algumas de nossas entrevistas. 
+
 Você tem dificuldades para treinar? Se sim, quais? 
 
 Sim. Muitas na verdade kkk. Tenho muita preguiça para ir fazer academia, tenho dificuldade na constância, tenho dificuldade em fazer alguns exercícios sem ajuda e fico cansada muito rápido.
