@@ -32,7 +32,7 @@ Nesse momento, o grupo pode optar por fazer uso de ferramentas como Design Think
 
 ## Objetivos
 
-Aqui você deve descrever os objetivos do trabalho indicando que o objetivo geral é desenvolver um software para solucionar o problema apresentado acima. Apresente também alguns (pelo menos 2) objetivos específicos dependendo de onde você vai querer concentrar a sua prática investigativa, ou como você vai aprofundar no seu trabalho.
+Nosso objetivo é trazer treinos personalizados e mais seguros. Com um contato mais proximo do personal com o aluno trazendo mais conforto para os úsuarios
 
 **Links Úteis**:
 
@@ -40,9 +40,16 @@ Aqui você deve descrever os objetivos do trabalho indicando que o objetivo gera
 
 ## Justificativa
 
-Descreva a importância ou a motivação para trabalhar com esta aplicação que você escolheu. Indique as razões pelas quais você escolheu seus objetivos específicos ou as razões para aprofundar em certos aspectos do software.
+Para que todas as pessoas possam ter acesso a atividade física com a ajuda de um profissional. Pois nós podemos atingir um grande publíco e com isso podendo ajudar ás pessoas a entrar em boa forma e com isso melhorando sua saúde.
 
-O grupo de trabalho pode fazer uso de questionários, entrevistas e dados estatísticos, que podem ser apresentados, com o objetivo de esclarecer detalhes do problema que será abordado pelo grupo.
+O grupo de trabalho pode fazer uso de questionários, entrevistas e dados estatísticos, que podem ser apresentados, com o objetivo de esclarecer detalhes do problema que será abordado pelo grupo : Algumas de nossas entrevistas. 
+Você tem dificuldades para treinar? Se sim, quais? 
+
+Sim. Muitas na verdade kkk. Tenho muita preguiça para ir fazer academia, tenho dificuldade na constância, tenho dificuldade em fazer alguns exercícios sem ajuda e fico cansada muito rápido.
+
+O que e quando é ideal se alimentar antes do treino?
+
+Qual seria o tipo de treino? Tratando de musculação, por exemplo, normalmente indivíduos possuem melhor desempenho alimentados comparando-os com indivíduos em jejum. Obviamente a fase do dia interfere diretamente no desempenho de cada um, considerando seu cronotipo e relógio biológico a ser seguido. Levando em conta os carboidratos como fonte primária de energia, seriam efetivos no desenvolvimento do treino adiante, porém, não desconsiderando a inserção e cálculo dos demais macronutrientes como proteínas e lípidos ao longo do dia para manutenção da massa magra e fornecimento secundário de energia. Sobre "quando", o quanto antes o indivíduo se sentir estável para realizar o treino. Alguns são propensos a desenvolverem ânsias durante o treino após uma refeição imediata, e a depender da sua composição. Logo, recomenda-se, minimamente 30 minutos a 1h anteriores ao treino.
 
 **Links Úteis**:
 
@@ -50,7 +57,7 @@ O grupo de trabalho pode fazer uso de questionários, entrevistas e dados estat�
 
 ## Público-Alvo
 
-Descreva quem serão as pessoas que usarão a sua aplicação indicando os diferentes perfis. O objetivo aqui não é definir quem serão os clientes ou quais serão os papéis dos usuários na aplicação. A ideia é, dentro do possível, conhecer um pouco mais sobre o perfil dos usuários: conhecimentos prévios, relação com a tecnologia, relações hierárquicas, etc.
+Pessoas que queiram melhorar suas vidas com a atividade física e ter uma saúde boa com uma expectativa de vida delongada. Ser uma aplicação facíl de se entender e pratica para que todas as pessoas de todas as idades possam saber como usar e ter uma facílidade em encontar o melhor profissional que achar 
 
 Adicione informações sobre o público-alvo por meio de uma descrição textual, ou diagramas de personas, mapa de stakeholders, ou como o grupo achar mais conveniente.
 
