@@ -69,7 +69,7 @@ Adicione informações sobre o público-alvo por meio de uma descrição textual
 
 ## Personas
 
-Relacione as personas identificadas no seu projeto e os respectivos mapas de empatia. Lembre-se que você deve ser enumerar e descrever precisamente e de forma personalizada todos os principais envolvidos com a solução almeja.
+Todas as personas nós indentificamos que pessoas que possuem alguma difículdade com exercícios físicos são de geande parte pessoas magras, obesas e pessoas com idades mais elevadas. Com isso devemos resolver as dóres de quem ainda está buscando melhorar sua saúde e sua vida, com o auxílio de profissionais capacitados para que possam trazer treínos mais seguros e personalizados.    
 
 **Links Úteis**:
 
