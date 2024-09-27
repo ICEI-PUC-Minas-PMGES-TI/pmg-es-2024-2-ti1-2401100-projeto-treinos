@@ -10,6 +10,7 @@
 * João Pedro de Oliveira Santos
 * João Ricardo Fiuza
 * Rafael de Oliveira Caldeira Lopes
+* Rafael Rocha Caldeira Brant
 
 ## Professores responsáveis
 
