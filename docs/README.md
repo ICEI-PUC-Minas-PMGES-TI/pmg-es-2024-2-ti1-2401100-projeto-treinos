@@ -117,10 +117,7 @@ Wireframes são protótipos das telas da aplicação usados em design de interfa
 
 **Links Úteis**:
 
-- [Ferramentas de Wireframes](https://rockcontent.com/blog/wireframes/)
-- [Figma](https://www.figma.com/)
-- [Adobe XD](https://www.adobe.com/br/products/xd.html#scroll)
-- [MarvelApp](https://marvelapp.com/developers/documentation/tutorials/)
+Wareframes do projeto PolsePump : https://drive.google.com/drive/folders/18lDRfoxxz4E1u5pc5AyTVdcJR-8pijyV
 
 ## Gestão de Projetos
 
