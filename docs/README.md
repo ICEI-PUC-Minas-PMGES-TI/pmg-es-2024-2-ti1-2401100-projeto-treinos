@@ -12,7 +12,7 @@ A documentação do projeto inclui as seguintes seções:
 6. FAQ (Questões frequentes)
 7. Referências Bibliográficas
 
-O template para o site é estruturado e permite que a equipe evolua a documentação do projeto à medida que avance no desenvolvimento.
+Link para a logo e a logotipo do projeto : https://drive.google.com/file/d/16OGjT5FzEwusSwI8pyce-mv6QzFbQQZG/view?usp=drivesdk
 
 # Orientações gerais
 
@@ -20,9 +20,15 @@ Esta seção traz explicações breves sobre o conjunto de artefatos que precisa
 
 ## Problema
 
-Na grande parte das academias tem se observado que na maioria delas os profissionais não conseguem atingir o máximo de alunos o possível. No entanto, também podemos ajudar os úsuarios com treinos mais seguros e com a ajuda de profissionais da aréa para treinos personalizados
+Na grande parte das academias tem se observado que na maioria delas os profissionais não conseguem atingir o máximo de alunos o possível. No entanto, também podemos ajudar os úsuarios com treinos mais seguros e com a ajuda de profissionais da aréa para treinos personalizados. No entanto não vamos ficar só com esse padrão nós vamos fazer uma comunidade do fitiness e com isso todos poderem se ajudar e compartilhar suas conquistas pessoais. E também vamos fazer um sistema de conquistas que o usuarío irá obter quando atingir suas metas. 
 
-Nesse momento, o grupo pode optar por fazer uso de ferramentas como Design Thinking, que permite um olhar de ponta a ponta para o problema.
+Empatia: Permite que a equipe entenda profundamente as dores e desejos dos usuários finais, seja por meio de entrevistas, observações ou outras formas de coleta de dados.
+
+Definição: Ajuda a sintetizar essas informações para definir claramente qual é o problema que precisa ser resolvido.
+
+Ideação: Estimula a criação de uma variedade de soluções criativas, sem limitações iniciais, focando na inovação.
+
+Prototipagem e Teste: Facilita a criação de protótipos rápidos que podem ser testados diretamente com os usuários, permitindo iterações rápidas e ajustes baseados em feedback real.
 
 **Links Úteis**:
 
@@ -80,7 +86,42 @@ Todas as personas nós indentificamos que pessoas que possuem alguma difículdad
 
 ## Histórias de Usuários
 
-Apresente aqui as histórias de usuário que são relevantes para o projeto de sua solução. As Histórias de Usuário consistem em uma ferramenta poderosa para a compreensão e elicitação dos requisitos funcionais e não funcionais da sua aplicação. Se possível, agrupe as histórias de usuário por contexto, para facilitar consultas recorrentes à essa parte do documento.
+História de Usuário 1: Criação de Fichas de Treino
+Como instrutor de academia,
+Eu quero criar e personalizar fichas de treino para cada aluno,
+Para garantir que cada aluno tenha um plano de treino adequado às suas necessidades e objetivos.
+
+História de Usuário 2: Acompanhamento de Desempenho
+Como aluno da academia,
+Eu desejo visualizar o histórico e o progresso dos meus treinos,
+Para acompanhar minha evolução e ajustar os treinos de acordo com minhas metas.
+
+História de Usuário 3: Atualização de Fichas de Treino
+Como instrutor de academia,
+Eu quero editar as fichas de treino dos alunos,
+Para ajustar os treinos conforme a evolução ou mudança de objetivos de cada aluno.
+
+Contexto: Gestão de Pagamentos e Inscrições
+História de Usuário 4: Controle de Inscrições
+Como administrador da academia,
+Eu preciso visualizar a lista de alunos ativos e suas respectivas datas de pagamento,
+Para garantir que as mensalidades estejam em dia e evitar inadimplências.
+
+História de Usuário 5: Pagamento de Mensalidade
+Como aluno da academia,
+Eu desejo acessar uma área de pagamento no sistema,
+Para pagar minha mensalidade de forma online e garantir a continuidade do meu plano de treinos.
+
+Contexto: Gestão de Equipamentos e Rotinas
+História de Usuário 6: Manutenção de Equipamentos
+Como administrador da academia,
+Eu quero registrar manutenções de equipamentos e controlar prazos,
+Para garantir que os aparelhos estejam funcionando adequadamente e evitar acidentes.
+
+História de Usuário 7: Sugestões de Exercícios
+Como aluno,
+Eu desejo receber sugestões automáticas de exercícios alternativos quando um equipamento estiver em manutenção,
+Para não interromper minha rotina de treinos quando um aparelho estiver indisponível.
 
 **Links Úteis**:
 
