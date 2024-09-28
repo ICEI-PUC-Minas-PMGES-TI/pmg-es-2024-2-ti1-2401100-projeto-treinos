@@ -133,9 +133,9 @@ Para não interromper minha rotina de treinos quando um aparelho estiver indispo
 Os requisitos de um projeto são classificados em dois grupos:
 
 - [Requisitos Funcionais (RF)](https://pt.wikipedia.org/wiki/Requisito_funcional):
-  correspondem a uma funcionalidade que deve estar presente na plataforma (ex: cadastro de usuário).
+  correspondem a uma funcionalidade que deve estar presente na plataforma (ex: cadastro de usuário, banco de dados do usuário, feed interativo, localização de academias proxímas ao usuário, cadastro dos profissionais de educação física, seletor de fichas variando com ás respostas do usuário, perfil do usuário e ect...).
 - [Requisitos Não Funcionais (RNF)](https://pt.wikipedia.org/wiki/Requisito_n%C3%A3o_funcional):
-  correspondem a uma característica técnica, seja de usabilidade, desempenho, confiabilidade, segurança ou outro (ex: suporte a dispositivos iOS e Android).
+  correspondem a uma característica técnica, seja de usabilidade, desempenho, confiabilidade, segurança ou outro (ex: Modo escuro, funcionalidade na web e no app, outros idiomas, funcionamento 24/7, modo facíl, sistema de conquistas do usuário e sistema de streak).
 
 Lembre-se que cada requisito deve corresponder à uma e somente uma característica alvo da sua solução. Além disso, certifique-se de que todos os aspectos capturados nas Histórias de Usuário foram cobertos.
 
@@ -162,8 +162,8 @@ Wareframes do projeto PolsePump : https://drive.google.com/drive/folders/18lDRfo
 
 ## Gestão de Projetos
 
- Nesta parte do documento, você deve apresentar  o processo de trabalho baseado nas metodologias ágeis, a divisão de papéis e tarefas, as ferramentas empregadas e como foi realizada a gestão de configuração do projeto via GitHub.
-
+Separamos os sete integrantes do grupo em divisões diferente, para que cada um conseguisse fazer o que tinha que ser feito da melhor maneira. Assim conseguimos terminar o projeto em menos de 3 dias de trabalho.
+ 
 Coloque detalhes sobre o processo de Design Thinking e a implementação do Framework Scrum seguido pelo grupo. O grupo poderá fazer uso de ferramentas on-line para acompanhar o andamento do projeto, a execução das tarefas e o status de desenvolvimento da solução.
 
 **Links Úteis**:
