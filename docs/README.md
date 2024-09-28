@@ -16,7 +16,13 @@ Link para a logo e a logotipo do projeto : https://drive.google.com/file/d/16OGj
 
 # Orientações gerais
 
-Esta seção traz explicações breves sobre o conjunto de artefatos que precisam ser incluídos na documentação do projeto com uma conjunto de links importantes para que se entenda como criar cada coisa. 
+Todos os link usados no projeto: 
+
+User Flow : https://joaoricfiuza.atlassian.net/wiki/spaces/~71202075700d026a6c49f59435f86bd7d8b566/whiteboard/229589
+
+Warefremes : https://drive.google.com/drive/folders/18lDRfoxxz4E1u5pc5AyTVdcJR-8pijyV
+
+Logos : https://drive.google.com/file/d/16OGjT5FzEwusSwI8pyce-mv6QzFbQQZG/view?usp=drivesdk
 
 ## Problema
 
