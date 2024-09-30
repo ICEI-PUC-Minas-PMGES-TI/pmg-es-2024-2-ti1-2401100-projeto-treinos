@@ -24,6 +24,9 @@ Warefremes : https://drive.google.com/drive/folders/18lDRfoxxz4E1u5pc5AyTVdcJR-8
 
 Logos : https://drive.google.com/file/d/16OGjT5FzEwusSwI8pyce-mv6QzFbQQZG/view?usp=drivesdk
 
+Apresentação:
+https://www.figma.com/design/7hcMeR0xGRUFqw2F39gxaA/Untitled?node-id=0-1&t=WCtCODWphOLNxumv-1p
+
 ## Problema
 
 Na grande parte das academias tem se observado que na maioria delas os profissionais não conseguem atingir o máximo de alunos o possível. No entanto, também podemos ajudar os úsuarios com treinos mais seguros e com a ajuda de profissionais da aréa para treinos personalizados. No entanto não vamos ficar só com esse padrão nós vamos fazer uma comunidade do fitiness e com isso todos poderem se ajudar e compartilhar suas conquistas pessoais. E também vamos fazer um sistema de conquistas que o usuarío irá obter quando atingir suas metas. 
