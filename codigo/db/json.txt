@@ -1,0 +1,36 @@
+{
+  "Usuarios": [
+    {
+      "id": 1,
+      "nome": "Thiago Cunha"
+    },
+    {
+      "id": 2,
+      "nome": "Caroline Cunha"
+    },
+    {
+      "id": 3,
+      "nome": "Thalita Cunha"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "nome": "Thiago Cunha",
+      "img": "dist/images/thiago.jpg",
+      "status": true
+    },
+    {
+      "id": 2,
+      "nome": "Caroline Cunha",
+      "img": "dist/images/thiago.jpg",
+      "status": true
+    },
+    {
+      "id": 3,
+      "nome": "Thalita Cunha",
+      "img": "dist/images/thiago.jpg",
+      "status": true
+    }
+  ]
+}
