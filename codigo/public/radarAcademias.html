@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>PULSE PUMP</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/radarAcademia.css">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.7.0/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.7.0/mapbox-gl.css" rel="stylesheet">
+    <script src="script.js"></script>
+</head>
+
+<body>
+
+    <div class="header"><img src="assets/images/logonomelaranja.png" width="250"></div>
+
+    <div class="container">
+
+        <div class="academiasProximas"></div>
+        <div class="mapaAcademias">
+            <style>
+                #map { position: absolute; width: 50rem; height: 37rem; border-radius: 2%; }
+                </style>
+                </head>
+                <body>
+                <div id="map"></div>
+                <script>
+                    mapboxgl.accessToken = 'pk.eyJ1IjoicmFmYWVsMTgxMCIsImEiOiJjbTJzMmMwcHcxbnpqMmtvZzdhOGY0ZzVoIn0.UCOS31bgypEm3zCvHziJUw';
+                    const map = new mapboxgl.Map({
+                        container: 'map', // container ID
+                        center: [-43.99249844382545, -19.92249401497831], // starting position [lng, lat]. Note that lat must be set between -90 and 90
+                        zoom: 15 // starting zoom
+                    });
+                </script>
+        </div>
+
+    </div>
+
+    <div class="footer"></div>
+</body>
+
+</html>
