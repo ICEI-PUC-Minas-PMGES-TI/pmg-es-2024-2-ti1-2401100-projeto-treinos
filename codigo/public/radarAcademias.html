@@ -15,17 +15,37 @@
 
 <body>
 
-    <div class="header"><img src="assets/images/logonomelaranja.png" width="250"></div>
+    <div class="header">
+        <a href="###"><img src="assets/images/logoclara.png" width="70" /></a>
+        <nav>
+            <a href="#">HOME</a>
+            <a href="#">MEUS TREINOS</a>
+            <a href="#">ACADEMIAS PRÓXIMAS</a>
+        </nav>
+        <img src="assets/images/userplaceholder.png" class="placeholder">
+    </div>
 
     <div class="container">
 
-        <div class="academiasProximas"></div>
+        <div class="academiasProximas">
+            <p>Academias Próximas</p>
+            <div class="melhorAcademia"></div>
+            <div class="melhorAcademia"></div>
+            <div class="melhorAcademia"></div>
+        </div>
+
         <div class="mapaAcademias">
             <style>
-                #map { position: absolute; width: 50rem; height: 37rem; border-radius: 2%; }
-                </style>
-                </head>
-                <body>
+                #map {
+                    position: absolute;
+                    width: 50rem;
+                    height: 37rem;
+                    border-radius: 2%;
+                }
+            </style>
+            </head>
+
+            <body>
                 <div id="map"></div>
                 <script>
                     mapboxgl.accessToken = 'pk.eyJ1IjoicmFmYWVsMTgxMCIsImEiOiJjbTJzMmMwcHcxbnpqMmtvZzdhOGY0ZzVoIn0.UCOS31bgypEm3zCvHziJUw';
