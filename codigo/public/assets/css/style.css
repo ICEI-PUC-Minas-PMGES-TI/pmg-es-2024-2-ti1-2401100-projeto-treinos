@@ -31,6 +31,16 @@ body {
   margin-right: 20px;
   position: relative;
 }
+.about:hover{
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8) !important;
+}
+.about .sobre{
+  font-size: 16px;
+  color: #000000;
+  margin-top: 10px;
+  font-family: 'Archivo Black', sans-serif;
+}
 .about h2 {
   font-size: 18px;
   color: #ffffff;

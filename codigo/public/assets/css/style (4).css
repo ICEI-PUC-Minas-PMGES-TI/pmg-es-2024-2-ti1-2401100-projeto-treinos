@@ -190,15 +190,10 @@ body {
   position: left; 
   bottom: 10; 
 }
-  
-
-
 .edit-profile #add-star-button {
   margin-left: 10px; 
 }
-
-#add-star-button:hover {
-  
+#add-star-button:hover { 
   transform: scale(1.1); 
   box-shadow: 0 14px 8px rgba(0, 0, 0, 0.1); 
 }
@@ -215,4 +210,15 @@ body {
 
 .goals {
   margin-top: 20px; 
+}
+
+.sobre{
+  margin-top: 20px;
+  color: #ff0000;
+  padding: 10px 0;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
 }
