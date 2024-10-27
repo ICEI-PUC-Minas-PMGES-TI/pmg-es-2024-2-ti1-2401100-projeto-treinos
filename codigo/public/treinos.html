@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PULSE PUMP</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div class="header">
+        <a href="###"><img src="assets/images/logoclara.png" width="70"/></a> 
+        <nav>
+        <a href="#">HOME</a>
+        <a href="#">MEUS TREINOS</a>
+        <a href="#">ACADEMIAS PRÓXIMAS</a>
+        </nav>
+        <img src="assets/images/userplaceholder.png" class="placeholder">
+    </div>
+
+    <div class="container">
+        <aside class="lateral">
+            <div class="scrollable-area">
+                <div class="treinoSelecionado">
+                    <h1>SEU TREINO</h1>
+                    <div class="seuTreino">
+                        <div class="content">
+                            <table border="1">
+                                <thead>
+                                    <tr>
+                                        <th>Treino</th>
+                                        <th>Repetição</th>
+                                        <th>Série</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tbody"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </aside>
+
+        <main class="centro">
+            <div class="backTreino">
+                <div class="treino1"><h1>TREINO 1</h1><div class="verTreino"></div></div>
+                <div class="treino2"><h1>TREINO 2</h1><div class="verTreino"></div></div>
+                <div class="treino3"><h1>TREINO 3</h1><div class="verTreino"></div></div>
+                <div class="treino4">
+                    <div class="card">
+                        <div class="lineInput">
+                            <label>Treino</label>
+                            <input type="text" id="treino" placeholder="Nome do Treino">
+                        </div>
+                        <div class="lineInput">
+                            <label>Repetição</label>
+                            <input type="text" id="repeticao" placeholder="Quantidade de Repetição">
+                        </div>
+                        <button onclick="treino.salvar()">Salvar</button>
+                        <button onclick="treino.cancelar()">Cancelar</button>    
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <footer class="rodape">
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>
