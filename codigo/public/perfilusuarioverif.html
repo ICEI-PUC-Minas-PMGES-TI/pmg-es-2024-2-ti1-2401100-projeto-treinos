@@ -1,114 +1,89 @@
 <!DOCTYPE html>
 <html>
- <head>
-  <title>Pefil Verificado</title>
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-   <link rel="preconnect" href="https://fonts.googleapis.com">
-   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-   <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
-   <link rel="stylesheet" href="/codigo/public/assets/css/style (4).css">
-    </head>
- <body>
-  <div class="header">
-   <a href=""><img src="assets/images/logoclara.png" height="40" src="logoclara.png" width="80"></a> 
-   <nav>
-    <a href="#">
-     HOME
-    </a>
-    <a href="#">
-     MEUS TREINOS
-    </a>
-    <a href="#">
-     ACADEMIAS PRÓXIMAS
-    </a>
-   </nav>
-  </div>
-  <div class="container">
-   <div class="left-section">
-    <div class="profile">
-     <img alt="Profile Picture" id="profile-picture" height="150" src="" width="150"/>
-     <div class="level">
-      Nvl 10
-     </div>
-     <input type="file" id="upload-image" accept="image/*" style="display: none;">
+<head>
+    <title>Pefil Verificado</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/codigo/public/assets/css/style (4).css">
+</head>
+<body>
+    <div class="header">
+        <a href=""><img src="assets/images/logoclara.png" height="40" src="logoclara.png" width="80"></a> 
+        <nav>
+            <a href="#">HOME</a>
+            <a href="#">MEUS TREINOS</a>
+            <a href="#">ACADEMIAS PRÓXIMAS</a>
+        </nav>
+        <img src="assets/images/userplaceholder.png" class="placeholder">
     </div>
-    <div class="goals">
-     <h3>
-      MINHAS METAS
-     </h3>
-     <div class="goal-item" id="goal-1">
-      <i class="fas fa-star">
-      </i>
-      <span class="goal-text" id="goal-text-1">
-       80%
-      </span>
-      <textarea id="edit-goal-text-1" class="edit-area" placeholder="Digite sua meta aqui..."></textarea>
-     </div>
-     <div class="goal-item" id="goal-2">
-      <i class="fas fa-star">
-      </i>
-      <span class="goal-text" id="goal-text-2">
-       30%
-      </span>
-      <textarea id="edit-goal-text-2" class="edit-area" placeholder="Digite sua meta aqui..."></textarea>
-     </div>
-     <div class="goal-item" id="goal-3">
-      <i class="fas fa-star">
-      </i>
-      <span class="goal-text" id="goal-text-3">
-       10%
-      </span>
-      <textarea id="edit-goal-text-3" class="edit-area" placeholder="Digite sua meta aqui..."></textarea>
-     </div>
-     <div class="goal-item" id="goal-4">
-      <i class="fas fa-star">
-      </i>
-      <span class="goal-text" id="goal-text-4">
-       0%
-      </span>
-      <textarea id="edit-goal-text-4" class="edit-area" placeholder="Digite sua meta aqui..."></textarea>
-     </div>
+    <div class="container">
+        <div class="left-section">
+            <div class="profile">
+                <div style="position: relative; display: inline-block;">
+                    <img src="assets/images/userplaceholder.png" id="profile-picture" height="150" src="" width="150"/>
+                    <i class="fas fa-check-circle" style="position: absolute; bottom: 10px; right: 10px; color: #4CAF50; font-size: 24px;"></i>
+                </div>
+            </div>
+            <div class="level">
+                Nvl 10
+            </div>
+            <input type="file" id="upload-image" accept="image/*" style="display: none;">
+            <div class="goals">
+                <h3>MINHAS METAS</h3>
+                <div class="goal-item" id="goal-1">
+                    <i class="fas fa-star"></i>
+                    <span class="goal-text" id="goal-text-1">80%</span>
+                    <textarea id="edit-goal-text-1" class="edit-area" placeholder="Digite sua meta aqui..."></textarea>
+                </div>
+                <div class="goal-item" id="goal-2">
+                    <i class="fas fa-star"></i>
+                    <span class="goal-text" id="goal-text-2">30%</span>
+                    <textarea id="edit-goal-text-2" class="edit-area" placeholder="Digite sua meta aqui..."></textarea>
+                </div>
+                <div class="goal-item" id="goal-3">
+                    <i class="fas fa-star"></i>
+                    <span class="goal-text" id="goal-text-3">10%</span>
+                    <textarea id="edit-goal-text-3" class="edit-area" placeholder="Digite sua meta aqui..."></textarea>
+                </div>
+                <div class="goal-item" id="goal-4">
+                    <i class="fas fa-star"></i>
+                    <span class="goal-text" id="goal-text-4">0%</span>
+                    <textarea id="edit-goal-text-4" class="edit-area" placeholder="Digite sua meta aqui..."></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="goals-bio-container">
+            <div class="achievements">
+                <div>
+                    <H3>CONQUISTAS:</H3>
+                </div>
+                <div id="stars-container">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+            </div>
+            <div class="bio">
+                <div>
+                    BIOGRAFIA:
+                </div>
+                <span id="bio-text">
+                    Insira sua biografia aqui...
+                </span>
+                <textarea id="edit-bio-text" class="edit-area" placeholder="Digite sua biografia aqui..."></textarea>
+                <div class="edit-profile">
+                    <i class="fas fa-edit"></i>
+                    <span>
+                    EDITAR PERFIL
+                    </span>
+                </div>
+            </div>
+        </div>
     </div>
-   </div>
-   <div class="goals-bio-container">
-    <div class="achievements">
-     <div>
-      CONQUISTAS:
-     </div>
-     <div id="stars-container">
-      <i class="fas fa-star">
-      </i>
-      <i class="fas fa-star">
-      </i>
-      <i class="fas fa-star">
-      </i>
-      <i class="fas fa-star">
-      </i>
-      <i class="fas fa-star">
-      </i>
-     </div>
-     <span>
-      ...
-     </span>
-    </div>
-    <div class="bio">
-     <div>
-      BIOGRAFIA:
-     </div>
-     <span id="bio-text">
-      Insira sua biografia aqui...
-     </span>
-     <textarea id="edit-bio-text" class="edit-area" placeholder="Digite sua biografia aqui..."></textarea>
-     <div class="edit-profile">
-      <i class="fas fa-edit">
-      </i>
-      <span>
-       EDITAR PERFIL
-      </span>
-     </div>
-    </div>
-   </div>
-  </div>
   <div class="footer">
   </div>
   <script src="script.js"></script>

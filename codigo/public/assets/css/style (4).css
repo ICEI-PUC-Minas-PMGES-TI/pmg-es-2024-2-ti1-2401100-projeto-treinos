@@ -21,6 +21,10 @@ body {
 .header img {
   height: 40px;
 }
+.header nav{
+  display: flex;
+  justify-content: space-evenly;
+}
 .header nav a {
   color: #fff;
   text-decoration: none;
@@ -59,7 +63,13 @@ body {
   margin-top: 10px;
   font-size: 18px;
 }
+.placeholder{
+  background-color: #ffffff;
+  border-radius: 50%;
+}
 .achievements{
+  display: flex ;
+  justify-content: center;
   text-align: center;
   margin-top: 20px;
 }
