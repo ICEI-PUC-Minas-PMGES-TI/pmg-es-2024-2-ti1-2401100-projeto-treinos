@@ -26,16 +26,41 @@
     <!-- header FIM -->
 
       <!-- Texto cabeçalho INÍCIO -->
-       <div class="titulo">
-        <p class="text-center fs-1">Cadastre-se por aqui!</p>
+       <div class="text-imp">
+        <p class="text-center fs-1">Cadastre-se por aqui:</p>
        </div>
-      <!-- Texto cabeçalho DIM -->
+      <!-- Texto cabeçalho FIM -->
 
+      <!-- Columns com cada informação pra preencher INÍCIO-->
 
-    <label for="username">Usuário:</label>
-    <input type="text" id="username" name="username"
+      <div class="text-imp">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><label for="username">Seu nome de Usuário:</label>
+            <input type="text" id="username" name="username">
+      </li>
+        <li class="list-group-item"><label for="username">Seu email:</label>
+            <input type="text" id="email" name="email">
+        </li>
+        <li class="list-group-item"><label for="username">Sua senha:</label>
+            <input type="text" id="password" name="password">
+        </li>
+      </ul>
+    </div>
 
-    
+      <!-- Parte personal INÍCIO-->
+       <div class="text-imp">
+      <p class="text-center fs-5">Você está cursando educação física ou é formado nessa área?</p>
+    </div>
+
+      <div class="btn-group-vertical" role="group" aria-label="Vertical radio toggle button group">
+        <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio1" autocomplete="off" checked>
+        <label class="btn btn-outline-success" for="vbtn-radio1">SIM!</label>
+        <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio2" autocomplete="off">
+        <label class="btn btn-outline-danger" for="vbtn-radio2">NÃO!</label>
+      </div>
+
+      <!-- Parte personal FIM-->
+
     <!-- colocar nome idade email, senha e uma opção para caso seja personal, com uma caixa para enviar imagem -->
 
 

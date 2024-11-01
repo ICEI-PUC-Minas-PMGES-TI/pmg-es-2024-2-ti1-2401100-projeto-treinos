@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial, sans-serif;'
     margin: 0;
     padding: 0;
     background-color: #ffffff;
@@ -8,11 +8,12 @@ body {
     min-height: 100vh;
 }
 
-/* mudar fonte do texto INÍCIO */
-.titulo {
+/* mudar fonte do textos INÍCIO */
+.text-imp {
     font-family:'Archivo Black', sans-serif;
 }
-/* mudar fonte do texto FIM */
+/* mudar fonte do textos FIM */
+
 
 .header {
     display: flex;
