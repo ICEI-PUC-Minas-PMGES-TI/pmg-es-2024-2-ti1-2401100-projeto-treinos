@@ -1,0 +1,1 @@
+Aqui nesta pasta, você pode encontrar o que cada um da equipe fez, os integrantes vão enviar cópias de cada arquivo que trabalhou na respectiva pasta com seu nome, assim, fica mais fácil de saber quem fez cada componente da Pulse Pump.
