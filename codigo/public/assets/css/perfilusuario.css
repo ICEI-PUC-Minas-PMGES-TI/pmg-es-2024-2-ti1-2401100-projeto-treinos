@@ -1,34 +1,36 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Archivo Black', sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #ffffff;
+  background-color: #f4f4f4;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 .header {
   display: flex;
-  justify-content: space-around;
-  background-color: #000000;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #000;
   color: #ff6600;
   text-align: center;
-  padding: 10px 0;
-  font-size: 24px;
+  padding: 5px 20px;
+  font-size: 20px;
   font-weight: bold;
   font-family: 'Archivo Black', sans-serif; 
 }
 .header img {
   height: 40px;
 }
-.header nav{
+.header nav {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center; 
+  flex-grow: 1; 
 }
 .header nav a {
-  color: #fff;
+  color: white;
   text-decoration: none;
-  margin: 0 15px;
+  margin: 0 10px;
   padding: 5px 15px;  
   border-radius: 5px; 
   transition: all 0.3s ease; 
@@ -37,13 +39,17 @@ body {
   background-color: #ff6600; 
   transform: scale(1.05); 
 }
-.header .profile-icon{
-  font-size: 24px;
+.header .profile-icon {
+  border-radius: 50%;
+  border: 2px solid #ff6600;
 }
 .container {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   padding: 20px;
+}
+.left-section, .goals-bio-container {
+  width: 48%;
 }
 .left-section {
   display: flex;
@@ -61,7 +67,7 @@ body {
 }
 .profile .level{
   margin-top: 10px;
-  font-size: 18px;
+  font-size: 1.2em;
 }
 .placeholder{
   background-color: #ffffff;
@@ -77,7 +83,7 @@ body {
   font-size: 24px;
   margin: 0 5px;
   border: 2px solid #000;
-  border-radius: 50%;
+  border-radius: 100%;
   padding: 10px;
 }
 .goals-bio-container{
@@ -85,6 +91,7 @@ body {
   flex-direction: column;
   align-items: flex-start;
   margin-top: 20px;
+  width: 48%;
 }
 .goals{
   background-color: #ff6600;
@@ -93,6 +100,7 @@ body {
   color: #fff;
   width: 300px;
   margin-bottom: 20px;
+  margin-top: 20px;
 }
 .goals h3 {
   margin-top: 0;
@@ -113,11 +121,12 @@ body {
   border: 2px solid #000;
   border-radius: 50%;
   padding: 5px;
+  margin-right: 10px;
 }
 .goal-text {
- 
   display: block;
   margin-right: 10px;
+  flex-grow: 1;
 }
 .bio {
   background-color: #ccc;
@@ -126,7 +135,7 @@ body {
   width: 600px;
   height: 300px;
   position: relative;
-  margin-top: 60px;
+  margin-top: 40px;
 }
 .edit-profile {
   background-color: #ccc;
@@ -136,10 +145,13 @@ body {
   display: flex;
   align-items: center;
   position: absolute;
-  bottom: -40px;
+  bottom: -70px;
   right: 0;
   cursor: pointer;
   transition: all 0.3s ease; 
+  display: flex;
+  align-items: center;
+  cursor: pointer;
 }
 .edit-profile:hover {
   background-color: #e0e0e6; 
@@ -151,9 +163,9 @@ body {
 }
 .footer {
   background-color: #000;
-  color: #fff;
+  color: white;
   text-align: center;
-  padding: 0px 0;
+  padding: 10px 0;
   position: fixed;
   width: 100%;
   bottom: 0;
@@ -163,7 +175,7 @@ body {
   width: 100%;
   height: 10px;
   resize: vertical;
-  margin-top: 10px; 
+  margin-top: 5px; 
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -173,7 +185,6 @@ body {
   border-color: #ff6600; 
 }
 .bio .edit-area {
- 
   height: 230px;
   position: left; 
   bottom: 10; 
@@ -205,4 +216,19 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 0 20px;
+}
+#stars-container i {
+  color: #000;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .left-section, .goals-bio-container {
+    width: 100%;
+  }
 }
