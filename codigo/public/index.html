@@ -7,10 +7,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css"> 
-    <script src="script.js"></script> </head> <body>
-    <div class="header"><img src="assets/images/logonomelaranja.png" width="250"></div>
+    <script src="assets/js/script.js"></script>
+</head>
+<body>
+    <div class="header"><a href="index.html"><img src="assets/images/logonomelaranja.png" width="250">
+    </a></div>
     <div class="container">
         <div class="about">
+            <a href="about.html">
             <h2>SOBRE NÓS:</h2>
             <p class="sobre">É notável que no mundo atual, os exercícios se tornam essenciais para se ter mais qualidade de vida, onde a tecnologia vem promovendo o vício em telas e o sedentarismo.<br>
             Então, para ajudar e motivar as pessoas que decidem ir fora dessa tendência, nosso objetivo é desenvolver uma plataforma onde os usuários se sintam motivados a treinar e se exercitar,
@@ -26,11 +30,12 @@
             <label for="password">Senha:</label>
             <input type="password" id="password" name="password">
             <div>
-                <button class="signup">Inscreva-se</button>
-                <a href="home.html"><button class="login-btn" href="home.html">Login</button></a>
+                <button class="signup" onclick="saveUserInfo()">Inscreva-se</button>
+                <button class="login-btn" onclick="loginUser()">Login</button>
             </div>
         </div>
     </div>
     <div class="footer"></div>
+    <script src="/codigo/public/assets/js/entrada.js"></script>
 </body>
 </html>
