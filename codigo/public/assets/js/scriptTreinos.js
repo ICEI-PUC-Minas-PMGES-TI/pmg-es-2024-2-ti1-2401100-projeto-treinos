@@ -1,3 +1,6 @@
+
+
+
 class Treino {
     constructor() {
         this.id = 1;
@@ -9,11 +12,13 @@ class Treino {
 
         if (this.validaCampos(treino)) {
             this.adicionar(treino);
-            this.treinoTabela();
+            this.atualizaTabela();
+            this.cancelar(); // Limpa os campos após salvar
+            fecharPopup(); // Fecha o popup após salvar
         }
     }
 
-    treinoTabela() {
+    atualizaTabela() {
         let tbody = document.getElementById('tbody');
         tbody.innerHTML = '';
 
@@ -22,11 +27,9 @@ class Treino {
 
             let td_treino = tr.insertCell();
             let td_repeticao = tr.insertCell();
-            let td_serie = tr.insertCell();
 
             td_treino.innerText = this.arrayTreinos[i].nomeTreino;
-            td_repeticao.innerText = this.arrayTreinos[i].nomeRepeticao;
-            td_serie.innerText = this.arrayTreinos[i].repeticao;
+            td_repeticao.innerText = this.arrayTreinos[i].quantidadeRepeticoes;
         }
     }
 
@@ -39,9 +42,7 @@ class Treino {
         let treino = {};
         treino.id = this.id;
         treino.nomeTreino = document.getElementById('treino').value;
-        treino.nomeRepeticao = document.getElementById('repeticao').value;
-        treino.repeticao = document.getElementById('repeticao').value;
-
+        treino.quantidadeRepeticoes = document.getElementById('repeticao').value;
         return treino;
     }
 
@@ -51,7 +52,7 @@ class Treino {
             msg += '- Informe o treino\n';
         }
 
-        if (treino.nomeRepeticao === '') {
+        if (treino.quantidadeRepeticoes === '') {
             msg += '- Informe a repetição';
         }
 
@@ -70,3 +71,65 @@ class Treino {
 }
 
 var treino = new Treino();
+
+var treinosCard1 = [];
+var treinosCard2 = [];
+var treinosCard3 = [];
+var treinoIdAtual;
+
+function abrirPopup(treinoId) {
+    const popup = document.getElementById('popup');
+    const treinoDetalhes = document.getElementById('treino-detalhes');
+
+    treinoIdAtual = treinoId;
+    popup.style.display = "flex";
+
+    atualizarListaTreinosPopup();
+}
+
+function fecharPopup() {
+    const popup = document.getElementById('popup');
+    popup.style.display = "none";
+}
+
+function adicionarTreinoPopup(treinoId) {
+    const nomeTreino = document.getElementById('nome-treino-popup').value;
+    const repeticao = document.getElementById('repeticao-popup').value;
+
+
+    const listaTreinosPopup = document.getElementById('lista-treinos-popup');
+    const novoTreinoPopup = document.createElement('li');
+    novoTreinoPopup.textContent = `Nome: ${nomeTreino} - Repetição: ${repeticao}`;
+    listaTreinosPopup.appendChild(novoTreinoPopup);
+
+
+    const listaTreinosCard = document.getElementById(`lista-treinos-${treinoId}`);
+    const novoTreinoCard = document.createElement('li');
+    novoTreinoCard.textContent = `Nome: ${nomeTreino} - Repetição: ${repeticao}`;
+    listaTreinosCard.appendChild(novoTreinoCard);
+
+
+    document.getElementById('nome-treino-popup').value = '';
+    document.getElementById('repeticao-popup').value = '';
+}
+
+
+function atualizarListaTreinosPopup() {
+    const lista = document.getElementById('lista-treinos-popup');
+    lista.innerHTML = '';
+
+    let treinosAtuais = [];
+    if (treinoIdAtual === 1) {
+        treinosAtuais = treinosCard1;
+    } else if (treinoIdAtual === 2) {
+        treinosAtuais = treinosCard2;
+    } else if (treinoIdAtual === 3) {
+        treinosAtuais = treinosCard3;
+    }
+
+    treinosAtuais.forEach(t => {
+        const li = document.createElement('li');
+        li.innerText = `Treino: ${t.nome} - Repetições: ${t.repeticao}`;
+        lista.appendChild(li);
+    });
+}
