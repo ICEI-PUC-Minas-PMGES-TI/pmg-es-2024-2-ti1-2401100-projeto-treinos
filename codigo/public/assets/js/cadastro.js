@@ -22,8 +22,15 @@ document.addEventListener('DOMContentLoaded', function() {
         const personal = document.querySelector('input[name="personal"]:checked').value;
         const verificationFile = document.getElementById('verification-file').files[0];
 
+        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+
         if (!username || !email || !password || !personal || (personal === "sim" && !verificationFile)) {
             alert('Por favor, preencha todos os campos.');
+            return;
+        }
+
+        if (!passwordRegex.test(password)) {
+            alert('A senha deve ter pelo menos 8 caracteres, incluindo letras maiúsculas e minúsculas.');
             return;
         }
 
