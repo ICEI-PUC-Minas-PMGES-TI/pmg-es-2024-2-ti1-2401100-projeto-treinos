@@ -5,15 +5,16 @@ const goalItems = document.querySelectorAll('.goal-item');
 const addStarButton = document.getElementById('add-star-button');
 const starsContainer = document.getElementById('stars-container');
 const profilePicture = document.getElementById('profile-picture');
+const navProfilePicture = document.getElementById('nav-profile-picture');
 const uploadImage = document.getElementById('upload-image');
 const changeProfileButton = document.getElementById('change-profile-button');
 
-// Load user data from localStorage
 document.addEventListener('DOMContentLoaded', () => {
   const userProfile = JSON.parse(localStorage.getItem('userProfile')) || {};
   
   if (userProfile.profilePicture) {
     profilePicture.src = userProfile.profilePicture;
+    navProfilePicture.src = userProfile.profilePicture;
   }
   
   if (userProfile.bio) {
@@ -52,7 +53,6 @@ editBioText.addEventListener('keyup', (event) => {
     editBioText.style.display = 'none';
     bioText.style.display = 'block';
 
-    // Save bio to localStorage
     const userProfile = JSON.parse(localStorage.getItem('userProfile')) || {};
     userProfile.bio = editBioText.value;
     localStorage.setItem('userProfile', JSON.stringify(userProfile));
@@ -75,8 +75,8 @@ uploadImage.addEventListener('change', () => {
 
     reader.onload = (e) => {
       profilePicture.src = e.target.result;
-
-      // Save profile picture to localStorage
+      navProfilePicture.src = e.target.result;
+      
       const userProfile = JSON.parse(localStorage.getItem('userProfile')) || {};
       userProfile.profilePicture = e.target.result;
       localStorage.setItem('userProfile', JSON.stringify(userProfile));
