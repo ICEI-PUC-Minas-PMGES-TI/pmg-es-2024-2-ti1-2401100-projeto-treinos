@@ -13,8 +13,8 @@ class Treino {
         if (this.validaCampos(treino)) {
             this.adicionar(treino);
             this.atualizaTabela();
-            this.cancelar(); // Limpa os campos após salvar
-            fecharPopup(); // Fecha o popup após salvar
+            this.cancelar(); 
+            fecharPopup(); 
         }
     }
 
