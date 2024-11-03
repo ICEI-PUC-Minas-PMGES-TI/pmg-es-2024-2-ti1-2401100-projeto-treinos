@@ -130,8 +130,10 @@ form .btn-primary {
     padding: 10px;
     border-radius: 5px;
     cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 form .btn-primary:hover {
     background-color: #e65c00;
+    transform: scale(1.05);
 }
