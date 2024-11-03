@@ -99,13 +99,13 @@ function adicionarTreinoPopup(treinoId) {
 
     const listaTreinosPopup = document.getElementById('lista-treinos-popup');
     const novoTreinoPopup = document.createElement('li');
-    novoTreinoPopup.textContent = `Nome: ${nomeTreino} - Repetição: ${repeticao}`;
+    novoTreinoPopup.textContent = `NOME: ${nomeTreino} - REPETIÇÃO: ${repeticao}`;
     listaTreinosPopup.appendChild(novoTreinoPopup);
 
 
     const listaTreinosCard = document.getElementById(`lista-treinos-${treinoId}`);
     const novoTreinoCard = document.createElement('li');
-    novoTreinoCard.textContent = `Nome: ${nomeTreino} - Repetição: ${repeticao}`;
+    novoTreinoCard.textContent = `NOME: ${nomeTreino} - REPETIÇÃO: ${repeticao}`;
     listaTreinosCard.appendChild(novoTreinoCard);
 
 
