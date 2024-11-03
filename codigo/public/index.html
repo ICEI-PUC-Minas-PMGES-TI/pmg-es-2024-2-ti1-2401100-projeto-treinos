@@ -7,19 +7,17 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css"> 
-    <script src="assets/js/script.js"></script>
+    <script src="assets/js/entrada.js"></script>
 </head>
 <body>
-    <div class="header"><a href="index.html"><img src="assets/images/logonomelaranja.png" width="250">
-    </a></div>
+    <div class="header"><img src="assets/images/logonomelaranja.png" width="250"></div>
     <div class="container">
         <div class="about">
-            <a href="about.html">
             <h2>SOBRE NÓS:</h2>
             <p class="sobre">É notável que no mundo atual, os exercícios se tornam essenciais para se ter mais qualidade de vida, onde a tecnologia vem promovendo o vício em telas e o sedentarismo.<br>
             Então, para ajudar e motivar as pessoas que decidem ir fora dessa tendência, nosso objetivo é desenvolver uma plataforma onde os usuários se sintam motivados a treinar e se exercitar,
             "gameficando" todo o processo, sem deixar de lado todo o preparo e cuidado essencial para sua evolução e  segurança!</p>
-            <div class="logo"><span><img src="assets/images/logonomealt.png" width="200"></span></div>
+            
         </div>
         <div class="login">
             <div class="logo">
@@ -30,12 +28,11 @@
             <label for="password">Senha:</label>
             <input type="password" id="password" name="password">
             <div>
-                <button class="signup" onclick="saveUserInfo()">Inscreva-se</button>
+                <button class="signup" onclick="window.location.href='cadastro.html'">Inscreva-se</button> <!-- Adicionado link para a página de cadastro -->
                 <button class="login-btn" onclick="loginUser()">Login</button>
             </div>
         </div>
     </div>
     <div class="footer"></div>
-    <script src="/codigo/public/assets/js/entrada.js"></script>
 </body>
 </html>
