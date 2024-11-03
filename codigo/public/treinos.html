@@ -16,7 +16,6 @@
 </head>
 
 <body>
-    
     <header class="header">
         <a href="home.html"><img src="assets/images/logoclara.png" width="70" alt="Logo"/></a>
         <nav>
@@ -56,7 +55,6 @@
                     <h1>TREINO 1</h1>
                     <ul id="lista-treinos-1"></ul>
                     <button class="verMaisBtn" onclick="abrirPopup(1)">Ver Mais</button>
-
                 </div>
                 <div class="treino2 atras">
                     <h1>TREINO 2</h1>
@@ -67,9 +65,7 @@
                     <h1>TREINO 3</h1>
                     <ul id="lista-treinos-3"></ul>
                     <button class="verMaisBtn" onclick="abrirPopup(3)">Ver Mais</button>
-
-                </div>                
-                
+                </div>
                 <div class="treino4">
                     <div class="card">
                         <div class="lineInput">
@@ -81,7 +77,7 @@
                             <input type="text" id="repeticao" placeholder="Quantidade de Repetição" required>
                         </div>
                         <button onclick="treino.salvar()">Salvar</button>
-                        <button onclick="treino.cancelar()">Cancelar</button>    
+                        <button onclick="treino.cancelar()">Cancelar</button>
                     </div>
                 </div>
             </div>
@@ -100,15 +96,10 @@
             <input type="text" id="nome-treino-popup" placeholder="Nome do Treino" required>
             <input type="text" id="repeticao-popup" placeholder="Repetição" required>
             <button onclick="adicionarTreinoPopup(1)">Adicionar Treino</button>
-            
 
-            <button onclick="fecharPopup()" style="margin-top: 15px; background-color: #ff6600; color: #fff; padding: 10px; border: none; border-radius: 5px; cursor: pointer;">
-                Ver menos
-            </button>
+            <button onclick="fecharPopup()" class="fecharBtn">Ver menos</button>
         </div>
     </div>
-    
-    
 
     <footer class="rodape">
 
