@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
   "profile": {
     "name": "Nome do Usuário",
@@ -50,3 +51,57 @@
     }
   ]
 }
+=======
+{
+  "profile": {
+    "name": "Nome do Usuário",
+    "level": 1,
+    "profilePicture": "png-clipart-computer-icons-user-profile-avatar-avatar-face-heroes.png",
+    "bio": "Insira sua biografia aqui..."
+  },
+  "goals": [
+    {
+      "id": 1,
+      "text": "80%",
+      "description": "Digite sua meta aqui..."
+    },
+    {
+      "id": 2,
+      "text": "30%",
+      "description": "Digite sua meta aqui..."
+    },
+    {
+      "id": 3,
+      "text": "10%",
+      "description": "Digite sua meta aqui..."
+    },
+    {
+      "id": 4,
+      "text": "0%",
+      "description": "Digite sua meta aqui..."
+    }
+  ],
+  "achievements": [
+    {
+      "id": 1,
+      "icon": "fas fa-star"
+    },
+    {
+      "id": 2,
+      "icon": "fas fa-star"
+    },
+    {
+      "id": 3,
+      "icon": "fas fa-star"
+    },
+    {
+      "id": 4,
+      "icon": "fas fa-star"
+    },
+    {
+      "id": 5,
+      "icon": "fas fa-star"
+    }
+  ]
+}
+>>>>>>> 6d871dbb8849d54439daefe439c48bb90c164883

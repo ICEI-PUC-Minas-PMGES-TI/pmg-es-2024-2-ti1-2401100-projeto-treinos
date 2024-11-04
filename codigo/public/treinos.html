@@ -1,29 +1,48 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PULSE PUMP</title>
-    <link rel="stylesheet" href="assets/css/styleTreino.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styleTreino.css">
+<<<<<<< HEAD
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+=======
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.7.0/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.7.0/mapbox-gl.css" rel="stylesheet">
+    <script src="script.js" defer></script>
+>>>>>>> 6d871dbb8849d54439daefe439c48bb90c164883
 </head>
+
 <body>
     
-    <div class="header">
-        <a href="home.html"><img src="assets/images/logoclara.png" width="70"/></a> 
+    <header class="header">
+        <a href="home.html"><img src="assets/images/logoclara.png" width="70" alt="Logo"/></a>
         <nav>
+<<<<<<< HEAD
         <a href="home.html">HOME</a>
         <a href="treinos.html">MEUS TREINOS</a>
         <a href="radarAcademias.html">ACADEMIAS PRÓXIMAS</a>
         <a href="perfilusuario.html">
             <img id="nav-profile-picture" src="assets/images/AvatarBW.png" class="profile-icon" width="40" height="40"/>
         </a>
+=======
+            <a href="home.html" aria-label="Página inicial">HOME</a>
+            <a href="treinos.html" aria-label="Meus treinos">MEUS TREINOS</a>
+            <a href="radarAcademias.html" aria-label="Academias próximas">ACADEMIAS PRÓXIMAS</a>
+            <a href="perfilusuario.html" aria-label="Perfil do usuário"><img src="assets/images/AvatarWB.png" alt="Perfil"/></a>
+>>>>>>> 6d871dbb8849d54439daefe439c48bb90c164883
         </nav>
-        <img src="assets/images/userplaceholder.png" class="placeholder">
-    </div>
+        <img src="assets/images/userplaceholder.png" class="placeholder" alt="Usuário">
+    </header>
 
     <div class="container">
         <aside class="lateral">
@@ -37,7 +56,6 @@
                                     <tr>
                                         <th>Treino</th>
                                         <th>Repetição</th>
-                                        <th>Série</th>
                                     </tr>
                                 </thead>
                                 <tbody id="tbody"></tbody>
@@ -46,23 +64,37 @@
                     </div>
                 </div>
             </div>
-            
         </aside>
 
         <main class="centro">
             <div class="backTreino">
-                <div class="treino1"><h1>TREINO 1</h1><div class="verTreino"></div></div>
-                <div class="treino2"><h1>TREINO 2</h1><div class="verTreino"></div></div>
-                <div class="treino3"><h1>TREINO 3</h1><div class="verTreino"></div></div>
+                <div class="treino1 atras">
+                    <h1>TREINO 1</h1>
+                    <ul id="lista-treinos-1"></ul>
+                    <button class="verMaisBtn" onclick="abrirPopup(1)">Ver Mais</button>
+
+                </div>
+                <div class="treino2 atras">
+                    <h1>TREINO 2</h1>
+                    <ul id="lista-treinos-2"></ul>
+                    <button class="verMaisBtn" onclick="abrirPopup(2)">Ver Mais</button>
+                </div>
+                <div class="treino3 atras">
+                    <h1>TREINO 3</h1>
+                    <ul id="lista-treinos-3"></ul>
+                    <button class="verMaisBtn" onclick="abrirPopup(3)">Ver Mais</button>
+
+                </div>                
+                
                 <div class="treino4">
                     <div class="card">
                         <div class="lineInput">
                             <label>Treino</label>
-                            <input type="text" id="treino" placeholder="Nome do Treino">
+                            <input type="text" id="treino" placeholder="Nome do Treino" required>
                         </div>
                         <div class="lineInput">
                             <label>Repetição</label>
-                            <input type="text" id="repeticao" placeholder="Quantidade de Repetição">
+                            <input type="text" id="repeticao" placeholder="Quantidade de Repetição" required>
                         </div>
                         <button onclick="treino.salvar()">Salvar</button>
                         <button onclick="treino.cancelar()">Cancelar</button>    
@@ -72,9 +104,32 @@
         </main>
     </div>
 
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="fecharPopup()">&times;</span>
+            <p id="treino-detalhes"></p>
+
+            <h2>Meu Treino</h2>
+            <ul id="lista-treinos-popup"></ul>
+    
+            <h2>Adicionar Treino</h2>
+            <input type="text" id="nome-treino-popup" placeholder="Nome do Treino" required>
+            <input type="text" id="repeticao-popup" placeholder="Repetição" required>
+            <button onclick="adicionarTreinoPopup(1)">Adicionar Treino</button>
+            
+
+            <button onclick="fecharPopup()" style="margin-top: 15px; background-color: #ff6600; color: #fff; padding: 10px; border: none; border-radius: 5px; cursor: pointer;">
+                Ver menos
+            </button>
+        </div>
+    </div>
+    
+    
+
     <footer class="rodape">
+
     </footer>
     
-    <script src="script.js"></script>
+    <script src="assets/js/scriptTreinos.js" defer></script>
 </body>
 </html>

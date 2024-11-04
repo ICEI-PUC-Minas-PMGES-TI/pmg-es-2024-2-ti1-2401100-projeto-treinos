@@ -1,16 +1,14 @@
-*{
-    margin: 0px;
-    padding: 0px;
-    font-family: "Outfit", sans-serif;
-    box-sizing: border-box;
-    text-decoration: none;
-    list-style: none;
-
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-/* cabecalho - inico */
-
-
+/* Cabeçalho - início */
 .header {
     display: flex;
     justify-content: space-around;
@@ -20,204 +18,221 @@
     padding: 10px 0;
     font-size: 24px;
     font-weight: bold;
-    font-family: 'Archivo Black', sans-serif; 
+    font-family: 'Archivo Black', sans-serif;
 }
+
 .header img {
     height: 40px;
 }
-.header nav{
+
+.header nav {
     display: flex;
     justify-content: space-evenly;
 }
+
 .header nav a {
     color: #fff;
     text-decoration: none;
     margin: 0 15px;
-    padding: 5px 15px;  
-    border-radius: 5px; 
-    transition: all 0.3s ease; 
+    padding: 5px 15px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
 }
+
 .header nav a:hover {
-    background-color: #ff6600; 
-    transform: scale(1.05); 
+    background-color: #ff6600;
+    transform: scale(1.05);
 }
-.header .profile-icon{
+
+.header .profile-icon {
     font-size: 24px;
 }
-/* cabecalho - fim */
+/* Cabeçalho - fim */
 
-/* central - inicio */
-
-.container{
-
-        width: 100%;
-        height: 100%;
-        background-color: #FFFFFF;
-        display: flex;
-        justify-content: center;
-        margin: 0 auto;
-
+/* Central - início */
+.container {
+    width: 100%;
+    height: 100%;
+    background-color: #FFFFFF;
+    display: flex;
+    justify-content: center;
 }
 
-/* central - fim */
+/* Central - fim */
 
-/* aside - inicio */
-aside{
-
+/* Aside - início */
+aside {
     width: 40%;
     margin: 48px auto;
-
 }
-.lateral{
 
+.lateral {
     width: 340px;
-    height: 531px;
     background-color: #D9D9D9;
     border-radius: 12px;
     padding: 20px;
-
-    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.treinoSelecionado h1{
-    
+.treinoSelecionado h1 {
     text-align: center;
     margin: 17px auto;
     font-size: 16px;
-
-}
-
-.adicionarMais{
-    margin: 18px auto;
-    text-align: center;
-
-}
-
-.adicionarMais a{
-    
-    background-color: #727272;
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    border-radius: 12px;
-    padding: 10px;
-    font-size: 12px;
-    margin: -5px auto;
-
 }
 
 .seuTreino {
+    background-color: #B6B6B6;
+    width: 260px;
+    height: 420px;
+    margin: 0 auto;
+    border-radius: 12px;
+}
 
-        background-color: #B6B6B6;
-        width: 260px;
-        height: 420px;
-        margin: 0 auto;
-        border-radius: 12px;
-    }
+.popup {
+    display: none;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
 
-    .scrollable-area {
-        width: 300px;          /* Largura fixa */
-        height: 450px;         /* Altura fixa */
-        overflow-y: auto;
-        border-radius: 12px;
-        overflow: hidden;
-    }
-    
+.popup-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+    color: #000;
+}
 
-/* seu treino */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+}
 
-.card{
+.verMaisBtn {
+    margin-top: auto;
+    padding: 10px 20px;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+}
 
+.treino1, .treino2, .treino3 {
+
+    position: relative;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+ul{
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 100px;
+}
+
+.verMaisBtn:hover {
+    background-color: #555555;
+}
+
+
+.scrollable-area {
+    width: 300px;          
+    height: auto;         
+    overflow-y: hidden;   
+    border-radius: 12px;
+}
+
+
+/* Card - início */
+.card {
     padding: 20px;
     margin-top: 1px;
     border-radius: 5px;
 }
 
-.lineInput{
+.lineInput {
     display: grid;
     margin-bottom: 10px;
 }
 
-input{
+input {
     padding: 10px;
     border: 1px solid #B6B6B6;
     border-radius: 3px;
     outline: 0;
 }
 
-button{
+button {
     border: 0px;
     padding: 10px;
     outline: 0;
-    background-color:#B6B6B6;
+    background-color: #B6B6B6;
     color: white;
     border-radius: 3px;
     font-weight: bold;
     transition: all ease 0.3s;
 }
 
-button:hover{
-    background-color:#808080;
+button:hover {
+    background-color: #808080;
 }
 
-.content{
+.content {
     margin-top: 15px;
-
 }
 
-table{
-
+table {
     color: white;
     background-color: #808080;
     border-collapse: collapse;
     border: 1px solid #666666;
     width: 100%;
     border-radius: 3px;
-
 }
 
-table th{
-
+table th {
     text-align: center;
     padding: 1px 5px;
 }
 
-table td{
-
+table td {
     text-align: left;
     padding: 1px 5px;
 }
 
-table td img{
-    width: 20px;
-    
-}
-
-label{
+label {
     color: #3E3E3E;
     font-weight: bold;
     margin: 4px auto;
 }
 
-.center{
-    text-align: center;
-}
-
-/* seu treino - fim */
-
-
-/* aside - fim */
-
-/* main - inicio */
-
-main{
+/* Main - início */
+main {
     width: 60%;
     margin: 48px auto;
-    
-    
 }
 
-.backTreino{
+.backTreino {
     width: 60%;
     display: grid;
     grid-template-columns: repeat(2, 250px);
@@ -225,98 +240,98 @@ main{
     margin: 0 auto;
 }
 
-.backTreino h1{
+.backTreino h1 {
     color: black;
     font-size: 12px;
     text-align: center;
-    margin: 17px auto;
 }
 
-.treino1, .treino2, .treino3, .treino4{
-
+.treino1, .treino2, .treino3, .treino4 {
     background-color: #D9D9D9;
     width: 250px;
     height: 250px;
     border-radius: 12px;
     text-align: center;
+}
+
+.fecharBtn {
+    margin-top: 15px;
+    padding: 10px 15px;
+    background-color: #ff6600;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.fecharBtn:hover {
+    background-color: #e65c00;
+}
+
+.treino1, .treino2, .treino3 {
+
+    list-style-type: none;
+    font-size: 14px;
 
 }
 
-.treino4 img{
-    margin: 0px auto;
-    padding: 50px;
+.treino1 h1, .treino2 h1, .treino3 h1 {
+    font-size: 16px;
 }
 
-.verTreino{
-    background-color: #B6B6B6;
-    width: 200px;
-    height: 180px;
-    border-radius: 12px;
-    margin: 0 auto;
-}
-
-
-
-/* main - fim /*
-
-
-
-
-/* rodape - inico */
-
+/* Rodapé - início */
 footer {
     background-color: #000000;
-    height: 50px;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 14px;
 }
 
-@media (max-width: 601px){
-    
-    .container{
+/* Responsividade */
+@media (max-width: 601px) {
+    .container {
         display: block;
     }
 
-    main{
+    main {
         width: 100%;
         margin: 0 auto;
         display: flex;
     }
 
-    .backTreino{
+    .backTreino {
         width: 95%;
         display: grid;
         grid-template-columns: repeat(2, 250px);
         gap: 10px;
         margin: 0 auto;
     }
-
-
 }
 
-@media (max-width: 880px){
-    
-    .container{
+@media (max-width: 880px) {
+    .container {
         display: flex;
     }
 
-
-
-    main{
+    main {
         width: 60%;
         margin: 12px auto;
         display: flex;
     }
 
-    .backTreino .treino2, .treino3{
+    .backTreino .treino2, .treino3 {
         display: none;
     }
 
-    .backTreino{
+    .backTreino {
         width: 80%;
         margin: 16px auto;
         display: block;
     }
 
-    .treino1, .treino4{
+    .treino1, .treino4 {
         margin: 12px auto;
     }
 }
