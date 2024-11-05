@@ -7,7 +7,6 @@ const starsContainer = document.getElementById('stars-container');
 const profilePicture = document.getElementById('profile-picture');
 const navProfilePicture = document.getElementById('nav-profile-picture');
 const uploadImage = document.getElementById('upload-image');
-const changeProfileButton = document.getElementById('change-profile-button');
 
 document.addEventListener('DOMContentLoaded', () => {
   const userProfile = JSON.parse(localStorage.getItem('userProfile')) || {};
@@ -43,6 +42,10 @@ goalItems.forEach(goalItem => {
       goalText.textContent = goalTextArea.value;
       goalTextArea.style.display = 'none';
       goalText.style.display = 'block';
+
+      const userProfile = JSON.parse(localStorage.getItem('userProfile')) || {};
+      userProfile[`goal${goalItem.id.split('-')[1]}`] = goalTextArea.value;
+      localStorage.setItem('userProfile', JSON.stringify(userProfile));
     }
   });
 });
@@ -63,10 +66,6 @@ addStarButton.addEventListener('click', () => {
   const newStar = document.createElement('i');
   newStar.classList.add('fas', 'fa-star');
   starsContainer.appendChild(newStar);
-});
-
-changeProfileButton.addEventListener('click', () => {
-  uploadImage.click();
 });
 
 uploadImage.addEventListener('change', () => {
