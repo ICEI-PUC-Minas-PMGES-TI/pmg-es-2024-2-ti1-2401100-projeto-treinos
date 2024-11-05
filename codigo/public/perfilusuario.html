@@ -7,6 +7,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/perfilusuario.css">
+  <style>
+    .edit-profile-mode #profile-picture {
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
   <div class="header">
@@ -23,14 +28,11 @@
   <div class="container">
     <div class="left-section">
       <div class="profile">
-        <a href="https://example.com/profile-picture-link">
-          <img alt="Profile Picture" id="profile-picture" height="150" src="assets/images/AvatarBW.png" width="150"/>
-        </a>
+        <img alt="Profile Picture" id="profile-picture" height="150" src="assets/images/AvatarBW.png" width="150"/>
         <div class="level">
           Nvl 1
         </div>
         <input type="file" id="upload-image" accept="image/*" style="display: none;">
-        <button id="change-profile-button" style="background-color: #ff6600; color: black;">Modificar foto</button>
       </div>
       <div class="goals">
         <h3>MINHAS METAS</h3>
@@ -85,7 +87,7 @@
       Insira sua biografia aqui...
      </span>
      <textarea id="edit-bio-text" class="edit-area" placeholder="Digite sua biografia aqui..."></textarea>
-     <div class="edit-profile">
+     <div class="edit-profile" id="edit-profile-button">
       <i class="fas fa-edit">
       </i>
       <span>
@@ -100,6 +102,33 @@
 
   </div>
   <script src="assets/js/scriptperfilusuario.js"></script>
+  <script>
+    document.getElementById('edit-profile-button').addEventListener('click', function() {
+      document.body.classList.toggle('edit-profile-mode');
+    });
+
+    document.getElementById('profile-picture').addEventListener('click', function() {
+      if (document.body.classList.contains('edit-profile-mode')) {
+        document.getElementById('upload-image').click();
+      }
+    });
+
+    document.getElementById('upload-image').addEventListener('change', function(event) {
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          document.getElementById('profile-picture').src = e.target.result;
+          document.getElementById('nav-profile-picture').src = e.target.result;
+
+          const userProfile = JSON.parse(localStorage.getItem('userProfile')) || {};
+          userProfile.profilePicture = e.target.result;
+          localStorage.setItem('userProfile', JSON.stringify(userProfile));
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+  </script>
  </body>
 </html>
 
