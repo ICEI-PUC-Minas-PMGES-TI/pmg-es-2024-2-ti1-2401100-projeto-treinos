@@ -11,7 +11,38 @@
     .edit-profile-mode #profile-picture {
       cursor: pointer;
     }
+    .floating-bar {
+      position: fixed;
+      top: 20%;
+      right: 0;
+      transform: translateY(-50%);
+      background-color: #f1f1f1;
+      padding: 10px;
+      border-radius: 10px 0 0 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .floating-bar .star {
+      cursor: pointer;
+      margin: 5px 0;
+    }
   </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const userProfile = JSON.parse(localStorage.getItem('userProfile')) || {};
+      for (let i = 1; i <= 4; i++) {
+        const goalText = document.getElementById(`goal-text-${i}`);
+        const goalTextArea = document.getElementById(`edit-goal-text-${i}`);
+        if (userProfile[`goal${i}`]) {
+          goalText.textContent = userProfile[`goal${i}`];
+          goalTextArea.value = userProfile[`goal${i}`];
+        }
+      }
+      const levelElement = document.querySelector('.level');
+      if (userProfile.level) {
+        levelElement.textContent = `Nvl ${userProfile.level}`;
+      }
+    });
+  </script>
 </head>
 <body>
   <div class="header">
@@ -63,17 +94,10 @@
      <div>
       CONQUISTAS:
      </div>
-     <div id="stars-container">
-      <i class="fas fa-star">
-      </i>
-      <i class="fas fa-star">
-      </i>
-      <i class="fas fa-star">
-      </i>
-      <i class="fas fa-star">
-      </i>
-      <i class="fas fa-star">
-      </i>
+     <div id="stars-container" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <i class="fas fa-star" id="star-1" draggable="true" ondragstart="drag(event)"></i>
+      <i class="fas fa-star" id="star-2" draggable="true" ondragstart="drag(event)"></i>
+      <i class="fas fa-star" id="star-3" draggable="true" ondragstart="drag(event)"></i>
      </div>
      <span>
       ...
@@ -94,12 +118,18 @@
        EDITAR PERFIL
       </span>
      </div>
-     <button id="add-star-button">Adicionar conquista</button>
+     <button id="add-star-button" style="display: none;">Adicionar conquista</button>
+     <button id="complete-goal-button">Completar Meta</button>
     </div>
    </div>
   </div>
   <div class="footer">
 
+  </div>
+  <div class="floating-bar" id="floating-bar" ondrop="drop(event)" ondragover="allowDrop(event)">
+    <i class="fas fa-star star" id="floating-star-1" draggable="true" ondragstart="drag(event)"></i>
+    <i class="fas fa-star star" id="floating-star-2" draggable="true" ondragstart="drag(event)"></i>
+    <i class="fas fa-star star" id="floating-star-3" draggable="true" ondragstart="drag(event)"></i>
   </div>
   <script src="assets/js/scriptperfilusuario.js"></script>
   <script>
@@ -128,7 +158,24 @@
         reader.readAsDataURL(file);
       }
     });
+
+    function allowDrop(event) {
+      event.preventDefault();
+    }
+
+    function drag(event) {
+      event.dataTransfer.setData("text", event.target.id);
+    }
+
+    function drop(event) {
+      event.preventDefault();
+      const data = event.dataTransfer.getData("text");
+      const star = document.getElementById(data);
+      event.target.appendChild(star);
+    }
   </script>
  </body>
 </html>
+
+
 
