@@ -7,6 +7,8 @@ const starsContainer = document.getElementById('stars-container');
 const profilePicture = document.getElementById('profile-picture');
 const navProfilePicture = document.getElementById('nav-profile-picture');
 const uploadImage = document.getElementById('upload-image');
+const levelElement = document.querySelector('.level');
+const floatingBar = document.getElementById('floating-bar');
 
 document.addEventListener('DOMContentLoaded', () => {
   const userProfile = JSON.parse(localStorage.getItem('userProfile')) || {};
@@ -19,6 +21,51 @@ document.addEventListener('DOMContentLoaded', () => {
   if (userProfile.bio) {
     bioText.textContent = userProfile.bio;
   }
+
+  if (userProfile.level) {
+    levelElement.textContent = `Nvl ${userProfile.level}`;
+  }
+
+  for (let i = 1; i <= 4; i++) {
+    const goalText = document.getElementById(`goal-text-${i}`);
+    const goalTextArea = document.getElementById(`edit-goal-text-${i}`);
+    if (userProfile[`goal${i}`]) {
+      goalText.textContent = userProfile[`goal${i}`];
+      goalTextArea.value = userProfile[`goal${i}`];
+    }
+  }
+
+  const pointsPerLevel = 100; 
+
+  function updateLevel() {
+    const points = userProfile.points || 0;
+    const level = Math.floor(points / pointsPerLevel);
+    userProfile.level = level;
+    localStorage.setItem('userProfile', JSON.stringify(userProfile));
+    document.querySelector('.level').textContent = `Nvl ${level}`;
+  }
+
+  function addPoints(points) {
+    userProfile.points = (userProfile.points || 0) + points;
+    updateLevel();
+  }
+
+  // Exemplo de como adicionar pontos
+  document.getElementById('complete-goal-button').addEventListener('click', function() {
+    addPoints(10); // Adiciona 10 pontos ao completar uma meta
+  });
+
+  updateLevel();
+
+  // Gerenciar conquistas
+  const stars = floatingBar.querySelectorAll('.star');
+  stars.forEach(star => {
+    star.addEventListener('click', () => {
+      const starId = star.id;
+      const starElement = document.getElementById(starId);
+      starsContainer.appendChild(starElement);
+    });
+  });
 });
 
 editProfileButton.addEventListener('click', () => {
@@ -84,3 +131,18 @@ uploadImage.addEventListener('change', () => {
     reader.readAsDataURL(uploadImage.files[0]);
   }
 });
+
+function allowDrop(event) {
+  event.preventDefault();
+}
+
+function drag(event) {
+  event.dataTransfer.setData("text", event.target.id);
+}
+
+function drop(event) {
+  event.preventDefault();
+  const data = event.dataTransfer.getData("text");
+  const star = document.getElementById(data);
+  event.target.appendChild(star);
+}
