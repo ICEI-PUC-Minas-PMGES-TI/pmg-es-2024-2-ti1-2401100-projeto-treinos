@@ -26,23 +26,6 @@
       margin: 5px 0;
     }
   </style>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const userProfile = JSON.parse(localStorage.getItem('userProfile')) || {};
-      for (let i = 1; i <= 4; i++) {
-        const goalText = document.getElementById(`goal-text-${i}`);
-        const goalTextArea = document.getElementById(`edit-goal-text-${i}`);
-        if (userProfile[`goal${i}`]) {
-          goalText.textContent = userProfile[`goal${i}`];
-          goalTextArea.value = userProfile[`goal${i}`];
-        }
-      }
-      const levelElement = document.querySelector('.level');
-      if (userProfile.level) {
-        levelElement.textContent = `Nvl ${userProfile.level}`;
-      }
-    });
-  </script>
 </head>
 <body>
   <div class="header">
@@ -132,50 +115,5 @@
     <i class="fas fa-star star" id="floating-star-3" draggable="true" ondragstart="drag(event)"></i>
   </div>
   <script src="assets/js/scriptperfilusuario.js"></script>
-  <script>
-    document.getElementById('edit-profile-button').addEventListener('click', function() {
-      document.body.classList.toggle('edit-profile-mode');
-    });
-
-    document.getElementById('profile-picture').addEventListener('click', function() {
-      if (document.body.classList.contains('edit-profile-mode')) {
-        document.getElementById('upload-image').click();
-      }
-    });
-
-    document.getElementById('upload-image').addEventListener('change', function(event) {
-      const file = event.target.files[0];
-      if (file) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-          document.getElementById('profile-picture').src = e.target.result;
-          document.getElementById('nav-profile-picture').src = e.target.result;
-
-          const userProfile = JSON.parse(localStorage.getItem('userProfile')) || {};
-          userProfile.profilePicture = e.target.result;
-          localStorage.setItem('userProfile', JSON.stringify(userProfile));
-        };
-        reader.readAsDataURL(file);
-      }
-    });
-
-    function allowDrop(event) {
-      event.preventDefault();
-    }
-
-    function drag(event) {
-      event.dataTransfer.setData("text", event.target.id);
-    }
-
-    function drop(event) {
-      event.preventDefault();
-      const data = event.dataTransfer.getData("text");
-      const star = document.getElementById(data);
-      event.target.appendChild(star);
-    }
-  </script>
- </body>
+</body>
 </html>
-
-
-
