@@ -50,14 +50,12 @@ document.addEventListener('DOMContentLoaded', () => {
     updateLevel();
   }
 
-  // Exemplo de como adicionar pontos
   document.getElementById('complete-goal-button').addEventListener('click', function() {
-    addPoints(10); // Adiciona 10 pontos ao completar uma meta
+    addPoints(10); 
   });
 
   updateLevel();
 
-  // Gerenciar conquistas
   const stars = floatingBar.querySelectorAll('.star');
   stars.forEach(star => {
     star.addEventListener('click', () => {
@@ -66,6 +64,29 @@ document.addEventListener('DOMContentLoaded', () => {
       starsContainer.appendChild(starElement);
     });
   });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  fetch('/api/userProfile')
+    .then(response => response.json())
+    .then(userProfile => {
+      for (let i = 1; i <= 4; i++) {
+        const goalText = document.getElementById(`goal-text-${i}`);
+        const goalTextArea = document.getElementById(`edit-goal-text-${i}`);
+        if (userProfile.goals && userProfile.goals[i - 1]) {
+          goalText.textContent = userProfile.goals[i - 1].text;
+          goalTextArea.value = userProfile.goals[i - 1].description;
+        }
+      }
+      const levelElement = document.querySelector('.level');
+      if (userProfile.profile && userProfile.profile.level) {
+        levelElement.textContent = `Nvl ${userProfile.profile.level}`;
+      }
+      if (userProfile.profile && userProfile.profile.profilePicture) {
+        document.getElementById('profile-picture').src = userProfile.profile.profilePicture;
+        document.getElementById('nav-profile-picture').src = userProfile.profile.profilePicture;
+      }
+    });
 });
 
 editProfileButton.addEventListener('click', () => {
@@ -129,6 +150,41 @@ uploadImage.addEventListener('change', () => {
     };
 
     reader.readAsDataURL(uploadImage.files[0]);
+  }
+});
+
+document.getElementById('edit-profile-button').addEventListener('click', function() {
+  document.body.classList.toggle('edit-profile-mode');
+});
+
+document.getElementById('profile-picture').addEventListener('click', function() {
+  if (document.body.classList.contains('edit-profile-mode')) {
+    document.getElementById('upload-image').click();
+  }
+});
+
+document.getElementById('upload-image').addEventListener('change', function(event) {
+  const file = event.target.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      document.getElementById('profile-picture').src = e.target.result;
+      document.getElementById('nav-profile-picture').src = e.target.result;
+
+      const userProfile = {
+        profile: {
+          profilePicture: e.target.result
+        }
+      };
+      fetch('/api/userProfile', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(userProfile)
+      });
+    };
+    reader.readAsDataURL(file);
   }
 });
 
