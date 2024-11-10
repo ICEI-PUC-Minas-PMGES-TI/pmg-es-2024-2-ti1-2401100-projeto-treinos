@@ -1,0 +1,98 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.header {
+    display: flex;
+    justify-content: space-around;
+    background-color: #000000;
+    color: #ff6600;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 24px;
+    font-weight: bold;
+    font-family: 'Archivo Black', sans-serif;
+}
+
+.header img {
+    height: 40px;
+}
+
+.header nav {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.header nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+    padding: 5px 15px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.header nav a:hover {
+    background-color: #ff6600;
+    transform: scale(1.05);
+}
+
+.header .profile-icon {
+    font-size: 24px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex: 1;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.container .academiasProximas {
+    height: 37rem;
+    width: 25rem;
+    background-color: #ff6600;
+    border-radius: 3%;
+    display: block;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.container .academiasProximas p{
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    font-family: 'Archivo Black', sans-serif;
+}
+
+.container .academiasProximas .melhorAcademia {
+    height: 23%;
+    width: 80%;
+    background-color: gray;
+    margin-top: 7%;
+    margin-bottom: 7%;
+    margin-left: 10%;
+    margin-right: 10%;
+    border-radius: 7%;
+}
+
+.container .mapaAcademias {
+    height: 37rem;
+    width: 50rem;
+    border-radius: 2%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.footer {
+    background-color: #000000;
+    height: 50px;
+}
+
+

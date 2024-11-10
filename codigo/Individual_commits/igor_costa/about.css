@@ -1,0 +1,60 @@
+* {
+  font-family: 'Archivo Black', sans-serif;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+.header {
+    background-color: #000000;
+    color: #ff6600;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 24px;
+    font-weight: bold;
+    font-family: 'Archivo Black', sans-serif; 
+  }
+
+  .header img {
+    height: 34px;
+}
+
+  /* Texto com pedaço em laranja INÍCIO */
+  .highlight {
+    color: #ff6600;
+    font-weight: bold;
+  }
+   /* Texto com pedaço em vermelho FIM */
+
+
+
+
+/* Círculos para pfp INÍCIO */ 
+.circle-img {
+  width: 80px; 
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+@media (min-width: 768px) {
+  .circle-img {
+    width: 140px;
+    height: 140px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .circle-img {
+    width: 160px;
+    height: 160px;
+  }
+}
+/* Círculos para pfp FIM */ 
