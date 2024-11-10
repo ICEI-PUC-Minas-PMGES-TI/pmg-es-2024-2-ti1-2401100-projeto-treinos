@@ -4,7 +4,6 @@
 
 ## Alunos integrantes da equipe
 
-* Davi Torta Viana
 * Igor Augusto Amaral Luz
 * Igor Rodrigo Costa
 * João Pedro de Oliveira Santos
