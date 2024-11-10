@@ -7,6 +7,25 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/perfilusuario.css">
+  <style>
+    .edit-profile-mode #profile-picture {
+      cursor: pointer;
+    }
+    .floating-bar {
+      position: fixed;
+      top: 20%;
+      right: 0;
+      transform: translateY(-50%);
+      background-color: #f1f1f1;
+      padding: 10px;
+      border-radius: 10px 0 0 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .floating-bar .star {
+      cursor: pointer;
+      margin: 5px 0;
+    }
+  </style>
 </head>
 <body>
   <div class="header">
@@ -23,17 +42,14 @@
   <div class="container">
     <div class="left-section">
       <div class="profile">
-        <a href="https://example.com/profile-picture-link">
-          <img alt="Profile Picture" id="profile-picture" height="150" src="assets/images/AvatarBW.png" width="150"/>
-        </a>
+        <img alt="Profile Picture" id="profile-picture" height="150" src="assets/images/AvatarBW.png" width="150"/>
         <div class="level">
-          Nvl 1
+          Nvl 10
         </div>
         <input type="file" id="upload-image" accept="image/*" style="display: none;">
-        <button id="change-profile-button" style="background-color: #ff6600; color: black;">Modificar foto</button>
       </div>
       <div class="goals">
-        <h3>MINHAS METAS</h3>
+        <h3>MEU PROGRESSO</h3>
         <div class="goal-item" id="goal-1">
           <i class="fas fa-star"></i>
           <span class="goal-text" id="goal-text-1">80%</span>
@@ -61,17 +77,10 @@
      <div>
       CONQUISTAS:
      </div>
-     <div id="stars-container">
-      <i class="fas fa-star">
-      </i>
-      <i class="fas fa-star">
-      </i>
-      <i class="fas fa-star">
-      </i>
-      <i class="fas fa-star">
-      </i>
-      <i class="fas fa-star">
-      </i>
+     <div id="stars-container" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <i class="fas fa-star" id="star-1" draggable="true" ondragstart="drag(event)"></i>
+      <i class="fas fa-star" id="star-2" draggable="true" ondragstart="drag(event)"></i>
+      <i class="fas fa-star" id="star-3" draggable="true" ondragstart="drag(event)"></i>
      </div>
      <span>
       ...
@@ -85,21 +94,26 @@
       Insira sua biografia aqui...
      </span>
      <textarea id="edit-bio-text" class="edit-area" placeholder="Digite sua biografia aqui..."></textarea>
-     <div class="edit-profile">
+     <div class="edit-profile" id="edit-profile-button">
       <i class="fas fa-edit">
       </i>
       <span>
        EDITAR PERFIL
       </span>
      </div>
-     <button id="add-star-button">Adicionar conquista</button>
+     <button id="add-star-button" style="display: none;">Adicionar conquista</button>
+     <button id="complete-goal-button">Completar Meta</button>
     </div>
    </div>
   </div>
   <div class="footer">
 
   </div>
+  <div class="floating-bar" id="floating-bar" ondrop="drop(event)" ondragover="allowDrop(event)">
+    <i class="fas fa-star star" id="floating-star-1" draggable="true" ondragstart="drag(event)"></i>
+    <i class="fas fa-star star" id="floating-star-2" draggable="true" ondragstart="drag(event)"></i>
+    <i class="fas fa-star star" id="floating-star-3" draggable="true" ondragstart="drag(event)"></i>
+  </div>
   <script src="assets/js/scriptperfilusuario.js"></script>
- </body>
+</body>
 </html>
-

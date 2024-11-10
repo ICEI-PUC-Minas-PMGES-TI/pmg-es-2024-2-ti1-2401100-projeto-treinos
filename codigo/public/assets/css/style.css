@@ -31,6 +31,12 @@ body {
   margin-right: 20px;
   position: relative;
 }
+
+.about a {
+  text-decoration: none;
+  color:inherit;
+}
+
 .about:hover{
   transform: translateY(-5px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8) !important;
@@ -106,6 +112,11 @@ body {
   background-color: #000000;
   color: #ffffff;
   font-family: 'Archivo Black', sans-serif;
+  transition: all 0.3s ease;
+}
+.login button:hover {
+  background-color: #ff6600;
+  transform: scale(1.05);
 }
 .footer {
   background-color: #000000;

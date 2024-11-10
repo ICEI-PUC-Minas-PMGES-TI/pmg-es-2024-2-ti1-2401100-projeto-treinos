@@ -1,0 +1,59 @@
+{
+"header":{
+    "logo_src": "assets/images/logoclara.png",
+    "logo_height": 40,
+    "logo_width": 80,
+    "links": [
+        { "href": "home.html", "text": "HOME" },
+        { "href": "treinos.html", "text": "MEUS TREINOS" },
+        { "href": "radarAcademias.html", "text": "ACADEMIAS PRÓXIMAS" }
+    ],
+    "user_placeholder_src": "assets/images/userplaceholder.png"
+},
+"profile":{
+    "profile_picture_src": "assets/images/userplaceholder.png",
+    "profile_picture_height": 150,
+    "profile_picture_width": 150,
+    "check_icon": {
+        "color": "#4CAF50",
+        "font_size": 24
+    },
+    "level": "Nvl 10",
+    "upload_image_accept": "image/*"
+},
+    "goals": [
+        {
+            "id": "goal-1",
+            "progress": "80%",
+            "placeholder": "Digite sua meta aqui..."
+        },
+        {
+            "id": "goal-2",
+            "progress": "30%",
+            "placeholder": "Digite sua meta aqui..."
+        },
+        {
+            "id": "goal-3",
+            "progress": "10%",
+            "placeholder": "Digite sua meta aqui..."
+        },
+        {
+            "id": "goal-4",
+            "progress": "0%",
+            "placeholder": "Digite sua meta aqui..."
+        }
+    ],
+    "achievements": {
+        "title": "CONQUISTAS:",
+        "stars_count": 5
+    },
+    "bio": {
+        "title": "BIOGRAFIA:",
+        "text": "Insira sua biografia aqui...",
+        "placeholder": "Digite sua biografia aqui..."
+    },
+    "edit_profile": {
+        "text": "EDITAR PERFIL",
+        "icon": "fas fa-edit"
+    }
+}

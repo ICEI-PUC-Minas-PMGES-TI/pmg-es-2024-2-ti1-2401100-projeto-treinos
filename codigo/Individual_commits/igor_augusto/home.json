@@ -1,0 +1,63 @@
+{
+    "usuario": {
+      "nome": "Igor Augusto",
+      "fotoPerfil": "AvatarWB.png",
+      "treinos": [
+        {
+          "nome": "Treino de Peito",
+          "duracao": "45 minutos",
+          "descricao": "Série de exercícios focada em peitoral."
+        },
+        {
+          "nome": "Treino de Pernas",
+          "duracao": "1 hora",
+          "descricao": "Exercícios para fortalecer pernas e glúteos."
+        }
+      ]
+    },
+    "feed": [
+      {
+        "usuario": "Ana Silva",
+        "fotoPerfil": "user1.png",
+        "postagem": "Consegui aumentar a carga no agachamento! 🏋️‍♀️",
+        "data": "2024-11-01",
+        "comentarios": [
+          {
+            "usuario": "Carlos Santos",
+            "texto": "Parabéns! Progresso incrível!"
+          }
+        ]
+      },
+      {
+        "usuario": "Lucas Souza",
+        "fotoPerfil": "user2.png",
+        "postagem": "Primeira corrida de 5km concluída! 🏃‍♂️",
+        "data": "2024-10-30",
+        "comentarios": [
+          {
+            "usuario": "Mariana Costa",
+            "texto": "Mandou bem, Lucas!"
+          },
+          {
+            "usuario": "Igor Augusto",
+            "texto": "Incrível, parabéns!"
+          }
+        ]
+      }
+    ],
+    "progressoAmigos": [
+      {
+        "nome": "Ana Silva",
+        "progresso": "Concluiu 80% dos treinos semanais"
+      },
+      {
+        "nome": "Carlos Santos",
+        "progresso": "Melhoria de 10% na resistência"
+      },
+      {
+        "nome": "Mariana Costa",
+        "progresso": "Alcançou nova meta de peso no supino"
+      }
+    ]
+  }
+  
