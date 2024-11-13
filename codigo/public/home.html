@@ -10,7 +10,8 @@
     <link rel="stylesheet" href="assets/css/home.css">
     <script src="https://api.mapbox.com/mapbox-gl-js/v3.7.0/mapbox-gl.js"></script>
     <link href="https://api.mapbox.com/mapbox-gl-js/v3.7.0/mapbox-gl.css" rel="stylesheet">
-    <script src="script.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="assets/js/home.js"></script>
 </head>
 
 <body>
@@ -27,22 +28,33 @@
     </div>
 
     <div class="container">
-        <div class="box" id="lateral">
-            <h2>MEUS TREINOS</h2>
-            <div class="item"></div>
-            <div class="item"></div>
-            <div class="item"></div>
-            <div class="item"></div>
-            <div class="item"></div>
-        </div>
-    
         <div class="box" id="meio">
             <h2>FEED</h2>
-            <div class="item-feed"></div>
-            <div class="item-feed"></div>
-            <div class="item-feed"></div>
+            <form onsubmit="addPost(event)">
+                <textarea id="postContent" class="w-full p-2 mb-2 border rounded" placeholder="Escreva algo..."></textarea>
+            </form>
+            <div id="feed">
+                <div class="bg-gray-300 h-40 mb-4 rounded-lg p-4 flex flex-col justify-between">
+                    <p>Post 1</p>
+                    <button class="text-black" onclick="toggleLike(this)">
+                        <i class="far fa-thumbs-up"></i> <span>0</span> Likes
+                    </button>
+                </div>
+                <div class="bg-gray-300 h-40 mb-4 rounded-lg p-4 flex flex-col justify-between">
+                    <p>Post 2</p>
+                    <button class="text-black" onclick="toggleLike(this)">
+                        <i class="far fa-thumbs-up"></i> <span>0</span> Likes
+                    </button>
+                </div>
+                <div class="bg-gray-300 h-40 mb-4 rounded-lg p-4 flex flex-col justify-between">
+                    <p>Post 3</p>
+                    <button class="text-black" onclick="toggleLike(this)">
+                        <i class="far fa-thumbs-up"></i> <span>0</span> Likes
+                    </button>
+                </div>
+            </div>
+            <button class="mt-1 bg-black text-white py-2 px-4 rounded-lg" onclick="loadMorePosts()">Ver mais posts</button>
         </div>
-    
         <div class="box" id="lateral">
             <h2>PROGRESSO DE AMIGOS</h2>
             <div class="item"></div>
@@ -53,11 +65,6 @@
         </div>
     </div>
         
-
-    </div>
-
-    <div class="footer"></div>
-    
 </body>
 
 </html>
