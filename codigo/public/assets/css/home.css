@@ -59,12 +59,12 @@ body {
     padding: 20px;
     width: 25%;
     height: 37rem;
-    color: #333;
+    color: #000000;
     text-align: center;
 }
 
 #meio {
-    width: 40rem;
+    width: 60rem;
 }
 
 #lateral {
@@ -73,7 +73,8 @@ body {
 
 .box h2 {
     color: #000;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    font-family: 'Archivo Black', sans-serif;
 }
 
 .item {
@@ -90,9 +91,22 @@ body {
     margin-bottom: 15px;
 }
 
-.footer {
-    background-color: #000000;
-    height: 50px;
+.post {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px 0;
 }
+
+.like-button {
+    cursor: pointer;
+    color: blue;
+}
+
+/* Remova o estilo da barra inferior */
+/* .footer {
+    background-color: #000000;
+    height: 30px;
+    width: 100%;
+} */
 
 
