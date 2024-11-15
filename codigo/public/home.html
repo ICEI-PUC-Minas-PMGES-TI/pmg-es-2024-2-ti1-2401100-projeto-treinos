@@ -34,26 +34,10 @@
                 <textarea id="postContent" class="w-full p-2 mb-2 border rounded" placeholder="Escreva algo..."></textarea>
             </form>
             <div id="feed">
-                <div class="bg-gray-300 h-40 mb-4 rounded-lg p-4 flex flex-col justify-between">
-                    <p>Post 1</p>
-                    <button class="text-black" onclick="toggleLike(this)">
-                        <i class="far fa-thumbs-up"></i> <span>0</span> Likes
-                    </button>
-                </div>
-                <div class="bg-gray-300 h-40 mb-4 rounded-lg p-4 flex flex-col justify-between">
-                    <p>Post 2</p>
-                    <button class="text-black" onclick="toggleLike(this)">
-                        <i class="far fa-thumbs-up"></i> <span>0</span> Likes
-                    </button>
-                </div>
-                <div class="bg-gray-300 h-40 mb-4 rounded-lg p-4 flex flex-col justify-between">
-                    <p>Post 3</p>
-                    <button class="text-black" onclick="toggleLike(this)">
-                        <i class="far fa-thumbs-up"></i> <span>0</span> Likes
-                    </button>
-                </div>
+                <!-- ...existing posts... -->
             </div>
             <button class="mt-1 bg-black text-white py-2 px-4 rounded-lg" onclick="loadMorePosts()">Ver mais posts</button>
+            <button class="mt-1 bg-black text-white py-2 px-4 rounded-lg" onclick="updatePosts()">Atualizar posts</button>
         </div>
         <div class="box" id="lateral">
             <h2>PROGRESSO DE AMIGOS</h2>
@@ -64,7 +48,59 @@
             <div class="item"></div>
         </div>
     </div>
-        
+    <script>
+        document.addEventListener('DOMContentLoaded', loadPosts);
+
+        function addPost(event) {
+            event.preventDefault();
+            const postContent = document.getElementById('postContent').value;
+            if (postContent.trim() !== "") {
+                const postElement = createPostElement(postContent);
+                document.getElementById('feed').prepend(postElement);
+                savePost(postContent);
+                document.getElementById('postContent').value = '';
+            }
+        }
+
+        function createPostElement(content) {
+            const postElement = document.createElement('div');
+            postElement.className = 'bg-gray-300 h-40 mb-4 rounded-lg p-4 flex flex-col justify-between';
+            postElement.innerHTML = `
+                <p>${content}</p>
+                <button class="text-black" onclick="toggleLike(this)">
+                    <i class="far fa-thumbs-up"></i> <span>0</span> Likes
+                </button>
+                <button class="text-red-500" onclick="deletePost(this, '${content}')">Excluir</button>
+            `;
+            return postElement;
+        }
+
+        function savePost(content) {
+            let posts = JSON.parse(localStorage.getItem('posts')) || [];
+            posts.push(content);
+            localStorage.setItem('posts', JSON.stringify(posts));
+        }
+
+        function loadPosts() {
+            let posts = JSON.parse(localStorage.getItem('posts')) || [];
+            posts.forEach(content => {
+                const postElement = createPostElement(content);
+                document.getElementById('feed').appendChild(postElement);
+            });
+        }
+
+        function deletePost(button, content) {
+            button.parentElement.remove();
+            let posts = JSON.parse(localStorage.getItem('posts')) || [];
+            posts = posts.filter(post => post !== content);
+            localStorage.setItem('posts', JSON.stringify(posts));
+        }
+
+        function updatePosts() {
+            loadPosts();
+            console.log("Posts atualizados");
+        }
+    </script>
 </body>
 
 </html>
