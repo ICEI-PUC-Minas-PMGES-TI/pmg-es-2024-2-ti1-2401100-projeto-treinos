@@ -21,7 +21,6 @@
 </head>
 
 <body>
-    
     <header class="header">
         <a href="home.html"><img src="assets/images/logoclara.png" width="70" alt="Logo"/></a>
         <nav>
@@ -40,20 +39,22 @@
             <div class="scrollable-area">
                 <div class="treinoSelecionado">
                     <h1>SEU TREINO</h1>
-                    <div class="seuTreino">
-                        <div class="content">
-                            <table border="1">
-                                <thead>
-                                    <tr>
-                                        <th>Treino</th>
-                                        <th>Repetição</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="tbody"></tbody>
-                            </table>
+                    <div class="seuTreino" id="lista-treinos"> </div>
+                    
+                    <button id="adicionarTreinoBtn" class="fixarTreino">Fixar Treino</button>
+                <div id="popupEscolherTreino" class="popup">
+                    <div class="popup-content">
+                        <span class="close" onclick="fecharPopupEscolherTreino()">&times;</span>
+                        <h2>Escolha o treino para fixar</h2>
+                        <div class="treino-options">
+                            <button onclick="fixarTreino(1)">Treino 1</button>
+                            <button onclick="fixarTreino(2)">Treino 2</button>
+                            <button onclick="fixarTreino(3)">Treino 3</button>
+                            <button onclick="fixarTreino(4)">Treino 4</button>
                         </div>
                     </div>
                 </div>
+            </div>
             </div>
         </aside>
 
@@ -63,7 +64,6 @@
                     <h1>TREINO 1</h1>
                     <ul id="lista-treinos-1"></ul>
                     <button class="verMaisBtn" onclick="abrirPopup(1)">Ver Mais</button>
-
                 </div>
                 <div class="treino2 atras">
                     <h1>TREINO 2</h1>
@@ -74,22 +74,11 @@
                     <h1>TREINO 3</h1>
                     <ul id="lista-treinos-3"></ul>
                     <button class="verMaisBtn" onclick="abrirPopup(3)">Ver Mais</button>
-
-                </div>                
-                
-                <div class="treino4">
-                    <div class="card">
-                        <div class="lineInput">
-                            <label>Treino</label>
-                            <input type="text" id="treino" placeholder="Nome do Treino" required>
-                        </div>
-                        <div class="lineInput">
-                            <label>Repetição</label>
-                            <input type="text" id="repeticao" placeholder="Quantidade de Repetição" required>
-                        </div>
-                        <button onclick="treino.salvar()">Salvar</button>
-                        <button onclick="treino.cancelar()">Cancelar</button>    
-                    </div>
+                </div>
+                <div class="treino4 atras">
+                    <h1>TREINO 4</h1>
+                    <ul id="lista-treinos-4"></ul>
+                    <button class="verMaisBtn" onclick="abrirPopup(4)">Ver Mais</button>
                 </div>
             </div>
         </main>
@@ -101,21 +90,25 @@
             <p id="treino-detalhes"></p>
 
             <h2>Meu Treino</h2>
-            <ul id="lista-treinos-popup"></ul>
+            <table id="tabela-treinos-popup">
+            <thead>
+                <tr>
+                    <th>NOME</th>
+                    <th>REPETIÇÃO</th>
+                    <th>AÇÕES</th>
+                </tr>
+            </thead>
+            <tbody id="tbody-treinos-popup"></tbody>
+            </table>
     
             <h2>Adicionar Treino</h2>
             <input type="text" id="nome-treino-popup" placeholder="Nome do Treino" required>
             <input type="text" id="repeticao-popup" placeholder="Repetição" required>
             <button onclick="adicionarTreinoPopup(1)">Adicionar Treino</button>
-            
 
-            <button onclick="fecharPopup()" style="margin-top: 15px; background-color: #ff6600; color: #fff; padding: 10px; border: none; border-radius: 5px; cursor: pointer;">
-                Ver menos
-            </button>
+            <button onclick="fecharPopup()" class="fecharBtn">Ver menos</button>
         </div>
     </div>
-    
-    
 
     <footer class="rodape">
 
