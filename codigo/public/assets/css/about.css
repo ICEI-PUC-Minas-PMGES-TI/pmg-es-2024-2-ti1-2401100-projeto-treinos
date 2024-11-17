@@ -33,6 +33,11 @@ body {
   }
    /* Texto com pedaço em vermelho FIM */
 
+.bg-black {
+  padding: 0%;
+  margin: 0%;
+  display: block;
+}
 
 
 

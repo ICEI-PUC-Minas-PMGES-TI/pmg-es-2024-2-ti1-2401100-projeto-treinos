@@ -52,33 +52,34 @@
       </a>
     </nav>
   </div>
-
+  <div class="text-center">
+    <h1 class="bg-orange fw-bold">Suas Conquistas</span></h1>
+</div>
   <div class="container text-center mt-5">
-    <h2>Suas <span class="highlight">Conquistas</span></h2>
 
     <div id="achievementsContainer" class="row justify-content-center mt-4">
       <!-- Modelo de Conquista -->
       <script>
         const achievementsData = [
-          { title: "Força Sobre-Humana", description: "Complete treinos de bíceps por mais de 500 vezes no total.", levels: [125, 250, 375, 500], imagePath: "assets/images/default_medal.png" },
-          { title: "Força Nível Nêmesis", description: "Alcance um novo recorde de peso na rosca direta.", levels: [5, 15, 25, 30], imagePath: "assets/images/default_medal.png" },
-          { title: "Empurrão de Hércules", description: "Complete treinos de tríceps por mais de 500 vezes no total.", levels: [125, 250, 375, 500], imagePath: "assets/images/default_medal.png" },
-          { title: "100 Flexões", description: "Melhore seu tríceps chegando ao mesmo número de flexões diárias que o saitama", levels: [25, 50, 75, 100], imagePath: "assets/images/default_medal.png" },
-          { title: "O Peso da Matadora de Dragões:", description: "Chegue na força de Guts completando séries de encolhimento com barra até acumular um total de 1.000 kg levantados", levels: [250, 500, 750, 1000], imagePath: "assets/images/default_medal.png" },
-          { title: "Asas de Ícaro", description: "Treine remada curvada por mais de 500 vezes no total.", levels: [125, 250, 375, 500], imagePath: "assets/images/default_medal.png" },
-          { title: "Costas de Baki Hanma", description: "Complete exercícios de barra fixa até chegar em mais 100 repetições no mesmo dia.", levels: [25, 50, 75, 100], imagePath: "assets/images/default_medal.png" },
-          { title: "100 agachamentos", description: "Melhore suas pernas chegando ao mesmo número de agachamentos diários que o saitama.", levels: [25, 50, 75, 100], imagePath: "assets/images/default_medal.png" },
-          { title: "Pernas de Rock Lee", description: "Alcance um novo recorde de peso no leg press.", levels: [75, 150, 225, 300], imagePath: "assets/images/default_medal.png" },
-          { title: "Força de Chun-li", description: "Alcance um novo recorde de peso em exercícios de glúteos, como elevação de quadril.", levels: [50, 100, 150, 200], imagePath: "assets/images/default_medal.png" },
-          { title: "Chute Relâmpago de Cammy", description: "Realize 500 séries de elevação de quadril ou abdução de pernas.", levels: [125, 250, 375, 500], imagePath: "assets/images/default_medal.png" },
-          { title: "Ombros de Kratos", description: "Treine elevação lateral por mais de 500 vezes no total.", levels: [125, 250, 375, 500], imagePath: "assets/images/default_medal.png" },
-          { title: "Ombros de Aço", description: "Complete séries de Remada aberta até levantar um total de 5.000 kg.", levels: [1000, 2500, 4000, 5000], imagePath: "assets/images/default_medal.png" },
-          { title: "Peitoral de Ferro", description: "Alcance um novo recorde de peso no supino.", levels: [10, 20, 30, 40], imagePath: "assets/images/default_medal.png" },
-          { title: "Peitoral Indestrutível", description: "Complete treinos de peito por mais de 500 vezes no total.", levels: [125, 250, 375, 500], imagePath: "assets/images/default_medal.png" },
-          { title: "100 abdominais", description: "Melhore seu abdômen chegando ao mesmo número de abdominais diários que o saitama.", levels: [25, 50, 75, 100], imagePath: "assets/images/default_medal.png" },
-          { title: "Super soldado do abdominais", description: "Mantenha a prancha por um total de 1 hora no mesmo dia.", levels: [20, 40, 50, 60], imagePath: "assets/images/default_medal.png" },
-          { title: "E uma corrida de 10KM!", description: "Melhore seu fôlego chegando ao mesmo número de kms diários na corrida do que o saitama.", levels: [2, 5, 7, 10], imagePath: "assets/images/default_medal.png" },
-          { title: "Agilidade do Aranha", description: "Complete um circuito de treino de alta intensidade, incluindo movimentos de explosão como burpees e saltos em caixa, acumulando um tempo total de treino aeróbico explosivo.", levels: [30, 60, 90, 120], imagePath: "assets/images/default_medal.png" },
+          { title: "Força Sobre-Humana", description: "Complete treinos de bíceps por mais de 500 vezes no total.", levels: [125, 250, 375, 500], imagePath: "assets/images/blank_medal.png" },
+          { title: "Força Nível Nêmesis", description: "Alcance um novo recorde de peso na rosca direta.", levels: [5, 15, 25, 30], imagePath: "assets/images/blank_medal.png" },
+          { title: "Empurrão de Hércules", description: "Complete treinos de tríceps por mais de 500 vezes no total.", levels: [125, 250, 375, 500], imagePath: "assets/images/blank_medal.png" },
+          { title: "100 Flexões", description: "Melhore seu tríceps chegando ao mesmo número de flexões diárias que o saitama", levels: [25, 50, 75, 100], imagePath: "assets/images/blank_medal.png" },
+          { title: "O Peso da Matadora de Dragões:", description: "Chegue na força de Guts completando séries de encolhimento com barra até acumular um total de 1.000 kg levantados", levels: [250, 500, 750, 1000], imagePath: "assets/images/blank_medal.png" },
+          { title: "Asas de Ícaro", description: "Treine remada curvada por mais de 500 vezes no total.", levels: [125, 250, 375, 500], imagePath: "assets/images/blank_medal.png" },
+          { title: "Costas de Baki Hanma", description: "Complete exercícios de barra fixa até chegar em mais 100 repetições no mesmo dia.", levels: [25, 50, 75, 100], imagePath: "assets/images/blank_medal.png" },
+          { title: "100 agachamentos", description: "Melhore suas pernas chegando ao mesmo número de agachamentos diários que o saitama.", levels: [25, 50, 75, 100], imagePath: "assets/images/blank_medal.png" },
+          { title: "Pernas de Rock Lee", description: "Alcance um novo recorde de peso no leg press.", levels: [75, 150, 225, 300], imagePath: "assets/images/blank_medal.png" },
+          { title: "Força de Chun-li", description: "Alcance um novo recorde de peso em exercícios de glúteos, como elevação de quadril.", levels: [50, 100, 150, 200], imagePath: "assets/images/blank_medal.png" },
+          { title: "Chute Relâmpago de Cammy", description: "Realize 500 séries de elevação de quadril ou abdução de pernas.", levels: [125, 250, 375, 500], imagePath: "assets/images/blank_medal.png" },
+          { title: "Ombros de Kratos", description: "Treine elevação lateral por mais de 500 vezes no total.", levels: [125, 250, 375, 500], imagePath: "assets/images/blank_medal.png" },
+          { title: "Ombros de Aço", description: "Complete séries de Remada aberta até levantar um total de 5.000 kg.", levels: [1000, 2500, 4000, 5000], imagePath: "assets/images/blank_medal.png" },
+          { title: "Peitoral de Ferro", description: "Alcance um novo recorde de peso no supino.", levels: [10, 20, 30, 40], imagePath: "assets/images/blank_medal.png" },
+          { title: "Peitoral Indestrutível", description: "Complete treinos de peito por mais de 500 vezes no total.", levels: [125, 250, 375, 500], imagePath: "assets/images/blank_medal.png" },
+          { title: "100 abdominais", description: "Melhore seu abdômen chegando ao mesmo número de abdominais diários que o saitama.", levels: [25, 50, 75, 100], imagePath: "assets/images/blank_medal.png" },
+          { title: "Super soldado do abdominais", description: "Mantenha a prancha por um total de 1 hora no mesmo dia.", levels: [20, 40, 50, 60], imagePath: "assets/images/blank_medal.png" },
+          { title: "E uma corrida de 10KM!", description: "Melhore seu fôlego chegando ao mesmo número de kms diários na corrida do que o saitama.", levels: [2, 5, 7, 10], imagePath: "assets/images/blank_medal.png" },
+          { title: "Agilidade do Aranha", description: "Complete um circuito de treino de alta intensidade, incluindo movimentos de explosão como burpees e saltos em caixa, acumulando um tempo total de treino aeróbico explosivo.", levels: [30, 60, 90, 120], imagePath: "assets/images/blank_medal.png" },
           // Adicione outras conquistas conforme necessário
         ];
 

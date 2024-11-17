@@ -82,16 +82,19 @@ button:hover{
 }
 /* Botão FIM */
 
-
-
-
-  /* Círculos para pfp INÍCIO */ 
-.circle-img {
-    width: 80px; 
-    height: 80px;
-    object-fit: cover;
-    border-radius: 50%;
+/* Texto com pedaço em laranja INÍCIO */
+.highlight {
+    color: #ff6600;
+    font-weight: bold;
   }
+   /* Texto com pedaço em laranja FIM */
+
+.bg-orange {
+    background-color: #fd7e14;
+}
+
+
+  /* medalhas INÍCIO */ 
   
   @media (min-width: 768px) {
     .circle-img {
@@ -106,7 +109,7 @@ button:hover{
       height: 160px;
     }
   }
-  /* Círculos para pfp FIM */ 
+  /* medalhas FIM */ 
 
   
   .achievements{
