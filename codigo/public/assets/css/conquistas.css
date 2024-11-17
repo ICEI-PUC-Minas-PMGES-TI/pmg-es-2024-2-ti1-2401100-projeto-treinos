@@ -65,6 +65,26 @@ body {
     height: 15px;
   }
 
+  /* Botão INÍCIO*/
+  button{
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease;
+}
+button:hover{
+    background-color: #0056b3;
+}
+/* Botão FIM */
+
+
+
+
   /* Círculos para pfp INÍCIO */ 
 .circle-img {
     width: 80px; 

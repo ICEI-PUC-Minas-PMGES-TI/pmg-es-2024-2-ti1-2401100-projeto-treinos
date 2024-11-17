@@ -12,6 +12,7 @@
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
    <!-- Link Bootstrap PT1 FIM-->
 
+
   <style>
     .edit-profile-mode #profile-picture {
       cursor: pointer;
@@ -30,6 +31,13 @@
       cursor: pointer;
       margin: 5px 0;
     }
+    .achievement {
+      margin-bottom: 30px;
+    }
+    .achievement img {
+      max-width: 100%;
+      height: auto;
+    }
   </style>
 </head>
 <body>
@@ -45,29 +53,85 @@
     </nav>
   </div>
 
-  <div>
-    <div class="container text-center mt-5">
-        <h2>Suas <span class="highlight">Conquistas</span></h2>
-        <div class="row justify-content-center mt-4">
-          <!-- Conquista Bíceps 1 -->
-          <div class="col-4 col-md-3">
-            <img src="assets/images/joao_ricardo_pfp.jpg" alt="Colaborador 1" class="circle-img mb-2">
-            <p class="fs-4">Força Sobre Humana</p>
-            <p class="fs-6">Complete treinos de bíceps por mais de 500 vezes no total.</p>
-          </div>
-          <!-- Conquista Bíceps 2 -->
-          <div class="col-4 col-md-3">
-            <img src="assets/images/rafael_brant_pfp.jpg" alt="Colaborador 2" class="circle-img mb-2">
-            <p class="fs-4">Força nível Nêmesis</p>
-            <p class="fs-6">Alcance um novo recorde de peso na rosca direta</p>
-          </div>
-          <!-- Conquista Tríceps 1 -->
-          <div class="col-4 col-md-3">
-            <img src="assets/images/joao_pedro_pfp.jpg" alt="Colaborador 3" class="circle-img mb-2">
-            <p class="fs-4">Empurrão de Hércules</p>
-            <p class="fs-6">Complete treinos de tríceps por mais de 500 vezes no total</p>
-          </div>
-        </div>
+  <div class="container text-center mt-5">
+    <h2>Suas <span class="highlight">Conquistas</span></h2>
+
+    <div id="achievementsContainer" class="row justify-content-center mt-4">
+      <!-- Modelo de Conquista -->
+      <script>
+        const achievementsData = [
+          { title: "Força Sobre-Humana", description: "Complete treinos de bíceps por mais de 500 vezes no total.", levels: [125, 250, 375, 500], imagePath: "assets/images/default_medal.png" },
+          { title: "Força Nível Nêmesis", description: "Alcance um novo recorde de peso na rosca direta.", levels: [5, 15, 25, 30], imagePath: "assets/images/default_medal.png" },
+          { title: "Empurrão de Hércules", description: "Complete treinos de tríceps por mais de 500 vezes no total.", levels: [125, 250, 375, 500], imagePath: "assets/images/default_medal.png" },
+          { title: "100 Flexões", description: "Melhore seu tríceps chegando ao mesmo número de flexões diárias que o saitama", levels: [25, 50, 75, 100], imagePath: "assets/images/default_medal.png" },
+          { title: "O Peso da Matadora de Dragões:", description: "Chegue na força de Guts completando séries de encolhimento com barra até acumular um total de 1.000 kg levantados", levels: [250, 500, 750, 1000], imagePath: "assets/images/default_medal.png" },
+          { title: "Asas de Ícaro", description: "Treine remada curvada por mais de 500 vezes no total.", levels: [125, 250, 375, 500], imagePath: "assets/images/default_medal.png" },
+          { title: "Costas de Baki Hanma", description: "Complete exercícios de barra fixa até chegar em mais 100 repetições no mesmo dia.", levels: [25, 50, 75, 100], imagePath: "assets/images/default_medal.png" },
+          { title: "100 agachamentos", description: "Melhore suas pernas chegando ao mesmo número de agachamentos diários que o saitama.", levels: [25, 50, 75, 100], imagePath: "assets/images/default_medal.png" },
+          { title: "Pernas de Rock Lee", description: "Alcance um novo recorde de peso no leg press.", levels: [75, 150, 225, 300], imagePath: "assets/images/default_medal.png" },
+          { title: "Força de Chun-li", description: "Alcance um novo recorde de peso em exercícios de glúteos, como elevação de quadril.", levels: [50, 100, 150, 200], imagePath: "assets/images/default_medal.png" },
+          { title: "Chute Relâmpago de Cammy", description: "Realize 500 séries de elevação de quadril ou abdução de pernas.", levels: [125, 250, 375, 500], imagePath: "assets/images/default_medal.png" },
+          { title: "Ombros de Kratos", description: "Treine elevação lateral por mais de 500 vezes no total.", levels: [125, 250, 375, 500], imagePath: "assets/images/default_medal.png" },
+          { title: "Ombros de Aço", description: "Complete séries de Remada aberta até levantar um total de 5.000 kg.", levels: [1000, 2500, 4000, 5000], imagePath: "assets/images/default_medal.png" },
+          { title: "Peitoral de Ferro", description: "Alcance um novo recorde de peso no supino.", levels: [10, 20, 30, 40], imagePath: "assets/images/default_medal.png" },
+          { title: "Peitoral Indestrutível", description: "Complete treinos de peito por mais de 500 vezes no total.", levels: [125, 250, 375, 500], imagePath: "assets/images/default_medal.png" },
+          { title: "100 abdominais", description: "Melhore seu abdômen chegando ao mesmo número de abdominais diários que o saitama.", levels: [25, 50, 75, 100], imagePath: "assets/images/default_medal.png" },
+          { title: "Super soldado do abdominais", description: "Mantenha a prancha por um total de 1 hora no mesmo dia.", levels: [20, 40, 50, 60], imagePath: "assets/images/default_medal.png" },
+          { title: "E uma corrida de 10KM!", description: "Melhore seu fôlego chegando ao mesmo número de kms diários na corrida do que o saitama.", levels: [2, 5, 7, 10], imagePath: "assets/images/default_medal.png" },
+          { title: "Agilidade do Aranha", description: "Complete um circuito de treino de alta intensidade, incluindo movimentos de explosão como burpees e saltos em caixa, acumulando um tempo total de treino aeróbico explosivo.", levels: [30, 60, 90, 120], imagePath: "assets/images/default_medal.png" },
+          // Adicione outras conquistas conforme necessário
+        ];
+
+        function createAchievement(id, title, description, levels, imagePath, bronzePath, silverPath, goldPath, pumpPath) {
+          return `
+            <div class="col-12 col-md-4 achievement">
+              <img id="image-${id}" src="${imagePath}" alt="Medalha ${title}" class="circle-img mb-2">
+              <p class="fs-4">${title}</p>
+              <p class="fs-6">${description}</p>
+              <button id="button-${id}" onclick="updateProgress('${id}', ${levels[0]}, ${levels[1]}, ${levels[2]}, ${levels[3]}, '${bronzePath}', '${silverPath}', '${goldPath}', '${pumpPath}')">Concluir Treino</button>
+              <p id="progress-${id}" class="fs-3">Treinos realizados: 0</p>
+            </div>
+          `;
+        }
+
+        function updateProgress(id, bronzeLevel, silverLevel, goldLevel, pumpLevel, bronzePath, silverPath, goldPath, pumpPath) {
+          const progressElem = document.getElementById(`progress-${id}`);
+          const imageElem = document.getElementById(`image-${id}`);
+          let currentCount = parseInt(progressElem.textContent.match(/\d+/)[0], 10);
+
+          currentCount++;
+          progressElem.textContent = `Treinos realizados: ${currentCount}`;
+
+          if (currentCount >= pumpLevel) {
+            imageElem.src = pumpPath;
+          } else if (currentCount >= goldLevel) {
+            imageElem.src = goldPath;
+          } else if (currentCount >= silverLevel) {
+            imageElem.src = silverPath;
+          } else if (currentCount >= bronzeLevel) {
+            imageElem.src = bronzePath;
+          }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+          const container = document.getElementById('achievementsContainer');
+          achievementsData.forEach((achievement, index) => {
+            container.innerHTML += createAchievement(
+              index + 1,
+              achievement.title,
+              achievement.description,
+              achievement.levels,
+              achievement.imagePath,
+              'assets/images/bronze_medal.png',
+              'assets/images/silver_medal.png',
+              'assets/images/gold_medal.png',
+              'assets/images/pump_medal.png'
+            );
+          });
+        });
+      </script>
+      <script src="script.js"></script>
+    </div>
   </div>
 
   <!-- Link Bootstrap PT 2 INÍCIO-->
