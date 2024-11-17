@@ -1,11 +1,77 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <title>Conquistas - PULSEPUMP</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/conquistas.css">
+
+   <!-- Link Bootstrap PT1 início-->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+   <!-- Link Bootstrap PT1 FIM-->
+
+  <style>
+    .edit-profile-mode #profile-picture {
+      cursor: pointer;
+    }
+    .floating-bar {
+      position: fixed;
+      top: 20%;
+      right: 0;
+      transform: translateY(-50%);
+      background-color: #f1f1f1;
+      padding: 10px;
+      border-radius: 10px 0 0 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .floating-bar .star {
+      cursor: pointer;
+      margin: 5px 0;
+    }
+  </style>
 </head>
 <body>
-    
+  <div class="header">
+    <a href="home.html"><img src="assets/images/logoclara.png" width="70"/></a> 
+    <nav>
+      <a href="home.html">HOME</a>
+      <a href="treinos.html">MEUS TREINOS</a>
+      <a href="radarAcademias.html">ACADEMIAS PRÓXIMAS</a>
+      <a href="perfilusuario.html">
+        <img id="nav-profile-picture" src="assets/images/AvatarBW.png" class="profile-icon" width="40" height="40"/>
+      </a>
+    </nav>
+  </div>
+
+  <div>
+    <div class="container text-center mt-5">
+        <h2>Suas <span class="highlight">Conquistas</span></h2>
+        <div class="row justify-content-center mt-4">
+          <!-- Conquista Bíceps 1 -->
+          <div class="col-4 col-md-3">
+            <img src="assets/images/joao_ricardo_pfp.jpg" alt="Colaborador 1" class="circle-img mb-2">
+            <p class="fs-4">Força Sobre Humana</p>
+            <p class="fs-6">Complete treinos de bíceps por mais de 500 vezes no total.</p>
+          </div>
+          <!-- Conquista Bíceps 2 -->
+          <div class="col-4 col-md-3">
+            <img src="assets/images/rafael_brant_pfp.jpg" alt="Colaborador 2" class="circle-img mb-2">
+            <p class="fs-4">Força nível Nêmesis</p>
+            <p class="fs-6">Alcance um novo recorde de peso na rosca direta</p>
+          </div>
+          <!-- Conquista Tríceps 1 -->
+          <div class="col-4 col-md-3">
+            <img src="assets/images/joao_pedro_pfp.jpg" alt="Colaborador 3" class="circle-img mb-2">
+            <p class="fs-4">Empurrão de Hércules</p>
+            <p class="fs-6">Complete treinos de tríceps por mais de 500 vezes no total</p>
+          </div>
+        </div>
+  </div>
+
+  <!-- Link Bootstrap PT 2 INÍCIO-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <!-- Link Bootstrap PT 2 FIM-->
 </body>
 </html>
