@@ -73,6 +73,11 @@ body {
   background-color: #ffffff;
   border-radius: 50%;
 }
+.iconeplus img{
+  height: 15px;
+}
+
+
 .achievements{
   display: flex ;
   justify-content: center;

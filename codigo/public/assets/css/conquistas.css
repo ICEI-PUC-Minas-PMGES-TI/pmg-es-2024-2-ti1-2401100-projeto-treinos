@@ -1,0 +1,274 @@
+body {
+    font-family: 'Archivo Black', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000;
+    color: #ff6600;
+    text-align: center;
+    padding: 5px 20px;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Archivo Black', sans-serif; 
+  }
+  .header img {
+    height: 40px;
+  }
+  .header nav {
+    display: flex;
+    justify-content: center; 
+    flex-grow: 1; 
+  }
+  .header nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    padding: 5px 15px;  
+    border-radius: 5px; 
+    transition: all 0.3s ease; 
+  }
+  .header nav a:hover {
+    background-color: #ff6600; 
+    transform: scale(1.05); 
+  }
+  .header .profile-icon {
+    border-radius: 50%;
+    border: 2px solid #ff6600;
+  }
+  
+  .profile {
+    text-align: center;
+  }
+  .profile img {
+    border-radius: 50%;
+    border: 2px solid #ff6600;
+    width: 150px;
+    height: 150px;
+  }
+  .profile .level{
+    margin-top: 10px;
+    font-size: 1.2em;
+  }
+  .placeholder{
+    background-color: #ffffff;
+    border-radius: 50%;
+  }
+  .iconeplus img{
+    height: 15px;
+  }
+
+  /* Botão INÍCIO*/
+  button{
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease;
+}
+button:hover{
+    background-color: #0056b3;
+}
+/* Botão FIM */
+
+/* Texto com pedaço em laranja INÍCIO */
+.highlight {
+    color: #ff6600;
+    font-weight: bold;
+  }
+   /* Texto com pedaço em laranja FIM */
+
+.bg-orange {
+    background-color: #fd7e14;
+}
+
+
+  /* medalhas INÍCIO */ 
+  
+  @media (min-width: 768px) {
+    .circle-img {
+      width: 140px;
+      height: 140px;
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    .circle-img {
+      width: 160px;
+      height: 160px;
+    }
+  }
+  /* medalhas FIM */ 
+
+  
+  .achievements{
+    display: flex ;
+    justify-content: center;
+    text-align: center;
+    margin-top: 20px;
+  }
+  .achievements i{
+    font-size: 24px;
+    margin: 0 5px;
+    border: 2px solid #000;
+    border-radius: 100%;
+    padding: 10px;
+  }
+  .goals-bio-container{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 20px;
+    width: 48%;
+  }
+  .goals{
+    background-color: #ff6600;
+    padding: 20px;
+    border-radius: 10px;
+    color: #fff;
+    width: 300px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
+  .goals h3 {
+    margin-top: 0;
+  }
+  .goal-item {
+    background-color: #e6e6e6;
+    border-radius: 5px;
+    margin: 10px 0;
+    padding: 10px;
+    color: #000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative; 
+  }
+  .goal-item i {
+    font-size: 18px;
+    border: 2px solid #000;
+    border-radius: 50%;
+    padding: 5px;
+    margin-right: 10px;
+  }
+  .goal-text {
+    display: block;
+    margin-right: 10px;
+    flex-grow: 1;
+  }
+  .bio {
+    background-color: #ccc;
+    padding: 20px;
+    border-radius: 10px;
+    width: 600px;
+    height: 300px;
+    position: relative;
+    margin-top: 40px;
+  }
+  .edit-profile {
+    background-color: #ccc;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 8px 10px;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    bottom: -70px;
+    right: 0;
+    cursor: pointer;
+    transition: all 0.3s ease; 
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  .edit-profile:hover {
+    background-color: #e0e0e6; 
+    transform: translateY(-2px); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  }
+  .edit-profile i {
+    margin-right: 5px;
+  }
+  .footer {
+    background-color: #000;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+  }
+  .edit-area {
+    display: none;
+    width: 100%;
+    height: 10px;
+    resize: vertical;
+    margin-top: 5px; 
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  .edit-area:focus {
+    outline: none;
+    border-color: #ff6600; 
+  }
+  .bio .edit-area {
+    height: 230px;
+    position: left; 
+    bottom: 10; 
+  }
+  .edit-profile #add-star-button {
+    margin-left: 10px; 
+  }
+  #add-star-button:hover { 
+    transform: scale(1.1); 
+    box-shadow: 0 14px 8px rgba(0, 0, 0, 0.1); 
+  }
+  #change-profile-button {
+    margin-top: 10px;
+    transition: all 0.3s ease; 
+  }
+  #change-profile-button:hover {
+    transform: scale(1.05); 
+    box-shadow: 0 114px 8px #ff6600(0, 0, 0, 0.1); 
+  }
+  .goals {
+    margin-top: 20px; 
+  }
+  .sobre{
+    margin-top: 20px;
+    color: #ff0000;
+    padding: 10px 0;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+  }
+  #stars-container i {
+    color: #000;
+  }
+  
+  /* Responsividade */
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .left-section, .goals-bio-container {
+      width: 100%;
+    }
+  }
+  
