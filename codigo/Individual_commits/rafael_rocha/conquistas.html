@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Conquistas</title>
+    <link rel="stylesheet" href="style.conquista.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/codigo/public/assets/css/perfilusuario.css">
+</head>
+<body>
+  <div class="header">
+    <a href="home.html"><img src="assets/images/logoclara.png" width="70"/></a> 
+    <nav>
+      <a href="/codigo/public/home.html">HOME</a>
+      <a href="/codigo/public/treinos.html">MEUS TREINOS</a>
+      <a href="/codigo/public/radarAcademias.html">ACADEMIAS PRÓXIMAS</a>
+      <a href="perfilusuario.html">
+        <img id="nav-profile-picture" src="assets/images/AvatarBW.png" class="profile-icon" width="40" height="40"/>
+      </a>
+    </nav>
+    </div>
+    <div class="container2">
+        <h1>Sistema de Conquistas</h1>
+        <button id="addTaskButton">Concluir Treino</button>
+        <div class="progress">
+            <h2>Progresso</h2>
+            <p id="progressInfo">Treinos Concluidos: 0</p>
+        </div>
+        <div class="achievements">
+            <h2>Conquistas</h2>
+            <ul id="achievementsList">
+            </ul>
+        </div>
+    </div>
+    <script>
+        const achievements = [
+            { id: 1, name: "Primeiro Passo!", description: "Conclua seu primeiro treino!", unlocked: false },
+            { id: 2, name: "Produtividade em Ação!", description: "Treine 10 vezes!", unlocked: false },
+            { id: 3, name: "Braço de ferro!", description: "Treine 50 vezes!", unlocked: false },
+        ];
+
+        const progresso = {
+            tasksCompleted: 0,
+            unlockAchievement(achievementId) {
+                const achievement = achievements.find(a => a.id === achievementId);
+                if (achievement && !achievement.unlocked) {
+                    achievement.unlocked = true;
+                    console.log(`🎉 Conquista desbloqueada: ${achievement.name} - ${achievement.description}`);
+                    this.updateAchievementsList();
+                }
+            },
+            checkAchievements() {
+                achievements.forEach(achievement => {
+                    if (!achievement.unlocked) {
+                        if (achievement.id === 1 && this.tasksCompleted >= 1) {
+                            this.unlockAchievement(achievement.id);
+                        }
+                        if (achievement.id === 2 && this.tasksCompleted >= 10) {
+                            this.unlockAchievement(achievement.id);
+                        }
+                        if (achievement.id === 3 && this.tasksCompleted >= 50) {
+                            this.unlockAchievement(achievement.id);
+                        }
+                    }
+                });
+            },
+            addProgress(count = 1) {
+                this.tasksCompleted += count;
+                console.log(`Progresso atualizado! Tarefas concluídas: ${this.tasksCompleted}`);
+                document.getElementById('progressInfo').textContent = `Tarefas concluídas: ${this.tasksCompleted}`;
+                this.checkAchievements();
+            },
+            updateAchievementsList() {
+                const achievementsList = document.getElementById('achievementsList');
+                achievementsList.innerHTML = '';
+                achievements.forEach(achievement => {
+                    if (achievement.unlocked) {
+                        const listItem = document.createElement('li');
+                        listItem.textContent = `${achievement.name} - ${achievement.description}`;
+                        achievementsList.appendChild(listItem);
+                    }
+                });
+            }
+        };
+
+        document.querySelector("#addTaskButton").addEventListener("click", () => {
+            progresso.addProgress();
+        });
+    </script>
+</body>
+</html>
