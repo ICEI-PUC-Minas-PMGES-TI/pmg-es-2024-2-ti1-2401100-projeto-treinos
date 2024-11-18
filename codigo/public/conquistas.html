@@ -95,13 +95,22 @@
           `;
         }
 
+        function saveProgress(id, count) {
+          sessionStorage.setItem(`progress-${id}`, count);
+        }
+
+        function loadProgress(id) {
+          return parseInt(sessionStorage.getItem(`progress-${id}`) || '0', 10);
+        }
+
         function updateProgress(id, bronzeLevel, silverLevel, goldLevel, pumpLevel, bronzePath, silverPath, goldPath, pumpPath) {
           const progressElem = document.getElementById(`progress-${id}`);
           const imageElem = document.getElementById(`image-${id}`);
-          let currentCount = parseInt(progressElem.textContent.match(/\d+/)[0], 10);
+          let currentCount = loadProgress(id);
 
           currentCount++;
           progressElem.textContent = `Treinos realizados: ${currentCount}`;
+          saveProgress(id, currentCount);
 
           if (currentCount >= pumpLevel) {
             imageElem.src = pumpPath;
@@ -128,7 +137,35 @@
               'assets/images/gold_medal.png',
               'assets/images/pump_medal.png'
             );
+
+            const progressElem = document.getElementById(`progress-${index + 1}`);
+            const imageElem = document.getElementById(`image-${index + 1}`);
+            const currentCount = loadProgress(index + 1);
+            progressElem.textContent = `Treinos realizados: ${currentCount}`;
+
+            if (currentCount >= achievement.levels[3]) {
+              imageElem.src = 'assets/images/pump_medal.png';
+            } else if (currentCount >= achievement.levels[2]) {
+              imageElem.src = 'assets/images/gold_medal.png';
+            } else if (currentCount >= achievement.levels[1]) {
+              imageElem.src = 'assets/images/silver_medal.png';
+            } else if (currentCount >= achievement.levels[0]) {
+              imageElem.src = 'assets/images/bronze_medal.png';
+            }
           });
+        });
+      </script>
+      <script>
+        function loadProfilePicture() {
+          const profilePicture = sessionStorage.getItem('profilePicture');
+          if (profilePicture) {
+            document.getElementById('nav-profile-picture').src = profilePicture;
+          }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+          loadProfilePicture();
+          // ...existing code...
         });
       </script>
       <script src="script.js"></script>
