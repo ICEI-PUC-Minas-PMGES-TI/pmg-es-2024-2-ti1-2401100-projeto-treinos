@@ -50,11 +50,35 @@
                 <div id="map"></div>
                 <script>
                     mapboxgl.accessToken = 'pk.eyJ1IjoicmFmYWVsMTgxMCIsImEiOiJjbTJzMmMwcHcxbnpqMmtvZzdhOGY0ZzVoIn0.UCOS31bgypEm3zCvHziJUw';
-                    const map = new mapboxgl.Map({
-                        container: 'map', // container ID
-                        center: [-43.99249844382545, -19.92249401497831], // starting position [lng, lat]. Note that lat must be set between -90 and 90
-                        zoom: 15 // starting zoom
-                    });
+                    
+                    // Verificar se o navegador suporta a API de geolocalização
+                    if (navigator.geolocation) {
+                        navigator.geolocation.getCurrentPosition(
+                            (position) => {
+                                // Obter a localização atual
+                                const userLongitude = position.coords.longitude;
+                                const userLatitude = position.coords.latitude;
+
+                                // Inicializar o mapa com a localização atual
+                                const map = new mapboxgl.Map({
+                                    container: 'map', // ID do container
+                                    center: [userLongitude, userLatitude], // Localização do usuário
+                                    zoom: 15 // Nível de zoom inicial
+                                });
+
+                                // Adicionar um marcador na localização atual
+                                new mapboxgl.Marker()
+                                    .setLngLat([userLongitude, userLatitude])
+                                    .addTo(map);
+                            },
+                            (error) => {
+                                console.error('Erro ao obter localização:', error);
+                                alert('Não foi possível obter sua localização.');
+                            }
+                        );
+                    } else {
+                        alert('Geolocalização não é suportada pelo seu navegador.');
+                    }
                 </script>
         </div>
 
