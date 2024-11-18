@@ -11,7 +11,7 @@
     <script src="https://api.mapbox.com/mapbox-gl-js/v3.7.0/mapbox-gl.js"></script>
     <link href="https://api.mapbox.com/mapbox-gl-js/v3.7.0/mapbox-gl.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="assets/js/home.js"></script>
+    <script src="home.js"></script>
 </head>
 
 <body>
@@ -27,25 +27,34 @@
     </div>
 
     <div class="container">
-        <div class="box" id="meio">
-            <h2>FEED</h2>
-            <form onsubmit="addPost(event)">
-                <textarea id="postContent" class="w-full p-2 mb-2 border rounded" placeholder="Escreva algo..."></textarea>
+        <div class="feed">
+            <div class="post">
+                <h2>FEED</h2>
+                <form onsubmit="addPost(event)">
+                    <textarea id="postContent" class="w-full p-2 mb-2 border rounded" placeholder="Escreva algo..."></textarea>
+                    <button class="mt-1 bg-black text-white py-2 px-4 rounded-lg" type="submit">Postar</button>
             </form>
             <div id="feed">
                 <!-- ...existing posts... -->
             </div>
             <button class="mt-1 bg-black text-white py-2 px-4 rounded-lg" onclick="loadMorePosts()">Ver mais posts</button>
-            <button class="mt-1 bg-black text-white py-2 px-4 rounded-lg" onclick="updatePosts()">Atualizar posts</button>
         </div>
-        <div class="box" id="lateral">
-            <h2>PROGRESSO DE AMIGOS</h2>
-            <div class="item"></div>
-            <div class="item"></div>
-            <div class="item"></div>
-            <div class="item"></div>
-            <div class="item"></div>
-        </div>
+    </div>
+
+        <aside class="sidebar">
+            <div class="profile">
+                <a href="perfilusuario.html"><img src="userplaceholder.png" class="placeholder" width="100" /></a>
+                <h3>Usuário</h3>
+                <p>X Treinos | Y Seguidores</p>
+                <button class="btn">Ver Perfil</button>
+            </div>
+            <div class="suggested">
+                <h3>Sugeridos</h3>
+                <div class="friend"><img src="User1"/> Sugestão 1 <button class="btn-follow">Seguir</button></div>
+                <div class="friend"><img src="User2"/>Sugestão 2<button class="btn-follow">Seguir</button></div>
+                <div class="friend"><img src="User3"/>Sugestão 3<button class="btn-follow">Seguir</button></div>
+            </div>
+        </aside>
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', loadPosts);
