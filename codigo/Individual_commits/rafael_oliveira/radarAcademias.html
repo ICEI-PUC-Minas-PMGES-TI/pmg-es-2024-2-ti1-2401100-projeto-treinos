@@ -50,14 +50,14 @@
                 <div id="map"></div>
                 <script>
                     mapboxgl.accessToken = 'pk.eyJ1IjoicmFmYWVsMTgxMCIsImEiOiJjbTJzMmMwcHcxbnpqMmtvZzdhOGY0ZzVoIn0.UCOS31bgypEm3zCvHziJUw';
-                    
+
                     // Verificar se o navegador suporta a API de geolocalização
                     if (navigator.geolocation) {
                         navigator.geolocation.getCurrentPosition(
                             (position) => {
                                 // Obter a localização atual
-                                const userLongitude = position.coords.longitude;
-                                const userLatitude = position.coords.latitude;
+                                const userLongitude = position.coords.longitude + 0.007;
+                                const userLatitude = position.coords.latitude - 0.001;
 
                                 // Inicializar o mapa com a localização atual
                                 const map = new mapboxgl.Map({
@@ -74,6 +74,11 @@
                             (error) => {
                                 console.error('Erro ao obter localização:', error);
                                 alert('Não foi possível obter sua localização.');
+                            },
+                            {
+                                enableHighAccuracy: true, // Solicita maior precisão
+                                timeout: 10000, // Tempo máximo para obter a posição (10s)
+                                maximumAge: 0 // Não usa uma localização armazenada em cache
                             }
                         );
                     } else {
