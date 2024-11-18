@@ -83,6 +83,10 @@ textarea {
     gap: 20px;
 }
 
+.profile {
+
+}
+
 .profile, .suggested {
     background: #ffffff;
     padding: 20px;
@@ -94,10 +98,25 @@ textarea {
     margin-bottom: 10px;
     font-size: 18px;
     color: #333;
+    display: flex;
+    justify-content: center;
 }
 
 .profile a {
-    
+    display: flex;
+    justify-content: center;
+}
+
+.profile p {
+    display: flex;
+    justify-content: center;
+}
+
+.profile .btn {
+    display: flex;
+    justify-content: center;
+    margin-left: 175px;
+    margin-top: 10px;
 }
 
 .friend {
