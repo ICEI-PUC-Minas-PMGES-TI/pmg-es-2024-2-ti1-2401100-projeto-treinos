@@ -54,50 +54,50 @@
                     // Verificar se o navegador suporta a API de geolocalização
                     if (navigator.geolocation) {
                         navigator.geolocation.getCurrentPosition(
-                            async (position) => {
+                            (position) => {
+                                // Obter a localização atual
                                 const userLongitude = position.coords.longitude;
                                 const userLatitude = position.coords.latitude;
 
-                                // Chamar a API de Geocodificação Reversa
-                                const response = await fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${userLongitude},${userLatitude}.json?access_token=pk.eyJ1IjoicmFmYWVsMTgxMCIsImEiOiJjbTJzMmMwcHcxbnpqMmtvZzdhOGY0ZzVoIn0.UCOS31bgypEm3zCvHziJUw`);
-                                const data = await response.json();
+                                // Inicializar o mapa com a localização atual
+                                const map = new mapboxgl.Map({
+                                    container: 'map', // ID da div
+                                    style: 'mapbox://styles/mapbox/streets-v11', // Estilo do mapa
+                                    center: [userLongitude, userLatitude], // Localização inicial
+                                    zoom: 15 // Nível de zoom inicial
+                                });
 
-                                if (data.features && data.features.length > 0) {
-                                    const adjustedCoordinates = data.features[0].center;
+                                // Adicionar controles de navegação (zoom e rotação)
+                                const nav = new mapboxgl.NavigationControl();
+                                map.addControl(nav, 'top-right'); // Posicionar controles no canto superior direito
 
-                                    // Inicializar o mapa com as coordenadas ajustadas
-                                    const map = new mapboxgl.Map({
-                                        container: 'map', // ID do container
-                                        center: adjustedCoordinates, // Coordenadas ajustadas
-                                        zoom: 15 // Nível de zoom inicial
+                                // Criar o marcador inicial com a localização atual
+                                const marker = new mapboxgl.Marker({
+                                    draggable: true // Permite mover o marcador
+                                })
+                                    .setLngLat([userLongitude, userLatitude])
+                                    .addTo(map);
+
+                                // Listener para quando o marcador for movido
+                                marker.on('dragend', () => {
+                                    const newCoords = marker.getLngLat(); // Obter novas coordenadas
+                                    map.flyTo({
+                                        center: [newCoords.lng, newCoords.lat], // Centralizar o mapa na nova localização
+                                        zoom: 15, // Mantém o mesmo nível de zoom
+                                        essential: true // Garantir animação
                                     });
-
-                                    // Criar marcador na localização ajustada com a opção de arrastar
-                                    const marker = new mapboxgl.Marker({
-                                        draggable: true // Permitir arrastar o marcador
-                                    })
-                                        .setLngLat(adjustedCoordinates)
-                                        .addTo(map);
-
-                                    // Evento para capturar novas coordenadas após o marcador ser arrastado
-                                    marker.on('dragend', () => {
-                                        const newCoordinates = marker.getLngLat();
-                                        console.log('Nova localização ajustada pelo usuário:', newCoordinates);
-
-                                        // Atualizar o centro do mapa para a nova localização
-                                        map.setCenter([newCoordinates.lng, newCoordinates.lat]);
-                                    });
-                                } else {
-                                    console.error('Não foi possível ajustar as coordenadas.');
-                                }
+                                });
                             },
                             (error) => {
                                 console.error('Erro ao obter localização:', error);
                                 alert('Não foi possível obter sua localização.');
                             },
-                            { enableHighAccuracy: true }
+                            {
+                                enableHighAccuracy: true, // Solicita maior precisão
+                                timeout: 10000, // Tempo máximo para obter a posição (10s)
+                                maximumAge: 0 // Não usa uma localização armazenada em cache
+                            }
                         );
-
                     } else {
                         alert('Geolocalização não é suportada pelo seu navegador.');
                     }
@@ -105,7 +105,9 @@
 
         </div>
 
-        <div class="footer"></div>
+    </div>
+
+    <div class="footer"></div>
 </body>
 
 </html>
