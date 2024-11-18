@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>PULSE PUMP</title>
+    <title>PULSE PUMP - Home</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -10,39 +10,34 @@
     <link rel="stylesheet" href="home.css">
     <script src="https://api.mapbox.com/mapbox-gl-js/v3.7.0/mapbox-gl.js"></script>
     <link href="https://api.mapbox.com/mapbox-gl-js/v3.7.0/mapbox-gl.css" rel="stylesheet">
-    <script src="script.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="assets/js/home.js"></script>
 </head>
 
 <body>
 
     <div class="header">
-        <a href="###"><img src="logoclara.png" width="70" /></a>
+        <a href="home.html"><img src="logonomealt.png" width="220" /></a>
         <nav>
-            <a href="home.html">HOME</a>
-            <a href="treinos.html">MEUS TREINOS</a>
-            <a href="radarAcademias.html">ACADEMIAS PRÓXIMAS</a>
-            <a href="perfilusuario.html"><img src="AvatarWB.png" width="" /></a>
+            <a href="home.html">Home</a>
+            <a href="radarAcademias.html">Academias Próximas</a>
+            <a href="treinos.html">Meus Treinos</a>
+            <a href="perfilusuario.html"><img src="userplaceholder.png" class="placeholder" /></a>
         </nav>
-        <img src="userplaceholder.png" class="placeholder">
     </div>
 
     <div class="container">
-        <div class="box" id="lateral">
-            <h2>MEUS TREINOS</h2>
-            <div class="item"></div>
-            <div class="item"></div>
-            <div class="item"></div>
-            <div class="item"></div>
-            <div class="item"></div>
-        </div>
-    
         <div class="box" id="meio">
             <h2>FEED</h2>
-            <div class="item-feed"></div>
-            <div class="item-feed"></div>
-            <div class="item-feed"></div>
+            <form onsubmit="addPost(event)">
+                <textarea id="postContent" class="w-full p-2 mb-2 border rounded" placeholder="Escreva algo..."></textarea>
+            </form>
+            <div id="feed">
+                <!-- ...existing posts... -->
+            </div>
+            <button class="mt-1 bg-black text-white py-2 px-4 rounded-lg" onclick="loadMorePosts()">Ver mais posts</button>
+            <button class="mt-1 bg-black text-white py-2 px-4 rounded-lg" onclick="updatePosts()">Atualizar posts</button>
         </div>
-    
         <div class="box" id="lateral">
             <h2>PROGRESSO DE AMIGOS</h2>
             <div class="item"></div>
@@ -52,11 +47,59 @@
             <div class="item"></div>
         </div>
     </div>
-        
+    <script>
+        document.addEventListener('DOMContentLoaded', loadPosts);
 
-    </div>
+        function addPost(event) {
+            event.preventDefault();
+            const postContent = document.getElementById('postContent').value;
+            if (postContent.trim() !== "") {
+                const postElement = createPostElement(postContent);
+                document.getElementById('feed').prepend(postElement);
+                savePost(postContent);
+                document.getElementById('postContent').value = '';
+            }
+        }
 
-    <div class="footer"></div>
+        function createPostElement(content) {
+            const postElement = document.createElement('div');
+            postElement.className = 'bg-gray-300 h-40 mb-4 rounded-lg p-4 flex flex-col justify-between';
+            postElement.innerHTML = `
+                <p>${content}</p>
+                <button class="text-black" onclick="toggleLike(this)">
+                    <i class="far fa-thumbs-up"></i> <span>0</span> Likes
+                </button>
+                <button class="text-red-500" onclick="deletePost(this, '${content}')">Excluir</button>
+            `;
+            return postElement;
+        }
+
+        function savePost(content) {
+            let posts = JSON.parse(localStorage.getItem('posts')) || [];
+            posts.push(content);
+            localStorage.setItem('posts', JSON.stringify(posts));
+        }
+
+        function loadPosts() {
+            let posts = JSON.parse(localStorage.getItem('posts')) || [];
+            posts.forEach(content => {
+                const postElement = createPostElement(content);
+                document.getElementById('feed').appendChild(postElement);
+            });
+        }
+
+        function deletePost(button, content) {
+            button.parentElement.remove();
+            let posts = JSON.parse(localStorage.getItem('posts')) || [];
+            posts = posts.filter(post => post !== content);
+            localStorage.setItem('posts', JSON.stringify(posts));
+        }
+
+        function updatePosts() {
+            loadPosts();
+            console.log("Posts atualizados");
+        }
+    </script>
 </body>
 
 </html>
