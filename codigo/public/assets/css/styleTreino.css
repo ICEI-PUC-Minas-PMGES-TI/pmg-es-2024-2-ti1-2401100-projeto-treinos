@@ -291,6 +291,121 @@ main {
     transition: background-color 0.3s;
 }
 
+/* dropdown */
+.dropdown {
+    min-width: 15em;
+    position: relative;
+    margin: 2em;
+}
+
+.dropdown * {
+    box-sizing: border-box;
+}
+
+.select {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px black solid;
+    border-radius: 0.5em;
+    padding: 1em;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.select-clicked {
+    border: 2px #ff6600 solid;
+    box-shadow: 0 0 0.2em #e65c00;
+}
+
+.select:hover{
+    background: white;
+}
+
+.caret{
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 6px solid #FFFFFF;
+    transition: 0.3s;
+}
+
+.caret-rotate{
+    transform: rotate(180deg);
+}
+
+.menu{
+    list-style: none;
+    padding: 0.2em 0.5em;
+    background: white;
+    box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.2);
+    border-radius: 0.5em;
+    color: black;
+    position: absolute;
+    top: 3em;
+    left: 50%;
+    width: 100%;
+    transform: translate(-50%);
+    opacity: 0;
+    display: none;
+    transition: 0.2s;
+    z-index: 1;
+}
+
+.menu li{
+    padding: 0.7em 0.5em;
+    margin: 0.3 0;
+    border-radius: 0.5em;
+    cursor: pointer;
+}
+
+.meun li:hover{
+    background: #2a2d35;
+}
+
+
+.menu-open{
+    display: block;
+    opacity: 1;
+}
+
+/* fim do dropdown */ 
+
+/* contador de numeros */
+
+.wrapper{
+    height: 3em;
+    background: white;
+    border: 1px black solid;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 15em;
+    position: relative;
+    margin: 2em;
+}
+
+.wrapper *{
+    box-sizing: border-box;
+}
+
+.wrapper span{
+    width: 100%;
+    text-align: center;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.wrapper span.num{
+    border-right: 2px solid rgba(0, 0, 0, 0.2);
+    border-left: 2px solid rgba(0, 0, 0, 0.2);
+    pointer-events: none;
+}
+
+/* fim do contador de numeros */
+
 .btn-excluir{
     background-color: #ff4d4d;
     color: #FFFFFF;
