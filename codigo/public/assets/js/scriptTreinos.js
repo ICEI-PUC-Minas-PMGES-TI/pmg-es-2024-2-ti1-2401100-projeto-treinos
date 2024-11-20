@@ -233,13 +233,23 @@ function fixarTreino(treinoId) {
         listaTreinosAside.innerHTML = '';
 
         treinoFixado.forEach(t => {
-            const li = document.createElement('li');
-            li.innerText = `${t.nome} - ${t.repeticao}`;
-            //listaTreinosAside.appendChild(li); //pod ignorar esse comando
+            console.log('Criando checkbox para:', t);
 
-            if (![...listaTreinosAside.getElementsByTagName('li')].some(liItem => liItem.innerText === `NOME: ${t.nome} - REPETIÇÃO: ${t.repeticao}`)) {
-                listaTreinosAside.appendChild(li);
-            }
+    const li = document.createElement('li');
+    const checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    checkbox.className = 'checkbox-treino';
+
+    checkbox.checked = getEstadoCheckbox(t.nome, t.repeticao);
+
+    checkbox.addEventListener('change', function() {
+        salvarEstadoCheckbox(t.nome, t.repeticao, checkbox.checked);
+    });
+
+    const textoTreino = document.createTextNode(`${t.nome} - ${t.repeticao}`);
+    li.appendChild(checkbox);
+    li.appendChild(textoTreino);
+    listaTreinosAside.appendChild(li);
         });
 
         salvarTreinosNoLocalStorage();
@@ -256,11 +266,49 @@ function atualizarListaTreinosAside() {
 
     treinosFixados.forEach(t => {
         const li = document.createElement('li');
-        li.innerText = `${t.nome} - ${t.repeticao}`;
-        listaTreinosAside.appendChild(li);
+        
+        
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.className = 'checkbox-treino';
+
+        checkbox.addEventListener('change', function() {
+            if (checkbox.checked) {
+                console.log(`${treino.nome} foi concluído.`);
+            } else {
+                console.log(`${treino.nome} foi desmarcado.`);
+            }
+        });
+
+        const textoTreino = document.createTextNode(`${t.nome} - ${t.repeticao}`);
+
+        li.appendChild(checkbox);
+        li.appendChild(textoTreino);
+        checkbox.checked = getEstadoCheckbox(t.nome, t.repeticao);
+
+        checkbox.addEventListener('change', function() {
+            salvarEstadoCheckbox(t.nome, t.repeticao, checkbox.checked);
+            if (checkbox.checked) {
+                console.log(`${t.nome} foi concluído.`);
+            } else {
+                console.log(`${t.nome} foi desmarcado.`);
+            }
+        })
+
+    listaTreinosAside.appendChild(li);
     });
 
     salvarTreinosNoLocalStorage();
+}
+
+function salvarEstadoCheckbox(nome, repeticao, marcado) {
+    const chave = `checkbox-${nome}-${repeticao}`;
+    localStorage.setItem(chave, marcado);
+}
+
+function getEstadoCheckbox(nome, repeticao) {
+    const chave = `checkbox-${nome}-${repeticao}`;
+    return localStorage.getItem(chave) === 'true';
 }
 
 document.getElementById('adicionarTreinoBtn').onclick = function() {
@@ -294,7 +342,20 @@ function carregarTreinosDoLocalStorage() {
 
         treinosFixados.forEach(t => {
             const li = document.createElement('li');
-            li.innerText = `${t.nome} - ${t.repeticao}`;
+            const checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.className = 'checkbox-treino';
+
+            checkbox.checked = getEstadoCheckbox(t.nome, t.repeticao);
+
+            checkbox.addEventListener('change', function () {
+                salvarEstadoCheckbox(t.nome, t.repeticao, checkbox.checked);
+        });
+
+        const textoTreino = document.createTextNode(`${t.nome} - ${t.repeticao}`);
+            li.appendChild(checkbox);
+            li.appendChild(textoTreino);
+
             listaTreinosAside.appendChild(li);
         });
 
