@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Blackb&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/styleTreino.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -62,6 +62,7 @@
             <div class="backTreino">
                 <div class="treino1 atras">
                     <h1>TREINO 1</h1>
+                    <!--  VERIFICAR BOTAO DE EDITAR NOME DO CARD DOS TREINOS // <button><i class="fa-light fa-pencil"></i></button>  --> 
                     <ul id="lista-treinos-1"></ul>
                     <button class="verMaisBtn" onclick="abrirPopup(1)">Ver Mais</button>
                 </div>
@@ -102,8 +103,26 @@
             </table>
     
             <h2>Adicionar Treino</h2>
-            <input type="text" id="nome-treino-popup" placeholder="Nome do Treino" required>
-            <input type="text" id="repeticao-popup" placeholder="Repetição" required>
+            <!-- MODIFICAR TREINOS PARA DROPDOWN COM TREINOS PREDEFINIDOS -->
+            <div class="dropdown">
+                <div class="select">
+                    <span class="selected">Flexão</span>
+                    <div class="caret"></div>
+                </div>
+                <ul class="menu">
+                    <li>Rosca Direta</li>
+                    <li>Remada Curvada</li>
+                    <li>Supino</li>
+                    <li>Barra Fixa</li>
+                    <li class="active">Flexão</li>
+                </ul>
+            </div>
+
+            <div class="wrapper">
+                <span class="minus">-</span>
+                <span class="num">01</span>
+                <span class="plus">+</span>
+            </div>
             <button onclick="adicionarTreinoPopup(1)">Adicionar Treino</button>
 
             <button onclick="fecharPopup()" class="fecharBtn">Ver menos</button>
