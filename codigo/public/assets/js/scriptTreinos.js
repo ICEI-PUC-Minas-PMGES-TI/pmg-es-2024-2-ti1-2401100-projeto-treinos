@@ -20,15 +20,16 @@ class Treino {
         let tbody = document.getElementById('tbody');
         tbody.innerHTML = '';
 
-        for (let i = 0; i < this.arrayTreinos.length; i++) {
+        let treinosAtuais = [...treinosCard1, ...treinosCard2, ...treinosCard3, ...treinosCard4];
+        treinosAtuais.forEach(t => {
             let tr = tbody.insertRow();
-
+    
             let td_treino = tr.insertCell();
             let td_repeticao = tr.insertCell();
-
-            td_treino.innerText = this.arrayTreinos[i].nomeTreino;
-            td_repeticao.innerText = this.arrayTreinos[i].quantidadeRepeticoes;
-        }
+    
+            td_treino.innerText = t.nome;
+            td_repeticao.innerText = t.repeticao;
+        });
     }
 
     adicionar(treino) {
@@ -39,8 +40,8 @@ class Treino {
     lerDados() {
         let treino = {};
         treino.id = this.id;
-        treino.nomeTreino = document.getElementById('treino').value;
-        treino.quantidadeRepeticoes = document.getElementById('repeticao').value;
+        treino.nomeTreino = document.querySelector('.selected').innerText;
+        treino.quantidadeRepeticoes = document.querySelector('.num').value;
         return treino;
     }
 
@@ -99,9 +100,12 @@ function fecharPopup() {
 }
 
 function adicionarTreinoPopup() {
-    const nomeTreino = document.getElementById('nome-treino-popup').value.trim();
-    const repeticao = document.getElementById('repeticao-popup').value.trim();
+    const nomeTreino = document.querySelector('.selected').innerText.trim();
+    const repeticao = document.querySelector('.num').innerText.trim();
 
+    if(!nomeTreino || !repeticao){
+        alert("Escolha o treino e a quantidade de repetição!")
+    }
     const novoTreino = { nome: nomeTreino, repeticao: repeticao };
 
     if (treinoIdAtual === 1) {
@@ -116,11 +120,10 @@ function adicionarTreinoPopup() {
 
     atualizarListaTreinosPopup();
     atualizarListaTreinosCard(treinoIdAtual);
-
     salvarTreinosNoLocalStorage();
 
-    document.getElementById('nome-treino-popup').value = '';
-    document.getElementById('repeticao-popup').value = '';
+    document.querySelector('.selected').innerText = 'Supino';
+    document.querySelector('.num').innerText = '01';
 }
 
 function excluirTreino(treinoId, treino) {
@@ -196,7 +199,7 @@ function atualizarListaTreinosCard(treinoId) {
 
     treinosAtuais.forEach(t => {
         const li = document.createElement('li');
-        li.innerText = `NOME: ${t.nome} - REPETIÇÃO: ${t.repeticao}`;
+        li.innerText = `${t.nome}   -   ${t.repeticao}`;
         listaTreinosCard.appendChild(li);
     });
 }
@@ -231,7 +234,7 @@ function fixarTreino(treinoId) {
 
         treinoFixado.forEach(t => {
             const li = document.createElement('li');
-            li.innerText = `NOME: ${t.nome} - REPETIÇÃO: ${t.repeticao}`;
+            li.innerText = `${t.nome} - ${t.repeticao}`;
             //listaTreinosAside.appendChild(li); //pod ignorar esse comando
 
             if (![...listaTreinosAside.getElementsByTagName('li')].some(liItem => liItem.innerText === `NOME: ${t.nome} - REPETIÇÃO: ${t.repeticao}`)) {
@@ -253,7 +256,7 @@ function atualizarListaTreinosAside() {
 
     treinosFixados.forEach(t => {
         const li = document.createElement('li');
-        li.innerText = `NOME: ${t.nome} - REPETIÇÃO: ${t.repeticao}`;
+        li.innerText = `${t.nome} - ${t.repeticao}`;
         listaTreinosAside.appendChild(li);
     });
 
@@ -291,7 +294,7 @@ function carregarTreinosDoLocalStorage() {
 
         treinosFixados.forEach(t => {
             const li = document.createElement('li');
-            li.innerText = `NOME: ${t.nome} - REPETIÇÃO: ${t.repeticao}`;
+            li.innerText = `${t.nome} - ${t.repeticao}`;
             listaTreinosAside.appendChild(li);
         });
 
@@ -317,6 +320,59 @@ function getTreinosFixados() {
 
     return treinosFixados;
 }
+
+/* dropdowns */
+
+const dropdowns = document.querySelectorAll('.dropdown');
+
+dropdowns.forEach(dropdown => { 
+    const select = dropdown.querySelector('.select');
+    const caret = dropdown.querySelector('.caret');
+    const menu = dropdown.querySelector('.menu');
+    const options = dropdown.querySelectorAll('.menu li');
+    const selected = dropdown.querySelector('.selected');
+
+    select.addEventListener('click', () => {
+        select.classList.toggle('select-clicked');
+        caret.classList.toggle('caret-rotate');
+        menu.classList.toggle('menu-open');
+    });
+
+    options.forEach(option => {
+        option.addEventListener('click', () => {
+            selected.innerText = option.innerText;
+            select.classList.remove('select-clicked');
+            caret.classList.remove('caret-rotate');
+            menu.classList.remove('menu-open');
+
+            option.forEach(option => {
+                option.classList.remove('active');
+            });
+            option.classList.add('active');
+            });
+        });
+    });
+
+const plus = document.querySelector(".plus"),
+minus = document.querySelector(".minus"),
+num = document.querySelector(".num");
+
+let a = 1;
+plus.addEventListener("click", () => {
+    a++;
+    a = (a < 50) ? "0" + a : a;
+    num.innerText = a;
+    console.log("a");
+});
+
+minus.addEventListener("click", () => {
+    if(a > 1){
+        a--;
+        a = (a < 50) ? "0" + a : a;
+    num.innerText = a;
+    }
+});
+
 
 
 window.onload = carregarTreinosDoLocalStorage;
