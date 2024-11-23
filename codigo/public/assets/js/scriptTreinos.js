@@ -197,11 +197,19 @@ function atualizarListaTreinosCard(treinoId) {
         treinosAtuais = treinosCard4;
     }
 
-    treinosAtuais.forEach(t => {
+    const treinosVisiveis = treinosAtuais.slice(0, 5);
+
+    treinosVisiveis.forEach(t => {
         const li = document.createElement('li');
-        li.innerText = `${t.nome}   -   ${t.repeticao}`;
+        li.innerText = `${t.nome} - ${t.repeticao}`;
         listaTreinosCard.appendChild(li);
     });
+
+    //treinosAtuais.forEach(t => {
+    //    const li = document.createElement('li');
+    //    li.innerText = `${t.nome}   -   ${t.repeticao}`;
+    //    listaTreinosCard.appendChild(li);
+    //});
 }
 
 function abrirPopupEscolherTreino() {
