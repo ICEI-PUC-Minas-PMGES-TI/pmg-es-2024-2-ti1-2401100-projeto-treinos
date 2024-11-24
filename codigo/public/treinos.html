@@ -41,7 +41,18 @@
                     <h1>SEU TREINO</h1>
                     <div class="seuTreino" id="lista-treinos"> </div>
                     
-                    <button id="adicionarTreinoBtn" class="fixarTreino">Fixar Treino</button>
+                    <div class="botoesFixareConcluir">
+                        <button id="adicionarTreinoBtn" class="fixarTreino">Fixar Treino</button>
+                        <button id="concluirTreinosBtn" class="concluirTreinosBtn">Concluir Ficha</button>
+                    </div>
+                    <div id="popupConclusao" class="popupConclusao" style="display: none;">
+                        <div class="popup-conteudo-conclusao">
+                            <p>Parabéns campeão, você finalizou todos os seus treinos!</p>
+                            <button class="fecharConclusao" onclick="fecharPopupConclusao()">Fechar</button>
+                        </div>
+                    </div>
+                    
+
                 <div id="popupEscolherTreino" class="popup">
                     <div class="popup-content">
                         <span class="close" onclick="fecharPopupEscolherTreino()">&times;</span>
@@ -96,6 +107,7 @@
                 <tr>
                     <th>NOME</th>
                     <th>REPETIÇÃO</th>
+                    <th>SERIES</th>
                     <th>AÇÕES</th>
                 </tr>
             </thead>
@@ -146,11 +158,20 @@
                 </ul>
             </div>
 
+            <h2>Repetição</h2>
             <div class="wrapper">
                 <span class="minus">-</span>
                 <span class="num">01</span>
                 <span class="plus">+</span>
             </div>
+
+            <h2>Series</h2>
+            <div class="wrapper">
+                <span class="minus-series">-</span>
+                <span class="numSeries">01</span>
+                <span class="plus-series">+</span>
+            </div>
+
             <button onclick="adicionarTreinoPopup(1)">Adicionar Treino</button>
 
             <button onclick="fecharPopup()" class="fecharBtn">Ver menos</button>
