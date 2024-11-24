@@ -102,11 +102,12 @@ function fecharPopup() {
 function adicionarTreinoPopup() {
     const nomeTreino = document.querySelector('.selected').innerText.trim();
     const repeticao = document.querySelector('.num').innerText.trim();
+    const series = document.querySelector('.numSeries').innerText.trim();
 
     if(!nomeTreino || !repeticao){
         alert("Escolha o treino e a quantidade de repetição!")
     }
-    const novoTreino = { nome: nomeTreino, repeticao: repeticao };
+    const novoTreino = { nome: nomeTreino, repeticao: repeticao, series: series};
 
     if (treinoIdAtual === 1) {
         treinosCard1.push(novoTreino);
@@ -124,6 +125,7 @@ function adicionarTreinoPopup() {
 
     document.querySelector('.selected').innerText = 'Supino';
     document.querySelector('.num').innerText = '01';
+    document.querySelector('.numSeries').innerText = '01';
 }
 
 function excluirTreino(treinoId, treino) {
@@ -167,6 +169,9 @@ function atualizarListaTreinosPopup() {
         const tdRepeticao = document.createElement('td');
         tdRepeticao.innerText = t.repeticao;
 
+        const tdSeries = document.createElement('td');
+        tdSeries.innerText = t.series;
+
         const tdAcoes = document.createElement('td');
         const bntExcluir = document.createElement('button');
         bntExcluir.className = 'btn-excluir';
@@ -176,6 +181,7 @@ function atualizarListaTreinosPopup() {
         tdAcoes.appendChild(bntExcluir);
         tr.appendChild(tdNome);
         tr.appendChild(tdRepeticao);
+        tr.appendChild(tdSeries);
         tr.appendChild(tdAcoes);
 
         tbody.appendChild(tr);
@@ -201,7 +207,8 @@ function atualizarListaTreinosCard(treinoId) {
 
     treinosVisiveis.forEach(t => {
         const li = document.createElement('li');
-        li.innerText = `${t.nome} - ${t.repeticao}`;
+        li.innerText = `${t.nome} - ${t.repeticao} Repetições X ${t.series} Séries`;
+
         listaTreinosCard.appendChild(li);
     });
 
@@ -209,7 +216,7 @@ function atualizarListaTreinosCard(treinoId) {
     //    const li = document.createElement('li');
     //    li.innerText = `${t.nome}   -   ${t.repeticao}`;
     //    listaTreinosCard.appendChild(li);
-    //});
+    //});                                                           TESTE, IGNORAR ESSA PARTE
 }
 
 function abrirPopupEscolherTreino() {
@@ -222,10 +229,13 @@ function fecharPopupEscolherTreino() {
     popup.style.display = "none";
 }
 
+//NORMAL 
+//NORMAL
+//NORMAL
+
 function fixarTreino(treinoId) {
     let treinoFixado = [];
 
-    
     if (treinoId === 1 && treinosCard1.length > 0) {
         treinoFixado = [...treinosCard1];
     } else if (treinoId === 2 && treinosCard2.length > 0) {
@@ -241,23 +251,24 @@ function fixarTreino(treinoId) {
         listaTreinosAside.innerHTML = '';
 
         treinoFixado.forEach(t => {
-            console.log('Criando checkbox para:', t);
+            const li = document.createElement('li');
+            const checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.className = 'checkbox-treino';
 
-    const li = document.createElement('li');
-    const checkbox = document.createElement('input');
-    checkbox.type = 'checkbox';
-    checkbox.className = 'checkbox-treino';
+            const treinoIdUnique = `${t.nome}-${t.repeticao}-${t.series}`;
+            checkbox.id = treinoIdUnique;
 
-    checkbox.checked = getEstadoCheckbox(t.nome, t.repeticao);
+            checkbox.checked = getEstadoCheckbox(t.nome, t.repeticao, t.series);
 
-    checkbox.addEventListener('change', function() {
-        salvarEstadoCheckbox(t.nome, t.repeticao, checkbox.checked);
-    });
+            checkbox.addEventListener('change', function() {
+                salvarEstadoCheckbox(t.nome, t.repeticao, t.series, checkbox.checked);
+            });
 
-    const textoTreino = document.createTextNode(`${t.nome} - ${t.repeticao}`);
-    li.appendChild(checkbox);
-    li.appendChild(textoTreino);
-    listaTreinosAside.appendChild(li);
+            const textoTreino = document.createTextNode(`${t.nome} - ${t.repeticao} Repetições x ${t.series} Séries`);
+            li.appendChild(checkbox);
+            li.appendChild(textoTreino);
+            listaTreinosAside.appendChild(li);
         });
 
         salvarTreinosNoLocalStorage();
@@ -266,52 +277,64 @@ function fixarTreino(treinoId) {
     fecharPopupEscolherTreino();
 }
 
+
 function atualizarListaTreinosAside() {
     const listaTreinosAside = document.getElementById('lista-treinos');
-    listaTreinosAside.innerHTML = '';
+    listaTreinosAside.innerHTML = ''; 
 
     const treinosFixados = [...treinosCard1, ...treinosCard2, ...treinosCard3, ...treinosCard4];
 
     treinosFixados.forEach(t => {
         const li = document.createElement('li');
         
-        
         const checkbox = document.createElement('input');
         checkbox.type = 'checkbox';
         checkbox.className = 'checkbox-treino';
+        checkbox.checked = getEstadoCheckbox(t.nome, t.repeticao);
 
-        checkbox.addEventListener('change', function() {
-            if (checkbox.checked) {
-                console.log(`${treino.nome} foi concluído.`);
-            } else {
-                console.log(`${treino.nome} foi desmarcado.`);
-            }
+
+        const textoTreino = document.createElement('span');
+        textoTreino.innerText = `${t.nome} - ${t.repeticao}`;
+
+
+        textoTreino.addEventListener('click', function() {
+            checkbox.checked = !checkbox.checked; 
+            salvarEstadoCheckbox(t.nome, t.repeticao, checkbox.checked); 
         });
-
-        const textoTreino = document.createTextNode(`${t.nome} - ${t.repeticao}`);
 
         li.appendChild(checkbox);
         li.appendChild(textoTreino);
-        checkbox.checked = getEstadoCheckbox(t.nome, t.repeticao);
+        listaTreinosAside.appendChild(li);
+
 
         checkbox.addEventListener('change', function() {
             salvarEstadoCheckbox(t.nome, t.repeticao, checkbox.checked);
-            if (checkbox.checked) {
-                console.log(`${t.nome} foi concluído.`);
-            } else {
-                console.log(`${t.nome} foi desmarcado.`);
-            }
-        })
-
-    listaTreinosAside.appendChild(li);
+        });
     });
 
     salvarTreinosNoLocalStorage();
 }
 
+
 function salvarEstadoCheckbox(nome, repeticao, marcado) {
     const chave = `checkbox-${nome}-${repeticao}`;
     localStorage.setItem(chave, marcado);
+
+    const treinosSalvos = JSON.parse(localStorage.getItem('treinos')) || {
+        treinosCard1: [],
+        treinosCard2: [],
+        treinosCard3: [],
+        treinosCard4: [],
+        treinosFixados: []
+    };
+
+    
+    treinosSalvos.treinosFixados = treinosSalvos.treinosFixados.map(t => {
+        if (t.nome === nome && t.repeticao === repeticao) {
+            t.checked = marcado;
+        }
+        return t;
+    });
 }
 
 function getEstadoCheckbox(nome, repeticao) {
@@ -338,6 +361,7 @@ function salvarTreinosNoLocalStorage() {
 
 function carregarTreinosDoLocalStorage() {
     const treinosSalvos = JSON.parse(localStorage.getItem('treinos'));
+
     if (treinosSalvos) {
         treinosCard1 = treinosSalvos.treinosCard1 || [];
         treinosCard2 = treinosSalvos.treinosCard2 || [];
@@ -355,6 +379,7 @@ function carregarTreinosDoLocalStorage() {
             checkbox.className = 'checkbox-treino';
 
             checkbox.checked = getEstadoCheckbox(t.nome, t.repeticao);
+            
 
             checkbox.addEventListener('change', function () {
                 salvarEstadoCheckbox(t.nome, t.repeticao, checkbox.checked);
@@ -363,7 +388,6 @@ function carregarTreinosDoLocalStorage() {
         const textoTreino = document.createTextNode(`${t.nome} - ${t.repeticao}`);
             li.appendChild(checkbox);
             li.appendChild(textoTreino);
-
             listaTreinosAside.appendChild(li);
         });
 
@@ -372,6 +396,27 @@ function carregarTreinosDoLocalStorage() {
         atualizarListaTreinosCard(3);
         atualizarListaTreinosCard(4);
     }
+}
+
+function salvarEstadoCheckbox(nome, repeticao, estadoCheckbox) {
+    const chave = `checkbox-${nome}-${repeticao}`;
+    const treinosSalvos = JSON.parse(localStorage.getItem('treinos')) || {
+        treinosCard1: [],
+        treinosCard2: [],
+        treinosCard3: [],
+        treinosCard4: [],
+        treinosFixados: []
+    };
+
+    
+    treinosSalvos.treinosFixados = treinosSalvos.treinosFixados.map(t => {
+        if (t.nome === nome && t.repeticao === repeticao) {
+            t.checked = estadoCheckbox; 
+        }
+        return t;
+    });
+
+    localStorage.setItem('treinos', JSON.stringify(treinosSalvos));
 }
 
 function getTreinosFixados() {
@@ -442,6 +487,56 @@ minus.addEventListener("click", () => {
     }
 });
 
+
+const plusSeries = document.querySelector(".plus-series");
+const minusSeries = document.querySelector(".minus-series");
+const numSeries = document.querySelector(".numSeries");
+
+let seriesCount = 1;  
+
+plusSeries.addEventListener("click", () => {
+    seriesCount++;
+    seriesCount = seriesCount < 10 ? "0" + seriesCount : seriesCount;  
+    numSeries.innerText = seriesCount;  
+});
+
+minusSeries.addEventListener("click", () => {
+    if(seriesCount > 1) { 
+        seriesCount--;
+        seriesCount = seriesCount < 10 ? "0" + seriesCount : seriesCount; 
+        numSeries.innerText = seriesCount;
+    }
+});
+
+// POP DE CONLCLUSÃP //
+
+
+document.getElementById('concluirTreinosBtn').onclick = function() {
+    if (todosTreinosConcluidos()) {
+        abrirPopupConclusao();
+    } else {
+        alert("Ainda faltam treinos para concluir.");
+    }
+};
+
+
+function todosTreinosConcluidos() {
+    
+    const checkboxes = document.querySelectorAll('.checkbox-treino');
+    return Array.from(checkboxes).every(checkbox => checkbox.checked);
+}
+
+
+function abrirPopupConclusao() {
+    const popup = document.getElementById('popupConclusao');
+    popup.style.display = "flex"; 
+}
+
+
+function fecharPopupConclusao() {
+    const popup = document.getElementById('popupConclusao');
+    popup.style.display = "none"; 
+}
 
 
 window.onload = carregarTreinosDoLocalStorage;
