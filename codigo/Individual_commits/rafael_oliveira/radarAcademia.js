@@ -37,19 +37,38 @@ if (navigator.geolocation) {
                 });
             });
 
-            // Marcadores fictícios de academias próximas
             const academias = [
-                { name: "Academia Smartfit", coords: [userLongitude + 0.002, userLatitude + 0.002] },
-                { name: "Academia Pratique", coords: [userLongitude - 0.002, userLatitude + 0.003] },
-                { name: "Academia Life", coords: [userLongitude + 0.001, userLatitude - 0.002] }
+                {
+                    name: "Academia Life",
+                    coords: [userLongitude + 0.002, userLatitude + 0.002],
+                    image: "./ftLife.png"
+                },
+                {
+                    name: "Academia Pratique",
+                    coords: [userLongitude - 0.002, userLatitude + 0.003],
+                    image: "./ftPratique.png" 
+                },
+                {
+                    name: "Academia Smartfit",
+                    coords: [userLongitude + 0.001, userLatitude - 0.002],
+                    image: "./ftSmartfit.png" 
+                }
             ];
 
             academias.forEach(academia => {
+                const popupContent = `
+                    <div style="text-align: center;">
+                        <h3>${academia.name}</h3>
+                        <img src="${academia.image}" alt="${academia.name}" style="width: 150px; height: 100px; border-radius: 8px;">
+                    </div>
+                `;
+
                 new mapboxgl.Marker({ color: "red" }) // Marcador vermelho para as academias
                     .setLngLat(academia.coords)
-                    .setPopup(new mapboxgl.Popup().setText(academia.name))
+                    .setPopup(new mapboxgl.Popup().setHTML(popupContent))
                     .addTo(map);
             });
+
         },
         (error) => {
             console.error('Erro ao obter localização:', error);
