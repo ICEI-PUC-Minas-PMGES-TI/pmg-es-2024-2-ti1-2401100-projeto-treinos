@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="radarAcademia.css">
     <script src="https://api.mapbox.com/mapbox-gl-js/v3.7.0/mapbox-gl.js"></script>
     <link href="https://api.mapbox.com/mapbox-gl-js/v3.7.0/mapbox-gl.css" rel="stylesheet">
-    <script src="script.js"></script>
 </head>
 
 <body>
@@ -30,10 +29,17 @@
 
         <div class="academiasProximas">
             <p>Academias Próximas</p>
-            <div class="melhorAcademia"></div>
-            <div class="melhorAcademia"></div>
-            <div class="melhorAcademia"></div>
+            <div class="melhorAcademia">
+                <img src="ftSmartfit.png" alt="Smartfit">
+            </div>
+            <div class="melhorAcademia">
+                <img src="ftPratique.png" alt="Pratique">
+            </div>
+            <div class="melhorAcademia">
+                <img src="ftLife.png" alt="Life">
+            </div>
         </div>
+        
 
         <div class="mapaAcademias">
             <style>
@@ -48,60 +54,7 @@
 
             <body>
                 <div id="map"></div>
-                <script>
-                    mapboxgl.accessToken = 'pk.eyJ1IjoicmFmYWVsMTgxMCIsImEiOiJjbTJzMmMwcHcxbnpqMmtvZzdhOGY0ZzVoIn0.UCOS31bgypEm3zCvHziJUw';
-
-                    // Verificar se o navegador suporta a API de geolocalização
-                    if (navigator.geolocation) {
-                        navigator.geolocation.getCurrentPosition(
-                            (position) => {
-                                // Obter a localização atual
-                                const userLongitude = position.coords.longitude;
-                                const userLatitude = position.coords.latitude;
-
-                                // Inicializar o mapa com a localização atual
-                                const map = new mapboxgl.Map({
-                                    container: 'map', // ID da div
-                                    style: 'mapbox://styles/mapbox/streets-v11', // Estilo do mapa
-                                    center: [userLongitude, userLatitude], // Localização inicial
-                                    zoom: 15 // Nível de zoom inicial
-                                });
-
-                                // Adicionar controles de navegação (zoom e rotação)
-                                const nav = new mapboxgl.NavigationControl();
-                                map.addControl(nav, 'top-right'); // Posicionar controles no canto superior direito
-
-                                // Criar o marcador inicial com a localização atual
-                                const marker = new mapboxgl.Marker({
-                                    draggable: true // Permite mover o marcador
-                                })
-                                    .setLngLat([userLongitude, userLatitude])
-                                    .addTo(map);
-
-                                // Listener para quando o marcador for movido
-                                marker.on('dragend', () => {
-                                    const newCoords = marker.getLngLat(); // Obter novas coordenadas
-                                    map.flyTo({
-                                        center: [newCoords.lng, newCoords.lat], // Centralizar o mapa na nova localização
-                                        zoom: 15, // Mantém o mesmo nível de zoom
-                                        essential: true // Garantir animação
-                                    });
-                                });
-                            },
-                            (error) => {
-                                console.error('Erro ao obter localização:', error);
-                                alert('Não foi possível obter sua localização.');
-                            },
-                            {
-                                enableHighAccuracy: true, // Solicita maior precisão
-                                timeout: 10000, // Tempo máximo para obter a posição (10s)
-                                maximumAge: 0 // Não usa uma localização armazenada em cache
-                            }
-                        );
-                    } else {
-                        alert('Geolocalização não é suportada pelo seu navegador.');
-                    }
-                </script>
+                <script src="radarAcademia.js"> </script>                
 
         </div>
 

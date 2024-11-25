@@ -47,6 +47,11 @@ body {
     font-size: 24px;
 }
 
+.footer {
+    background-color: #000000;
+    height: 50px;
+}
+
 .container {
     display: flex;
     justify-content: space-around;
@@ -56,6 +61,15 @@ body {
     margin-right: 10%;
 }
 
+/* MAPA DAS ACADEMIAS PRÓXIMAS */
+.container .mapaAcademias {
+    height: 37rem;
+    width: 50rem;
+    border-radius: 2%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+/* ACADEMIAS PRÓXIMAS */
 .container .academiasProximas {
     height: 37rem;
     width: 25rem;
@@ -82,17 +96,18 @@ body {
     margin-right: 10%;
     border-radius: 7%;
 }
-
-.container .mapaAcademias {
-    height: 37rem;
-    width: 50rem;
-    border-radius: 2%;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+.academiasProximas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.footer {
-    background-color: #000000;
-    height: 50px;
+.academiasProximas .melhorAcademia {
+    margin: 10px; 
 }
 
-
+.academiasProximas img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
