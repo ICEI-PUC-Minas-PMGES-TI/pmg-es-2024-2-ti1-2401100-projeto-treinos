@@ -8,7 +8,7 @@ body {
     min-height: 100vh;
 }
 
-/* Cabeçalho - início */
+/*-------------------- Cabeçalho - início --------------------*/
 .header {
     display: flex;
     justify-content: space-around;
@@ -47,20 +47,21 @@ body {
 .header .profile-icon {
     font-size: 24px;
 }
-/* Cabeçalho - fim */
+/*-------------------- Cabeçalho - fim --------------------*/
 
-/* Central - início */
+/*-------------------- CONTAINER - início --------------------*/
 .container {
     width: 100%;
+    max-width: 100%;
     height: 100%;
     background-color: #FFFFFF;
     display: flex;
     justify-content: center;
 }
 
-/* Central - fim */
+/* CONTAINER - fim */
 
-/* Aside - início */
+/*-------------------- Aside - início --------------------*/
 aside {
     width: 40%;
     margin: 48px auto;
@@ -76,6 +77,13 @@ aside {
     align-items: center;
 }
 
+.scrollable-area {
+    width: 300px;          
+    height: auto;         
+    overflow-y: hidden;   
+    border-radius: 12px;
+}
+
 .treinoSelecionado h1 {
     text-align: center;
     margin: 17px auto;
@@ -84,10 +92,89 @@ aside {
 
 .seuTreino {
     background-color: #B6B6B6;
-    width: 260px;
+    width: 100%;
     height: 420px;
     margin: 0 auto;
     border-radius: 12px;
+}
+
+
+#lista-treinos{
+    list-style: none;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.botoesFixareConcluir{
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.fixarTreino {
+    
+    margin-top: 20px;
+    color: #fff;
+    background-color: #B6B6B6;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+    width: 60%;
+    transition: background-color 0.3s;
+}
+
+.concluirTreinosBtn{
+    cursor: pointer;
+    margin-top: 20px;
+    border-radius: 5px;
+    font-size: 12px;
+    width: 40%;
+    margin-left: 2px;
+}
+.fixarTreino:hover .concluirFicha:hover {
+    background-color: #555555;
+}
+
+/* teste pop up de conclusao */
+
+.popupConclusao {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    display: none; 
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup-conteudo-conclusao {
+    background-color: #fff;
+    padding: 20px;
+    text-align: center;
+    border-radius: 5px;
+    width: 300px;
+}
+
+.fecharConclusao {
+    padding: 10px 20px;
+    background-color: #FF7043;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.fecharConclusao:hover {
+    padding: 10px 20px;
+    background-color: #ff3c00;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 .popup {
@@ -97,7 +184,7 @@ aside {
     left: 0px;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgb(0, 0, 0, 0.6);
     justify-content: center;
     align-items: center;
     z-index: 10;
@@ -110,7 +197,7 @@ aside {
     width: 80%;
     max-width: 500px;
     text-align: center;
-    color: #000;
+    color: #000 ;
 }
 
 .close {
@@ -121,47 +208,8 @@ aside {
     cursor: pointer;
 }
 
-.verMaisBtn {
-    margin-top: auto;
-    padding: 10px 20px;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    right: 10px;
-}
 
-.treino1, .treino2, .treino3 {
-
-    position: relative;
-    height: 200px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-ul{
-    list-style-type: none;
-    padding: 0;
-    margin-bottom: 100px;
-}
-
-.verMaisBtn:hover {
-    background-color: #555555;
-}
-
-
-.scrollable-area {
-    width: 300px;          
-    height: auto;         
-    overflow-y: hidden;   
-    border-radius: 12px;
-}
-
+/*  aaa /*
 
 /* Card - início */
 .card {
@@ -197,6 +245,7 @@ button:hover {
     background-color: #808080;
 }
 
+
 .content {
     margin-top: 15px;
 }
@@ -221,16 +270,21 @@ table td {
 }
 
 label {
+    
     color: #3E3E3E;
     font-weight: bold;
     margin: 4px auto;
+    
 }
 
-/* Main - início */
+/*-------------------- Aside - FIM --------------------*/
+/*-------------------- MAIN - início --------------------*/
 main {
+    
     width: 60%;
     margin: 48px auto;
 }
+
 
 .backTreino {
     width: 60%;
@@ -247,11 +301,32 @@ main {
 }
 
 .treino1, .treino2, .treino3, .treino4 {
+    position: relative;
     background-color: #D9D9D9;
     width: 250px;
     height: 250px;
     border-radius: 12px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.verMaisBtn {
+    margin-top: auto;
+    padding: 10px 20px;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+}
+
+.verMaisBtn:hover {
+    background-color: #555555;
 }
 
 .fecharBtn {
@@ -265,30 +340,242 @@ main {
     transition: background-color 0.3s;
 }
 
+ul{
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 100px;
+}
+
+/* POP - inicio */
+
+/* dropdown */
+.dropdown {
+    min-width: 15em;
+    position: relative;
+    margin: 2em;
+}
+
+.dropdown * {
+    box-sizing: border-box;
+}
+
+.select {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px black solid;
+    border-radius: 0.5em;
+    padding: 1em;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.select-clicked {
+    border: 2px #ff6600 solid;
+    box-shadow: 0 0 0.2em #e65c00;
+}
+
+.select:hover{
+    background: white;
+}
+
+.caret{
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 6px solid #FFFFFF;
+    transition: 0.3s;
+}
+
+.caret-rotate{
+    transform: rotate(180deg);
+}
+
+.menu{
+    list-style: none;
+    padding: 0.2em 0.5em;
+    background: white;
+    box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.2);
+    border-radius: 0.5em;
+    color: black;
+    position: absolute;
+    top: 3em;
+    left: 50%;
+    width: 100%;
+    transform: translate(-50%);
+    opacity: 0;
+    display: none;
+    transition: 0.2s;
+    z-index: 1;
+}
+
+.menu li{
+    padding: 0.7em 0.5em;
+    margin: 0.3 0;
+    border-radius: 0.5em;
+    cursor: pointer;
+}
+
+.meun li:hover{
+    background: #2a2d35;
+}
+
+
+.menu-open{
+    display: block;
+    opacity: 1;
+}
+
+/* fim do dropdown */ 
+
+/* contador de numeros */
+
+.wrapper{
+    height: 3em;
+    background: white;
+    border: 1px black solid;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 15em;
+    position: relative;
+    margin: 2em;
+}
+
+.wrapper *{
+    box-sizing: border-box;
+}
+
+.wrapper span{
+    width: 100%;
+    text-align: center;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.wrapper span.num{
+    border-right: 2px solid rgba(0, 0, 0, 0.2);
+    border-left: 2px solid rgba(0, 0, 0, 0.2);
+    pointer-events: none;
+}
+
+span.numSeries{
+    border-right: 2px solid rgba(0, 0, 0, 0.2);
+    border-left: 2px solid rgba(0, 0, 0, 0.2);
+    pointer-events: none;
+}
+
+.dropdown .menu {
+    max-height: 200px;
+    overflow-y: auto;  
+    border: 1px solid #ccc; 
+    border-radius: 4px;
+    padding: 5px;
+    scrollbar-width: thin;
+}
+
+
+.dropdown .menu::-webkit-scrollbar {
+    width: 6px;
+}
+
+.dropdown .menu::-webkit-scrollbar-thumb {
+    background-color: #ff6600; 
+    border-radius: 4px;
+}
+
+.dropdown .menu::-webkit-scrollbar-track {
+    background-color: #f1f1f1; 
+}
+
+
+/* fim do contador de numeros */
+
+
+
+.btn-excluir{
+    background-color: #ff4d4d;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin: 0 auto;
+}
+
 .fecharBtn:hover {
     background-color: #e65c00;
 }
 
-.treino1, .treino2, .treino3 {
-
-    list-style-type: none;
-    font-size: 14px;
-
+.btn-excluir:hover {
+    background-color: #e60000;
 }
 
-.treino1 h1, .treino2 h1, .treino3 h1 {
-    font-size: 16px;
+
+.treino1 h1, .treino2 h1, .treino3 h1, .treino4 h1 {
+    font-size: 12px;
 }
 
-/* Rodapé - início */
-footer {
-    background-color: #000000;
-    color: #fff;
+ul li{
+    font-size: 12px;
+    margin: 5px auto;
+    
+}
+
+#tabela-treinos-popup{
+    width: 100%;
+    border-collapse: collapse;
+    
+}
+
+#tabela-treinos-popup th, #tabela-treinos-popup td {    border: 1px solid #555555;
+    padding: 8px;
+    text-align: center;
+    background-color: white;
+    color: black;
+}
+
+#tabela-treinos-pop th{
+    background-color: #D9D9D9;
+}
+
+.popup-content {
+    background: white;
+    padding: 20px;
+    width: 600px;
+    max-height: 80%; 
+    overflow-y: auto; 
+    border-radius: 8px;
+}
+
+#tbody-treinos-popup {
+    max-height: 250px; 
+    overflow-y: auto;
+}
+
+.menu {
+    max-height: 150px;
+    overflow-y: auto;
+    width: 100%;
+}
+
+/* POP - fim */
+/*-------------------- MAIN - FIM --------------------*/
+
+/*-------------------- RODAPE - INICIO --------------------*/
+/*.footer {
+    background-color: #000;
+    color: white;
     text-align: center;
     padding: 10px 0;
-    font-size: 14px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
 }
 
+/*-------------------- RODAPE - FIM --------------------*/
 /* Responsividade */
 @media (max-width: 601px) {
     .container {
@@ -331,7 +618,7 @@ footer {
         display: block;
     }
 
-    .treino1, .treino4 {
+    .treino1, .treino2 {
         margin: 12px auto;
     }
 }
