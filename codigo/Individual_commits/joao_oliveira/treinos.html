@@ -8,22 +8,28 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Blackb&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/styleTreino.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v3.7.0/mapbox-gl.js"></script>
     <link href="https://api.mapbox.com/mapbox-gl-js/v3.7.0/mapbox-gl.css" rel="stylesheet">
     <script src="script.js" defer></script>
 </head>
 
 <body>
-    
     <header class="header">
         <a href="home.html"><img src="assets/images/logoclara.png" width="70" alt="Logo"/></a>
         <nav>
-            <a href="home.html" aria-label="Página inicial">HOME</a>
-            <a href="treinos.html" aria-label="Meus treinos">MEUS TREINOS</a>
-            <a href="radarAcademias.html" aria-label="Academias próximas">ACADEMIAS PRÓXIMAS</a>
-            <a href="perfilusuario.html" aria-label="Perfil do usuário"><img src="assets/images/AvatarWB.png" alt="Perfil"/></a>
+        <a href="home.html">HOME</a>
+        <a href="treinos.html">MEUS TREINOS</a>
+        <a href="radarAcademias.html">ACADEMIAS PRÓXIMAS</a>
+        <a href="perfilusuario.html">
+            <img id="nav-profile-picture" src="assets/images/AvatarBW.png" class="profile-icon" width="40" height="40"/>
+        </a>
         </nav>
         <img src="assets/images/userplaceholder.png" class="placeholder" alt="Usuário">
     </header>
@@ -33,20 +39,33 @@
             <div class="scrollable-area">
                 <div class="treinoSelecionado">
                     <h1>SEU TREINO</h1>
-                    <div class="seuTreino">
-                        <div class="content">
-                            <table border="1">
-                                <thead>
-                                    <tr>
-                                        <th>Treino</th>
-                                        <th>Repetição</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="tbody"></tbody>
-                            </table>
+                    <div class="seuTreino" id="lista-treinos"> </div>
+                    
+                    <div class="botoesFixareConcluir">
+                        <button id="adicionarTreinoBtn" class="fixarTreino">Fixar Treino</button>
+                        <button id="concluirTreinosBtn" class="concluirTreinosBtn">Concluir Ficha</button>
+                    </div>
+                    <div id="popupConclusao" class="popupConclusao" style="display: none;">
+                        <div class="popup-conteudo-conclusao">
+                            <p>Parabéns campeão, você finalizou todos os seus treinos!</p>
+                            <button class="fecharConclusao" onclick="fecharPopupConclusao()">Fechar</button>
+                        </div>
+                    </div>
+                    
+
+                <div id="popupEscolherTreino" class="popup">
+                    <div class="popup-content">
+                        <span class="close" onclick="fecharPopupEscolherTreino()">&times;</span>
+                        <h2>Escolha o treino para fixar</h2>
+                        <div class="treino-options">
+                            <button onclick="fixarTreino(1)">Treino 1</button>
+                            <button onclick="fixarTreino(2)">Treino 2</button>
+                            <button onclick="fixarTreino(3)">Treino 3</button>
+                            <button onclick="fixarTreino(4)">Treino 4</button>
                         </div>
                     </div>
                 </div>
+            </div>
             </div>
         </aside>
 
@@ -54,36 +73,15 @@
             <div class="backTreino">
                 <div class="treino1 atras">
                     <h1>TREINO 1</h1>
+                    <!--  VERIFICAR BOTAO DE EDITAR NOME DO CARD DOS TREINOS // <button><i class="fa-light fa-pencil"></i></button>  --> 
                     <ul id="lista-treinos-1"></ul>
                     <button class="verMaisBtn" onclick="abrirPopup(1)">Ver Mais</button>
-
                 </div>
-                <div class="treino2 atras">
-                    <h1>TREINO 2</h1>
-                    <ul id="lista-treinos-2"></ul>
-                    <button class="verMaisBtn" onclick="abrirPopup(2)">Ver Mais</button>
+                <div class="treino2 atras" id="card-2">
+                    <h1>Adicionar Novo Card</h1>
+                    <button class="verMaisBtn" onclick="adicionarNovoCard()">Adicionar Card</button>
                 </div>
-                <div class="treino3 atras">
-                    <h1>TREINO 3</h1>
-                    <ul id="lista-treinos-3"></ul>
-                    <button class="verMaisBtn" onclick="abrirPopup(3)">Ver Mais</button>
-
-                </div>                
-                
-                <div class="treino4">
-                    <div class="card">
-                        <div class="lineInput">
-                            <label>Treino</label>
-                            <input type="text" id="treino" placeholder="Nome do Treino" required>
-                        </div>
-                        <div class="lineInput">
-                            <label>Repetição</label>
-                            <input type="text" id="repeticao" placeholder="Quantidade de Repetição" required>
-                        </div>
-                        <button onclick="treino.salvar()">Salvar</button>
-                        <button onclick="treino.cancelar()">Cancelar</button>    
-                    </div>
-                </div>
+            </div>
             </div>
         </main>
     </div>
@@ -94,21 +92,81 @@
             <p id="treino-detalhes"></p>
 
             <h2>Meu Treino</h2>
-            <ul id="lista-treinos-popup"></ul>
+            <table id="tabela-treinos-popup">
+            <thead>
+                <tr>
+                    <th>NOME</th>
+                    <th>REPETIÇÃO</th>
+                    <th>SERIES</th>
+                    <th>AÇÕES</th>
+                </tr>
+            </thead>
+            <tbody id="tbody-treinos-popup"></tbody>
+            </table>
     
             <h2>Adicionar Treino</h2>
-            <input type="text" id="nome-treino-popup" placeholder="Nome do Treino" required>
-            <input type="text" id="repeticao-popup" placeholder="Repetição" required>
-            <button onclick="adicionarTreinoPopup(1)">Adicionar Treino</button>
-            
+            <!-- MODIFICAR TREINOS PARA DROPDOWN COM TREINOS PREDEFINIDOS -->
+            <div class="dropdown">
+                <div class="select">
+                    <span class="selected">Flexão</span>
+                    <div class="caret"></div>
+                </div>
+                <ul class="menu">
+                    <li>Abdominal</li>
+                <li>Abdução</li>
+                <li>Abdução no Cabo</li>
+                <li>Adução</li>
+                <li>Afundo</li>
+                <li>Agachamento</li>
+                <li>Barra Fixa</li>
+                <li>Bicicleta</li>
+                <li>Burpees</li>
+                <li>Corrida</li>
+                <li>Crossover</li>
+                <li>Elevação Frontal</li>
+                <li>Elevação Lateral</li>
+                <li>Elevação Lateral</li>
+                <li>Elevação Pélvica</li>
+                <li>Flexão</li>
+                <li>Flexão de Braço</li>
+                <li>Leg Press 45º</li>
+                <li>Leg Press 90º</li>
+                <li>Leg Press Horizontal</li>
+                <li>Levantamento Terra</li>
+                <li>Polia Alta</li>
+                <li>Prancha</li>
+                <li>Remada Aberta</li>
+                <li>Remada Alta</li>
+                <li>Remada Curvada</li>
+                <li>Rosca Direta</li>
+                <li>Rosca Martelo</li>
+                <li>Saltos em Caixa</li>
+                <li>Supino</li>
+                <li>Tríceps Coice</li>
+                <li>Tríceps Testa</li>
+                <li>Voador</li>
+                </ul>
+            </div>
 
-            <button onclick="fecharPopup()" style="margin-top: 15px; background-color: #ff6600; color: #fff; padding: 10px; border: none; border-radius: 5px; cursor: pointer;">
-                Ver Menos
-            </button>
+            <h2>Repetição</h2>
+            <div class="wrapper">
+                <span class="minus">-</span>
+                <span class="num">01</span>
+                <span class="plus">+</span>
+            </div>
+
+            <h2>Series</h2>
+            <div class="wrapper">
+                <span class="minus-series">-</span>
+                <span class="numSeries">01</span>
+                <span class="plus-series">+</span>
+            </div>
+
+            <button onclick="adicionarTreinoPopup(1)">Adicionar Treino</button>
+
+            <button onclick="fecharPopup()" class="fecharBtn">Ver menos</button>
         </div>
     </div>
-    
-    
 
     <footer class="rodape">
 
