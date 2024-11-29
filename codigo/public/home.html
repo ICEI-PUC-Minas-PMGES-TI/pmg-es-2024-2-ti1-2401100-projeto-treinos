@@ -12,22 +12,23 @@
     <link href="https://api.mapbox.com/mapbox-gl-js/v3.7.0/mapbox-gl.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="assets/js/home.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
 
-    <div class="header">
+    <div class="header flex flex-col md:flex-row items-center justify-between p-4">
         <a href="home.html"><img src="assets/images/logoclara.png" width="70" /></a>
-        <nav>
-            <a href="home.html">HOME</a>
-            <a href="treinos.html">MEUS TREINOS</a>
-            <a href="radarAcademias.html">ACADEMIAS PRÓXIMAS</a>
-            <a href="perfilusuario.html"><img src="assets/images/AvatarWB.png" width="" /></a>
+        <nav class="flex flex-col md:flex-row items-center">
+            <a href="home.html" class="p-2">HOME</a>
+            <a href="treinos.html" class="p-2">MEUS TREINOS</a>
+            <a href="radarAcademias.html" class="p-2">ACADEMIAS PRÓXIMAS</a>
+            <a href="perfilusuario.html" class="p-2"><img src="assets/images/AvatarWB.png" width="40" /></a>
         </nav>
-        <img src="assets/images/userplaceholder.png" class="placeholder">
+        <img src="assets/images/userplaceholder.png" class="placeholder hidden md:block">
     </div>
 
-    <div class="container">
+    <div class="container mx-auto p-4">
         <div class="box" id="meio" style="width: 100%;">
             <h2><strong>FEED</strong></h2>
             <form onsubmit="addPost(event)">
@@ -47,37 +48,37 @@
             event.preventDefault();
             const postContent = document.getElementById('postContent').value;
             if (postContent.trim() !== "") {
-                const postElement = createPostElement(postContent);
+                const postElement = createPostElement(postContent, 0);
                 document.getElementById('feed').prepend(postElement);
-                savePost(postContent);
+                savePost(postContent, 0);
                 document.getElementById('postContent').value = '';
             }
         }
 
-        function createPostElement(content) {
+        function createPostElement(content, likes) {
             const postElement = document.createElement('div');
             postElement.className = 'bg-gray-300 h-40 mb-4 rounded-lg p-4 flex flex-col justify-between';
             postElement.innerHTML = `
                 <p>${content}</p>
-                <button class="text-black" onclick="toggleLike(this)">
-                    <i class="far fa-thumbs-up"></i> <span>0</span> Likes
+                <button class="text-black" onclick="toggleLike(this, '${content}')">
+                    <i class="far fa-thumbs-up"></i> <span>${likes}</span> Likes
                 </button>
                 <button class="text-red-500" onclick="deletePost(this, '${content}')">Excluir</button>
             `;
             return postElement;
         }
 
-        function savePost(content) {
+        function savePost(content, likes) {
             let posts = JSON.parse(localStorage.getItem('posts')) || [];
-            posts.push(content);
+            posts.push({ content, likes });
             localStorage.setItem('posts', JSON.stringify(posts));
         }
 
         function loadPosts() {
             let posts = JSON.parse(localStorage.getItem('posts')) || [];
             document.getElementById('feed').innerHTML = ''; // Limpa o feed antes de carregar os posts
-            posts.forEach(content => {
-                const postElement = createPostElement(content);
+            posts.forEach(post => {
+                const postElement = createPostElement(post.content, post.likes);
                 document.getElementById('feed').appendChild(postElement);
             });
         }
@@ -85,8 +86,19 @@
         function deletePost(button, content) {
             button.parentElement.remove();
             let posts = JSON.parse(localStorage.getItem('posts')) || [];
-            posts = posts.filter(post => post !== content);
+            posts = posts.filter(post => post.content !== content);
             localStorage.setItem('posts', JSON.stringify(posts));
+        }
+
+        function toggleLike(button, content) {
+            let posts = JSON.parse(localStorage.getItem('posts')) || [];
+            const post = posts.find(post => post.content === content);
+            if (post) {
+                const likeSpan = button.querySelector('span');
+                post.likes = parseInt(likeSpan.textContent) + 1;
+                likeSpan.textContent = post.likes;
+                localStorage.setItem('posts', JSON.stringify(posts));
+            }
         }
 
         function updatePosts() {
