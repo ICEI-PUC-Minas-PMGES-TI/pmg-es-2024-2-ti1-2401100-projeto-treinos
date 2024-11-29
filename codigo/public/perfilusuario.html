@@ -8,6 +8,7 @@
   <link rel="script" href="/codigo/Individual_commits/rafael_rocha/test_perfilusuario.js">
   <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/perfilusuario.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     .edit-profile-mode #profile-picture {
       cursor: pointer;
@@ -29,27 +30,27 @@
   </style>
 </head>
 <body>
-  <div class="header">
+  <div class="header flex flex-col md:flex-row items-center justify-between p-4">
     <a href="home.html"><img src="assets/images/logoclara.png" width="70"/></a> 
-    <nav>
-      <a href="home.html">HOME</a>
-      <a href="treinos.html">MEUS TREINOS</a>
-      <a href="radarAcademias.html">ACADEMIAS PRÓXIMAS</a>
-      <a href="perfilusuario.html">
+    <nav class="flex flex-col md:flex-row items-center">
+      <a href="home.html" class="p-2">HOME</a>
+      <a href="treinos.html" class="p-2">MEUS TREINOS</a>
+      <a href="radarAcademias.html" class="p-2">ACADEMIAS PRÓXIMAS</a>
+      <a href="perfilusuario.html" class="p-2">
         <img id="nav-profile-picture" src="assets/images/AvatarBW.png" class="profile-icon" width="40" height="40"/>
       </a>
     </nav>
   </div>
-  <div class="container">
-    <div class="left-section">
-      <div class="profile">
+  <div class="container mx-auto p-4 flex flex-col md:flex-row">
+    <div class="left-section md:w-1/3 p-4">
+      <div class="profile text-center">
         <img alt="Profile Picture" id="profile-picture" height="150" src="assets/images/AvatarBW.png" width="150"/>
-        <div class="level">
+        <div class="level mt-2">
           Nvl 10
         </div>
         <input type="file" id="upload-image" accept="image/*" style="display: none;">
       </div>
-      <div class="goals">
+      <div class="goals mt-4">
         <h3>MEU PROGRESSO</h3>
         <div class="goal-item" id="goal-1">
           <i class="fas fa-star"></i>
@@ -73,44 +74,44 @@
         </div>
       </div>
     </div>
-   <div class="goals-bio-container">
-    <div class="achievements">
-     <div>
-      CONQUISTAS:
-     </div>
-     <div id="stars-container" ondrop="drop(event)" ondragover="allowDrop(event)">
-      <i class="fas fa-star" id="star-1" draggable="true" ondragstart="drag(event)"></i>
-      <i class="fas fa-star" id="star-2" draggable="true" ondragstart="drag(event)"></i>
-      <i class="fas fa-star" id="star-3" draggable="true" ondragstart="drag(event)"></i>
-     </div>
-     <div>
-      <a class="iconeplus"href="conquistas.html">
-     <img src="assets/images/plus icon.png" alt="">
-    </a>
+    <div class="goals-bio-container md:w-2/3 p-4">
+      <div class="achievements">
+        <div>
+          CONQUISTAS:
+        </div>
+        <div id="stars-container" ondrop="drop(event)" ondragover="allowDrop(event)">
+          <i class="fas fa-star" id="star-1" draggable="true" ondragstart="drag(event)"></i>
+          <i class="fas fa-star" id="star-2" draggable="true" ondragstart="drag(event)"></i>
+          <i class="fas fa-star" id="star-3" draggable="true" ondragstart="drag(event)"></i>
+        </div>
+        <div>
+          <a class="iconeplus" href="conquistas.html">
+            <img src="assets/images/plus icon.png" alt="">
+          </a>
+        </div>
+        <span>
+          ...
+        </span>
+      </div>
+      <div class="bio mt-4">
+        <div>
+          BIOGRAFIA:
+        </div>
+        <span id="bio-text">
+          Insira sua biografia aqui...
+        </span>
+        <textarea id="edit-bio-text" class="edit-area" placeholder="Digite sua biografia aqui..."></textarea>
+        <div class="edit-profile" id="edit-profile-button">
+          <i class="fas fa-edit">
+          </i>
+          <span>
+            EDITAR PERFIL
+          </span>
+        </div>
+        <button id="add-star-button" style="display: none;">Adicionar conquista</button>
+        <button id="complete-goal-button">Completar Meta</button>
+      </div>
     </div>
-     <span>
-      ...
-     </span>
-    </div>
-    <div class="bio">
-     <div>
-      BIOGRAFIA:
-     </div>
-     <span id="bio-text">
-      Insira sua biografia aqui...
-     </span>
-     <textarea id="edit-bio-text" class="edit-area" placeholder="Digite sua biografia aqui..."></textarea>
-     <div class="edit-profile" id="edit-profile-button">
-      <i class="fas fa-edit">
-      </i>
-      <span>
-       EDITAR PERFIL
-      </span>
-     </div>
-     <button id="add-star-button" style="display: none;">Adicionar conquista</button>
-     <button id="complete-goal-button">Completar Meta</button>
-    </div>
-   </div>
   </div>
   <div class="footer">
 
