@@ -123,10 +123,12 @@ function adicionarTreinoPopup() {
     atualizarListaTreinosCard(treinoIdAtual);
     salvarTreinosNoLocalStorage();
 
-    document.querySelector('.selected').innerText = 'Supino';
-    document.querySelector('.num').innerText = '01';
-    document.querySelector('.numSeries').innerText = '01';
+    document.querySelector('.selected').innerText = '';
+    document.querySelector('.num').innerText = '';
+    document.querySelector('.numSeries').innerText = '';
 }
+
+
 
 function excluirTreino(treinoId, treino) {
     if (treinoId === 1) {
@@ -521,7 +523,6 @@ document.getElementById('concluirTreinosBtn').onclick = function() {
 
 
 function todosTreinosConcluidos() {
-    
     const checkboxes = document.querySelectorAll('.checkbox-treino');
     return Array.from(checkboxes).every(checkbox => checkbox.checked);
 }
@@ -529,8 +530,9 @@ function todosTreinosConcluidos() {
 
 function abrirPopupConclusao() {
     const popup = document.getElementById('popupConclusao');
-    popup.style.display = "flex"; 
+    popup.style.display = "flex";
 }
+
 
 
 function fecharPopupConclusao() {
@@ -540,9 +542,37 @@ function fecharPopupConclusao() {
 
 // ADICIONAR NOVOS CARDS //
 
-let maxCards = 4; 
-let cardsAdicionados = [1]; 
+let maxCards = 4;
+let cardsAdicionados = JSON.parse(localStorage.getItem('cardsAdicionados')) || [1];
 
+document.addEventListener("DOMContentLoaded", () => {
+    carregarCardsSalvos();
+});
+
+function carregarCardsSalvos() {
+    const cardContainer = document.querySelector('.backTreino');
+
+    cardsAdicionados.forEach(cardId => {
+        if (cardId > maxCards) return;
+
+        const novoCard = document.createElement('div');
+        novoCard.className = `treino${cardId} atras`;
+        novoCard.id = `card-${cardId}`;
+        novoCard.innerHTML = `
+            <h1>TREINO ${cardId}</h1>
+            <ul id="lista-treinos-${cardId}"></ul>
+            <button class="verMaisBtn" onclick="abrirPopup(${cardId})">Ver Mais</button>
+        `;
+
+        const placeholder = document.getElementById('card-2');
+        cardContainer.insertBefore(novoCard, placeholder);
+    });
+
+
+    if (cardsAdicionados.length >= maxCards) {
+        esconderCardAdicionar();
+    }
+}
 
 function adicionarNovoCard() {
     const cardContainer = document.querySelector('.backTreino');
@@ -558,7 +588,7 @@ function adicionarNovoCard() {
 
     const novoCard = document.createElement('div');
     novoCard.className = `treino${novoCardId} atras`;
-    novoCard.id = `card-${novoCardId}`;
+    novoCard.id = `card-${novoCardId} - 1`;
     novoCard.innerHTML = `
         <h1>TREINO ${novoCardId}</h1>
         <ul id="lista-treinos-${novoCardId}"></ul>
@@ -567,6 +597,23 @@ function adicionarNovoCard() {
 
     const placeholder = document.getElementById('card-2');
     cardContainer.insertBefore(novoCard, placeholder);
+
+    salvarCardsNoLocalStorage();
+
+    if (cardsAdicionados.length >= maxCards) {
+        esconderCardAdicionar();
+    }
+}
+
+function esconderCardAdicionar() {
+    const cardAdicionar = document.getElementById('card-adicionar');
+    if (cardAdicionar) {
+        cardAdicionar.style.display = 'none';
+    }
+}
+
+function salvarCardsNoLocalStorage() {
+    localStorage.setItem('cardsAdicionados', JSON.stringify(cardsAdicionados));
 }
 
 function validarCard(cardId) {
@@ -575,6 +622,56 @@ function validarCard(cardId) {
         return false;
     }
     return true;
+}
+
+function validarInputs(inputs) {
+    for (let input of inputs) {
+        if (!input || input.trim() === '') {
+            alert("Todos os campos devem ser preenchidos.");
+            return false;
+        }
+    }
+    return true;
+}
+
+function sincronizarLocalStorage() {
+    const treinos = {
+        treinosCard1: window.treinosCard1 || [],
+        treinosCard2: window.treinosCard2 || [],
+        treinosCard3: window.treinosCard3 || [],
+        treinosCard4: window.treinosCard4 || []
+    };
+    localStorage.setItem('treinos', JSON.stringify(treinos));
+}
+
+function obterTreinosCardPorId(cardId) {
+    switch (cardId) {
+        case 1: return window.treinosCard1 || [];
+        case 2: return window.treinosCard2 || [];
+        case 3: return window.treinosCard3 || [];
+        case 4: return window.treinosCard4 || [];
+        default: return [];
+    }
+}
+
+function adicionarBotaoConclusao() {
+    const container = document.getElementById('container'); 
+    const botaoConclusao = document.createElement('button');
+    botaoConclusao.id = "concluirTreinosBtn";
+    botaoConclusao.className = "concluirTreinosBtn";
+    botaoConclusao.innerText = "Concluir Ficha";
+
+
+    container.appendChild(botaoConclusao);
+    
+
+    botaoConclusao.onclick = function() {
+        if (todosTreinosConcluidos()) {
+            abrirPopupConclusao();
+        } else {
+            alert("Ainda faltam treinos para concluir.");
+        }
+    };
 }
 
 
