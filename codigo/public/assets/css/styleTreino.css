@@ -8,7 +8,7 @@ body {
     min-height: 100vh;
 }
 
-/* Cabeçalho - início */
+/*-------------------- Cabeçalho - início --------------------*/
 .header {
     display: flex;
     justify-content: space-around;
@@ -47,26 +47,25 @@ body {
 .header .profile-icon {
     font-size: 24px;
 }
-/* Cabeçalho - fim */
+/*-------------------- Cabeçalho - fim --------------------*/
 
-/* Central - início */
+/*-------------------- CONTAINER - início --------------------*/
 .container {
     width: 100%;
+    max-width: 100%;
     height: 100%;
     background-color: #FFFFFF;
     display: flex;
     justify-content: center;
 }
 
-/* Central - fim */
+/* CONTAINER - fim */
 
-/* Aside - início */
+/*-------------------- Aside - início --------------------*/
 aside {
     width: 40%;
     margin: 48px auto;
 }
-
-
 
 .lateral {
     width: 340px;
@@ -76,6 +75,13 @@ aside {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.scrollable-area {
+    width: 300px;          
+    height: auto;         
+    overflow-y: hidden;   
+    border-radius: 12px;
 }
 
 .treinoSelecionado h1 {
@@ -92,59 +98,11 @@ aside {
     border-radius: 12px;
 }
 
-.popup {
-    display: none;
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    height: 100%;
-    background-color: rgb(0, 0, 0, 0.6);
-    justify-content: center;
+
+#lista-treinos{
+    list-style: none;
+    margin: 0 auto;
     align-items: center;
-    z-index: 10;
-}
-
-.popup-content {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    width: 80%;
-    max-width: 500px;
-    text-align: center;
-    color: #000 ;
-}
-
-.close {
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    font-size: 24px;
-    cursor: pointer;
-}
-
-
-.treino1, .treino2, .treino3, .treino4 {
-
-    position: relative;
-    height: 200px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-ul{
-    list-style-type: none;
-    padding: 0;
-    margin-bottom: 100px;
-}
-
-
-.scrollable-area {
-    width: 300px;          
-    height: auto;         
-    overflow-y: hidden;   
-    border-radius: 12px;
 }
 
 .botoesFixareConcluir{
@@ -176,12 +134,6 @@ ul{
 }
 .fixarTreino:hover .concluirFicha:hover {
     background-color: #555555;
-}
-
-#lista-treinos{
-    list-style: none;
-    margin: 0 auto;
-    align-items: center;
 }
 
 /* teste pop up de conclusao */
@@ -222,6 +174,37 @@ ul{
     color: #fff;
     border: none;
     border-radius: 5px;
+    cursor: pointer;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.popup-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+    color: #000 ;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
     cursor: pointer;
 }
 
@@ -291,13 +274,17 @@ label {
     color: #3E3E3E;
     font-weight: bold;
     margin: 4px auto;
+    
 }
 
-/* Main - início */
+/*-------------------- Aside - FIM --------------------*/
+/*-------------------- MAIN - início --------------------*/
 main {
+    
     width: 60%;
     margin: 48px auto;
 }
+
 
 .backTreino {
     width: 60%;
@@ -352,6 +339,14 @@ main {
     cursor: pointer;
     transition: background-color 0.3s;
 }
+
+ul{
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 100px;
+}
+
+/* POP - inicio */
 
 /* dropdown */
 .dropdown {
@@ -498,6 +493,8 @@ span.numSeries{
 
 /* fim do contador de numeros */
 
+
+
 .btn-excluir{
     background-color: #ff4d4d;
     color: #FFFFFF;
@@ -516,17 +513,10 @@ span.numSeries{
     background-color: #e60000;
 }
 
-.treino1, .treino2, .treino3 {
-
-    list-style-type: none;
-    font-size: 14px;
-
-}
 
 .treino1 h1, .treino2 h1, .treino3 h1, .treino4 h1 {
-    font-size: 16px;
+    font-size: 12px;
 }
-
 
 ul li{
     font-size: 12px;
@@ -540,20 +530,16 @@ ul li{
     
 }
 
-#tabela-treinos-popup th, #tabela-treinos-popup td {
-    border: 1px solid #555555;
+#tabela-treinos-popup th, #tabela-treinos-popup td {    border: 1px solid #555555;
     padding: 8px;
     text-align: center;
     background-color: white;
     color: black;
 }
 
-
-
 #tabela-treinos-pop th{
     background-color: #D9D9D9;
 }
-
 
 .popup-content {
     background: white;
@@ -564,12 +550,10 @@ ul li{
     border-radius: 8px;
 }
 
-
 #tbody-treinos-popup {
     max-height: 250px; 
     overflow-y: auto;
 }
-
 
 .menu {
     max-height: 150px;
@@ -577,16 +561,21 @@ ul li{
     width: 100%;
 }
 
+/* POP - fim */
+/*-------------------- MAIN - FIM --------------------*/
 
-/* Rodapé - início */
-footer {
-    background-color: #000000;
-    color: #fff;
+/*-------------------- RODAPE - INICIO --------------------*/
+/*.footer {
+    background-color: #000;
+    color: white;
     text-align: center;
     padding: 10px 0;
-    font-size: 14px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
 }
 
+/*-------------------- RODAPE - FIM --------------------*/
 /* Responsividade */
 @media (max-width: 601px) {
     .container {
