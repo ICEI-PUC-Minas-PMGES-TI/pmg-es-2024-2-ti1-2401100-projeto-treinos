@@ -18,18 +18,18 @@
 <body>
 
     <div class="header flex flex-col md:flex-row items-center justify-between p-4">
-        <a href="home.html"><img src="assets/images/logoclara.png" width="70" /></a>
+        <a href="home.html" title="Home"><img src="assets/images/logoclara.png" width="70" /></a>
         <nav class="flex flex-col md:flex-row items-center">
             <a href="home.html" class="p-2">HOME</a>
             <a href="treinos.html" class="p-2">MEUS TREINOS</a>
             <a href="radarAcademias.html" class="p-2">ACADEMIAS PRÓXIMAS</a>
-            <a href="perfilusuario.html" class="p-2"><img src="assets/images/AvatarWB.png" width="40" /></a>
+            <a href="perfilusuario.html" class="p-2" title="Perfil do Usuário"><img src="assets/images/AvatarWB.png" width="40" /></a>
         </nav>
         <img src="assets/images/userplaceholder.png" class="placeholder hidden md:block">
     </div>
 
     <div class="container mx-auto p-4">
-        <div class="box" id="meio" style="width: 100%;">
+        <div class="box" id="meio">
             <h2><strong>FEED</strong></h2>
             <form onsubmit="addPost(event)">
                 <textarea id="postContent" class="w-full p-2 mb-2 border rounded" placeholder="Escreva algo..."></textarea>
@@ -95,7 +95,16 @@
             const post = posts.find(post => post.content === content);
             if (post) {
                 const likeSpan = button.querySelector('span');
-                post.likes = parseInt(likeSpan.textContent) + 1;
+                const icon = button.querySelector('i');
+                if (icon.classList.contains('far')) {
+                    post.likes += 1;
+                    icon.classList.remove('far');
+                    icon.classList.add('fas');
+                } else {
+                    post.likes -= 1;
+                    icon.classList.remove('fas');
+                    icon.classList.add('far');
+                }
                 likeSpan.textContent = post.likes;
                 localStorage.setItem('posts', JSON.stringify(posts));
             }
