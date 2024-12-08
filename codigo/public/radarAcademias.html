@@ -7,35 +7,39 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/radarAcademia.css">
+    <link rel="stylesheet" href="./assets/css/radarAcademia.css">
     <script src="https://api.mapbox.com/mapbox-gl-js/v3.7.0/mapbox-gl.js"></script>
     <link href="https://api.mapbox.com/mapbox-gl-js/v3.7.0/mapbox-gl.css" rel="stylesheet">
-    <script src="script.js"></script>
 </head>
 
 <body>
 
     <div class="header">
-        <a href="home.html"><img src="assets/images/logoclara.png" width="70" /></a>
+        <a href="home.html"><img src="../public/assets/images/logoclara.png" width="70" /></a>
         <nav>
             <a href="home.html">HOME</a>
             <a href="treinos.html">MEUS TREINOS</a>
             <a href="radarAcademias.html">ACADEMIAS PRÓXIMAS</a>
-            <a href="perfilusuario.html">
-                <img id="nav-profile-picture" src="assets/images/AvatarBW.png" class="profile-icon" width="40" height="40" />
-            </a>
+            <a href="perfilusuario.html"><img src="../public/assets/images/AvatarWB.png" width="" /></a>
         </nav>
-        <img src="assets/images/userplaceholder.png" class="placeholder">
+        <img src="../public/assets/images/userplaceholder.png" class="placeholder">
     </div>
 
     <div class="container">
 
         <div class="academiasProximas">
             <p>Academias Próximas</p>
-            <div class="melhorAcademia"></div>
-            <div class="melhorAcademia"></div>
-            <div class="melhorAcademia"></div>
+            <div class="melhorAcademia">
+                <img src="./assets/images/ftSmartfit.png" alt="Smartfit">
+            </div>
+            <div class="melhorAcademia">
+                <img src="./assets/images/ftPratique.png" alt="Pratique">
+            </div>
+            <div class="melhorAcademia">
+                <img src="./assets/images/ftLife.png" alt="Life">
+            </div>
         </div>
+        
 
         <div class="mapaAcademias">
             <style>
@@ -50,20 +54,13 @@
 
             <body>
                 <div id="map"></div>
-                <script>
-                    mapboxgl.accessToken = 'pk.eyJ1IjoicmFmYWVsMTgxMCIsImEiOiJjbTJzMmMwcHcxbnpqMmtvZzdhOGY0ZzVoIn0.UCOS31bgypEm3zCvHziJUw';
-                    const map = new mapboxgl.Map({
-                        container: 'map', // container ID
-                        center: [-43.99249844382545, -19.92249401497831], // starting position [lng, lat]. Note that lat must be set between -90 and 90
-                        zoom: 15 // starting zoom
-                    });
-                </script>
+                <script src="./assets/js/radarAcademias.js"> </script>                
+
         </div>
 
     </div>
 
     <div class="footer"></div>
-    <script src="assets/js/script.js"></script>
 </body>
 
 </html>
