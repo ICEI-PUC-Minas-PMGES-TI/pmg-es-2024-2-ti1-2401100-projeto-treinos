@@ -1,30 +1,30 @@
 cff-version: 1.0.1
 message: Please cite this software using these metadata.
-title: 
+title: Projeto Treinos - PulsePump
 authors:
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names:
+  - family-names: Luz
+    given-names: Igor Augusto Amaral
+  - family-names: Costa
+    given-names: Igor Rodrigo
+  - family-names: Santos
+    given-names: João Pedro de Oliveira
+  - family-names: Fiuza
+    given-names: João Ricardo
+  - family-names: Lopes
+    given-names: Rafael de Oliveira Caldeira
+  - family-names: Brant
+    given-names: Rafael Rocha Caldeira
   - name-suffix: Professor
     affiliation: PUC Minas
-    family-names: 
-    given-names: 
+    family-names: Andrade
+    given-names: Michelle Henne Soares de
   - name-suffix: Professor
     affiliation: PUC Minas
-    family-names: 
-    given-names: 
+    family-names: Barros
+    given-names: Diego Augusto de Faria
 keywords:
-  - 
-  - 
+  - Treino
+  - Academia
 repository-code: 
 license: CC-BY-4.0
 version: 1.0.0
